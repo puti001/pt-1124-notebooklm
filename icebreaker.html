@@ -78,6 +78,8 @@
     .btn-white { background: #fff; color: var(--text); border: 1.5px solid var(--border); }
     .btn-soft { background: var(--bg-soft); color: var(--text); border: 1.5px solid var(--border); box-shadow: none; }
     .btn-sm { padding: 7px 14px; font-size: 0.86rem; }
+    .btn-icon { width: 40px; height: 40px; padding: 0; border-radius: 50%; font-size: 1.05rem; flex-shrink: 0; }
+    .btn-padlet { background: linear-gradient(135deg, #FF4081 0%, #FF79A8 100%); color: #fff; }
 
     main {
       flex: 1; width: 100%; max-width: 1240px; margin: 0 auto;
@@ -280,11 +282,10 @@
         </div>
       </div>
       <div class="nav-actions" id="navActions">
-        <a class="btn btn-white btn-sm" href="index.html"><i class="fa-solid fa-display"></i> 進入課程簡報</a>
-        <a class="btn btn-soft btn-sm" href="live.html"><i class="fa-solid fa-bolt"></i> 即時黑板</a>
-        <a class="btn btn-accent btn-sm" href="https://notebooklm.google.com/" target="_blank" rel="noopener noreferrer">
-          <i class="fa-solid fa-arrow-up-right-from-square"></i> Gemini Notebook
-        </a>
+        <a class="btn btn-white btn-icon" href="index.html" title="課程簡報" aria-label="課程簡報"><i class="fa-solid fa-display"></i></a>
+        <a class="btn btn-soft btn-icon" href="live.html" title="現場即時提示詞黑板" aria-label="現場即時提示詞黑板"><i class="fa-solid fa-bolt"></i></a>
+        <a class="btn btn-padlet btn-icon" href="https://padlet.com/clongwh/1124" target="_blank" rel="noopener noreferrer" title="Padlet 成果驗收牆" aria-label="Padlet 成果驗收牆"><i class="fa-solid fa-thumbtack"></i></a>
+        <a class="btn btn-accent btn-icon" href="https://notebooklm.google.com/" target="_blank" rel="noopener noreferrer" title="開啟 Gemini Notebook" aria-label="開啟 Gemini Notebook"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
       </div>
     </div>
   </header>

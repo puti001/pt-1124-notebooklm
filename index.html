@@ -124,6 +124,11 @@
     .btn-soft { background: var(--bg-soft); color: var(--text); border: 1.5px solid var(--border); box-shadow: none; }
     .btn-white { background: #fff; color: var(--text); border: 1.5px solid var(--border); }
     .btn-sm { padding: 7px 14px; font-size: 0.88rem; }
+    .btn-icon {
+      width: 40px; height: 40px; padding: 0; border-radius: 50%;
+      font-size: 1.05rem; flex-shrink: 0;
+    }
+    .btn-padlet { background: linear-gradient(135deg, #FF4081 0%, #FF79A8 100%); color: #fff; }
 
     /* Main Stage */
     main {
@@ -533,20 +538,23 @@
           <button class="theme-dot" style="background:#FF7597" onclick="setTheme('cute', this)" aria-label="櫻花粉"></button>
           <button class="theme-dot" style="background:#795548" onclick="setTheme('earth', this)" aria-label="大地褐"></button>
         </div>
-        <button class="btn btn-white btn-sm" id="soundToggle" onclick="toggleSound()">
-          <i class="fa-solid fa-volume-high"></i> 音效開
+        <button class="btn btn-white btn-icon" id="soundToggle" onclick="toggleSound()" title="音效開關" aria-label="音效開關">
+          <i class="fa-solid fa-volume-high"></i>
         </button>
-        <a class="btn btn-soft btn-sm" href="icebreaker.html">
-          <i class="fa-solid fa-fire"></i> 課前破冰
+        <a class="btn btn-soft btn-icon" href="icebreaker.html" title="課前破冰即時牆" aria-label="課前破冰即時牆">
+          <i class="fa-solid fa-fire"></i>
         </a>
-        <a class="btn btn-soft btn-sm" href="live.html">
-          <i class="fa-solid fa-bolt"></i> 即時黑板
+        <a class="btn btn-soft btn-icon" href="live.html" title="現場即時提示詞黑板" aria-label="現場即時提示詞黑板">
+          <i class="fa-solid fa-bolt"></i>
         </a>
-        <button class="btn btn-primary btn-sm" id="navQrBtn" onclick="openQrModal('card')">
-          <i class="fa-solid fa-qrcode"></i> 本關 QR Code
+        <a class="btn btn-padlet btn-icon" href="https://padlet.com/clongwh/1124" target="_blank" rel="noopener noreferrer" title="Padlet 成果驗收牆" aria-label="Padlet 成果驗收牆">
+          <i class="fa-solid fa-thumbtack"></i>
+        </a>
+        <button class="btn btn-primary btn-icon" id="navQrBtn" onclick="openQrModal('card')" title="顯示本關 QR Code（Q）" aria-label="顯示本關 QR Code">
+          <i class="fa-solid fa-qrcode"></i>
         </button>
-        <a class="btn btn-accent btn-sm" href="https://notebooklm.google.com/" target="_blank" rel="noopener noreferrer">
-          <i class="fa-solid fa-arrow-up-right-from-square"></i> Gemini Notebook
+        <a class="btn btn-accent btn-icon" href="https://notebooklm.google.com/" target="_blank" rel="noopener noreferrer" title="開啟 Gemini Notebook" aria-label="開啟 Gemini Notebook">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i>
         </a>
       </div>
     </div>
@@ -1430,55 +1438,6 @@
             text: "我上傳了去年的舊簡報與本學期的新計畫。請幫我保留舊簡報的核心理念，但將所有日期、課程重點與分工更新為本學期內容，並重新精簡文字，整理成結構清爽的新版簡報大綱。"
           }
         ]
-      },
-      {
-        id: 17,
-        code: "17",
-        shortTitle: "15分微共備",
-        session: "s2",
-        sessionName: "第二節｜帶回學校用",
-        title: "帶回學校：15 分鐘微共備",
-        quote: "「科技工具隨時在變，但老師專注於孩子心靈、陪伴成長的溫度，是 AI 永遠無法取代的核心。」",
-        clipping: null,
-        cards: [
-          {
-            emoji: "⏱️",
-            frontTitle: "第 1 個 5 分鐘",
-            frontSub: "建本丟教材",
-            backBody: "不要教 10 個工具！請社群夥伴每人帶 1 課電子書 PDF，一起開一本筆記本把教材丟進去。",
-            backNote: "✨ 低門檻，零壓力，人人做得到"
-          },
-          {
-            emoji: "💪",
-            frontTitle: "第 2 個 5 分鐘",
-            frontSub: "只玩 2 顆按鈕",
-            backBody: "請夥伴從「研讀指南、語音摘要、心智圖、測驗」任選 2 顆按鈕點下去，立刻帶走明天上課可用的教材！",
-            backNote: "✨ 現場馬上產出，最有成就感"
-          },
-          {
-            emoji: "🎁",
-            frontTitle: "第 3 個 5 分鐘",
-            frontSub: "互看分享 ＋ 專欄大補帖",
-            backBody: "夥伴互相展示剛剛產出的作品！現在掃本關 QR Code，把《國語日報・減法工作術》三篇完整專欄打包帶回家！",
-            backNote: "✨ 把庶務交給科技，把時間留給自己與孩子"
-          }
-        ],
-        steps: [
-          "① 複製下方「教材 C（國語日報三篇專欄完整版）」網址存進書籤或 NotebookLM",
-          "② 複製下方「15 分鐘校內社群共備腳本」提示詞，回校馬上能開團！",
-          "③ 點擊頁尾「點此前往」，探索更多免費的 Puti-AI 教學小工具！"
-        ],
-        source: {
-          title: "教材 C：國語日報《Gemini Notebook 減法工作術》三篇完整版",
-          relUrl: "sources/column-3parts.html",
-          fullTextKey: "column3"
-        },
-        prompts: [
-          {
-            label: "召集人專屬：15 分鐘校內社群共備腳本",
-            text: "我是國小教師專業學習社群召集人，成員課務繁忙、對 AI 程度不一。請根據《Gemini Notebook 減法工作術》的精神，幫我設計一份「15 分鐘零壓力微共備流程」，讓每位老師帶著自己的一課教材來，15 分鐘內就能帶走一份明天上課就能用的學習單或測驗題。"
-          }
-        ]
       }
     ];
 
@@ -1544,8 +1503,8 @@
     function toggleSound() {
       soundEnabled = !soundEnabled;
       document.getElementById('soundToggle').innerHTML = soundEnabled
-        ? '<i class="fa-solid fa-volume-high"></i> 音效開'
-        : '<i class="fa-solid fa-volume-xmark"></i> 靜音';
+        ? '<i class="fa-solid fa-volume-high"></i>'
+        : '<i class="fa-solid fa-volume-xmark"></i>';
     }
 
     function showToast(msg) {
@@ -1635,6 +1594,9 @@
         ? `<button class="btn btn-white btn-sm" onclick="togglePromptDrawer()">
              <i class="fa-regular fa-eye"></i> 檢視本關提示詞
            </button>
+           <a class="btn btn-padlet btn-sm" href="https://padlet.com/clongwh/1124" target="_blank" rel="noopener noreferrer">
+             <i class="fa-solid fa-thumbtack"></i> Padlet 驗收（${slide.code} ${slide.shortTitle}）
+           </a>
            <button class="btn btn-primary" onclick="openQrModal('card')">
              <i class="fa-solid fa-qrcode"></i> 顯示本關 QR Code
            </button>`
@@ -1814,9 +1776,14 @@
             </div>
           ` : ''}
 
-          <a class="btn btn-dark" style="width:100%; padding:14px 18px; font-size:1.04rem;" href="https://notebooklm.google.com/" target="_blank" rel="noopener noreferrer">
-            <i class="fa-solid fa-arrow-up-right-from-square"></i> 開啟 Gemini Notebook
-          </a>
+          <div style="display:grid; gap:10px;">
+            <a class="btn btn-dark" style="width:100%; padding:14px 18px; font-size:1.04rem;" href="https://notebooklm.google.com/" target="_blank" rel="noopener noreferrer">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i> 開啟 Gemini Notebook
+            </a>
+            <a class="btn btn-padlet" style="width:100%; padding:14px 18px; font-size:1.02rem;" href="https://padlet.com/clongwh/1124" target="_blank" rel="noopener noreferrer">
+              <i class="fa-solid fa-thumbtack"></i> 到 Padlet 貼文驗收（貼至「${slide.code} ${slide.shortTitle}」欄）
+            </a>
+          </div>
         </div>
       `;
     }
