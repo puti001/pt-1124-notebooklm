@@ -24,43 +24,23 @@
     }
 
     [data-theme="warm"] {
-      --bg-body: #FFFDF9;
-      --bg-soft: #FFF7EB;
-      --primary: #FF9F1C;
-      --secondary: #FFBF69;
-      --accent: #2EC4B6;
-      --accent-soft: #E6F9F7;
-      --border: #F2E3CE;
+      --bg-body: #FFFDF9; --bg-soft: #FFF7EB; --primary: #FF9F1C; --secondary: #FFBF69;
+      --accent: #2EC4B6; --accent-soft: #E6F9F7; --border: #F2E3CE;
       --banner-gradient: linear-gradient(135deg, #FF9F1C 0%, #FFBF69 100%);
     }
     [data-theme="professional"] {
-      --bg-body: #F3F7FB;
-      --bg-soft: #EBF3FA;
-      --primary: #1B4965;
-      --secondary: #62B6CB;
-      --accent: #3D9970;
-      --accent-soft: #E8F6EF;
-      --border: #D5E4F0;
+      --bg-body: #F3F7FB; --bg-soft: #EBF3FA; --primary: #1B4965; --secondary: #62B6CB;
+      --accent: #3D9970; --accent-soft: #E8F6EF; --border: #D5E4F0;
       --banner-gradient: linear-gradient(135deg, #1B4965 0%, #62B6CB 100%);
     }
     [data-theme="cute"] {
-      --bg-body: #FFF6F9;
-      --bg-soft: #FFEDF3;
-      --primary: #FF7597;
-      --secondary: #FBB1BD;
-      --accent: #8B7CF6;
-      --accent-soft: #F1EEFF;
-      --border: #FAD6E1;
+      --bg-body: #FFF6F9; --bg-soft: #FFEDF3; --primary: #FF7597; --secondary: #FBB1BD;
+      --accent: #8B7CF6; --accent-soft: #F1EEFF; --border: #FAD6E1;
       --banner-gradient: linear-gradient(135deg, #FF7597 0%, #FBB1BD 100%);
     }
     [data-theme="earth"] {
-      --bg-body: #F7F4EF;
-      --bg-soft: #EFEAE1;
-      --primary: #795548;
-      --secondary: #A1887F;
-      --accent: #558B2F;
-      --accent-soft: #EDF5E6;
-      --border: #E0D6C8;
+      --bg-body: #F7F4EF; --bg-soft: #EFEAE1; --primary: #795548; --secondary: #A1887F;
+      --accent: #558B2F; --accent-soft: #EDF5E6; --border: #E0D6C8;
       --banner-gradient: linear-gradient(135deg, #795548 0%, #A1887F 100%);
     }
 
@@ -70,445 +50,345 @@
       margin: 0;
       font-family: 'Zen Maru Gothic', 'Noto Sans TC', sans-serif;
       background-color: var(--bg-body);
-      background-image: radial-gradient(var(--border) 1px, transparent 1px);
-      background-size: 26px 26px;
+      background-image: radial-gradient(var(--border) 1.2px, transparent 1.2px);
+      background-size: 28px 28px;
       color: var(--text);
       letter-spacing: 0.04em;
-      line-height: 1.75;
+      line-height: 1.7;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       transition: background-color 0.3s ease;
     }
 
-    /* Header */
+    /* Navbar */
     .navbar {
       position: sticky;
       top: 0;
       z-index: 50;
-      background: rgba(255, 253, 249, 0.92);
+      background: rgba(255, 253, 249, 0.94);
       backdrop-filter: blur(12px);
       border-bottom: 1.5px solid var(--border);
-      padding: 12px 20px;
+      padding: 10px 20px;
     }
     .navbar-inner {
-      max-width: 1180px;
+      max-width: 1240px;
       margin: 0 auto;
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
-      gap: 12px;
+      gap: 10px;
     }
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
+    .brand { display: flex; align-items: center; gap: 12px; }
     .brand-icon {
-      width: 44px;
-      height: 44px;
-      border-radius: 16px;
-      background: var(--banner-gradient);
-      color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.35rem;
-      box-shadow: 0 6px 14px var(--shadow);
-      flex-shrink: 0;
+      width: 42px; height: 42px; border-radius: 15px;
+      background: var(--banner-gradient); color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem; box-shadow: 0 6px 14px var(--shadow); flex-shrink: 0;
     }
-    .brand-title {
-      font-size: 1.15rem;
-      font-weight: 900;
-      margin: 0;
-      line-height: 1.25;
-    }
-    .brand-sub {
-      font-size: 0.82rem;
-      color: var(--muted);
-      margin: 0;
-    }
+    .brand-title { font-size: 1.12rem; font-weight: 900; margin: 0; line-height: 1.25; }
+    .brand-sub { font-size: 0.82rem; color: var(--muted); margin: 0; }
+    .nav-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
 
-    .nav-actions {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 8px;
-    }
     .theme-dots {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: #fff;
-      padding: 6px 10px;
-      border-radius: 40px;
+      display: inline-flex; align-items: center; gap: 6px;
+      background: #fff; padding: 6px 10px; border-radius: 40px;
       border: 1.5px solid var(--border);
     }
     .theme-dot {
-      width: 18px;
-      height: 18px;
-      border-radius: 50%;
-      border: 2px solid #fff;
-      cursor: pointer;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.18);
-      transition: transform 0.2s;
+      width: 18px; height: 18px; border-radius: 50%; border: 2px solid #fff;
+      cursor: pointer; box-shadow: 0 2px 5px rgba(0,0,0,0.18); transition: transform 0.2s;
     }
     .theme-dot:hover { transform: scale(1.2); }
     .theme-dot.active { outline: 2px solid var(--text); }
 
     .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 7px;
-      padding: 9px 18px;
-      border-radius: 40px;
-      border: none;
-      font-family: inherit;
-      font-size: 0.94rem;
-      font-weight: 700;
-      cursor: pointer;
-      text-decoration: none;
+      display: inline-flex; align-items: center; justify-content: center; gap: 7px;
+      padding: 10px 18px; border-radius: 40px; border: none;
+      font-family: inherit; font-size: 0.96rem; font-weight: 700;
+      cursor: pointer; text-decoration: none;
       box-shadow: 0 6px 14px var(--shadow);
-      transition: transform 0.18s ease, box-shadow 0.18s ease, opacity 0.18s ease;
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
       white-space: nowrap;
     }
     .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 18px var(--shadow); }
-    .btn:active { transform: translateY(0); }
+    .btn:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
     .btn-primary { background: var(--banner-gradient); color: #fff; }
     .btn-accent { background: var(--accent); color: #fff; }
     .btn-dark { background: var(--text); color: #fff; }
     .btn-soft { background: var(--bg-soft); color: var(--text); border: 1.5px solid var(--border); box-shadow: none; }
     .btn-white { background: #fff; color: var(--text); border: 1.5px solid var(--border); }
-    .btn-sm { padding: 7px 14px; font-size: 0.86rem; }
+    .btn-sm { padding: 7px 14px; font-size: 0.88rem; }
 
-    .mode-switch {
-      display: inline-flex;
-      background: var(--bg-soft);
-      padding: 4px;
-      border-radius: 40px;
-      border: 1.5px solid var(--border);
-    }
-    .mode-btn {
-      padding: 6px 14px;
-      border-radius: 40px;
-      border: none;
-      background: transparent;
-      font-family: inherit;
-      font-size: 0.88rem;
-      font-weight: 700;
-      color: var(--muted);
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-    .mode-btn.active {
-      background: var(--primary);
-      color: #fff;
-      box-shadow: 0 4px 10px var(--shadow);
-    }
-
-    /* Main Container */
+    /* Main Stage */
     main {
       flex: 1;
       width: 100%;
-      max-width: 1120px;
+      max-width: 1200px;
       margin: 0 auto;
-      padding: 20px 18px 36px;
-    }
-
-    /* Stage Mode (3D Flip Deck) */
-    .stage-wrapper {
+      padding: 20px 20px 32px;
       display: flex;
       flex-direction: column;
-      align-items: center;
-      gap: 18px;
     }
-    .stage-topbar {
-      width: 100%;
-      max-width: 920px;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-    }
-    .progress-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
+
+    /* Slide Header Banner */
+    .slide-shell {
       background: #fff;
-      padding: 7px 16px;
-      border-radius: 40px;
-      border: 1.5px solid var(--border);
-      font-weight: 700;
-      font-size: 0.92rem;
-    }
-    .progress-bar-bg {
-      width: 110px;
-      height: 8px;
-      background: var(--bg-soft);
-      border-radius: 10px;
-      overflow: hidden;
-    }
-    .progress-bar-fill {
-      height: 100%;
-      background: var(--banner-gradient);
-      border-radius: 10px;
-      transition: width 0.3s ease;
-    }
-
-    /* 3D Card */
-    .perspective-1500 {
-      perspective: 1600px;
-      width: 100%;
-      max-width: 920px;
-    }
-    .flip-card-inner {
-      position: relative;
-      width: 100%;
-      min-height: 540px;
-      transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
-      transform-style: preserve-3d;
-    }
-    .flip-card-inner.is-flipped {
-      transform: rotateY(180deg);
-    }
-    .card-face {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      min-height: 540px;
-      backface-visibility: hidden;
-      -webkit-backface-visibility: hidden;
-      background: var(--bg-card);
-      border-radius: 28px;
-      box-shadow: 0 14px 38px var(--shadow);
+      border-radius: 32px;
       border: 2px solid var(--border);
-      padding: 28px 34px;
+      box-shadow: 0 14px 40px var(--shadow);
+      padding: 28px 34px 30px;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      overflow-y: auto;
+      gap: 22px;
     }
-    .card-face.front {
-      cursor: pointer;
-    }
-    .card-face.back {
-      transform: rotateY(180deg);
-      background: linear-gradient(180deg, #FFFFFF 0%, var(--bg-soft) 100%);
-    }
-
-    .card-header-row {
+    .slide-meta-row {
       display: flex;
+      flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
       gap: 10px;
-      flex-wrap: wrap;
-      margin-bottom: 14px;
     }
     .tag-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 6px 15px;
-      border-radius: 40px;
-      font-size: 0.88rem;
-      font-weight: 700;
-      background: var(--bg-soft);
-      color: var(--primary);
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 7px 18px; border-radius: 40px;
+      font-size: 1rem; font-weight: 900;
+      background: var(--bg-soft); color: var(--primary);
       border: 1.5px solid var(--border);
     }
-    .tag-pill.session2 {
-      background: var(--accent-soft);
-      color: #0F766E;
-      border-color: #B2EBF2;
-    }
-    .card-code {
-      font-size: 0.95rem;
-      font-weight: 900;
-      color: var(--muted);
-      background: var(--bg-soft);
-      padding: 5px 14px;
-      border-radius: 40px;
+    .tag-pill.s2 { background: var(--accent-soft); color: #0F766E; border-color: #B2EBF2; }
+    .slide-progress {
+      font-size: 1rem; font-weight: 900; color: var(--muted);
+      background: var(--bg-soft); padding: 6px 16px; border-radius: 40px;
     }
 
-    .front-title {
-      font-size: clamp(1.55rem, 3vw, 2.2rem);
+    .slide-title {
+      font-size: clamp(1.85rem, 3.4vw, 2.75rem);
       font-weight: 900;
-      margin: 4px 0 10px;
-      line-height: 1.35;
+      margin: 0;
+      line-height: 1.3;
       color: var(--text);
     }
-    .front-quote {
+    .slide-quote {
       background: var(--bg-soft);
-      border-left: 5px solid var(--primary);
-      padding: 13px 18px;
-      border-radius: 0 18px 18px 0;
-      font-size: 1.06rem;
+      border-left: 6px solid var(--primary);
+      padding: 14px 22px;
+      border-radius: 0 20px 20px 0;
+      font-size: clamp(1.12rem, 1.8vw, 1.38rem);
       font-weight: 700;
       color: var(--text);
-      margin-bottom: 18px;
-    }
-    .outline-list {
-      list-style: none;
-      padding: 0;
       margin: 0;
+    }
+
+    /* Mini Flip Cards Grid (BIG TEXT FOR 200-SEAT AUDITORIUM!) */
+    .mini-cards-grid {
       display: grid;
-      gap: 11px;
+      gap: 20px;
+      margin-top: 4px;
     }
-    .outline-list li {
+    .mini-cards-grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+    .mini-cards-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+    .mini-cards-grid.cols-4 { grid-template-columns: repeat(2, 1fr); }
+
+    .mini-card-wrap {
+      perspective: 1200px;
+      min-height: 270px;
+      cursor: pointer;
+    }
+    .mini-cards-grid.cols-4 .mini-card-wrap {
+      min-height: 220px;
+    }
+    .mini-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      min-height: inherit;
+      transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+      transform-style: preserve-3d;
+    }
+    .mini-card-wrap.flipped .mini-card-inner {
+      transform: rotateY(180deg);
+    }
+    .mini-face {
+      position: absolute;
+      inset: 0;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      border-radius: 26px;
+      padding: 24px 24px;
       display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      background: #fff;
-      border: 1.5px solid var(--border);
-      padding: 12px 16px;
-      border-radius: 18px;
-      font-size: 1.06rem;
-      font-weight: 500;
+      flex-direction: column;
+      justify-content: space-between;
+      border: 2.5px solid var(--border);
+      box-shadow: 0 10px 26px var(--shadow);
+      transition: border-color 0.2s, box-shadow 0.2s;
     }
-    .outline-num {
-      width: 28px;
-      height: 28px;
+    .mini-card-wrap:hover .mini-face.front {
+      border-color: var(--primary);
+      box-shadow: 0 14px 32px rgba(255, 159, 28, 0.16);
+    }
+
+    /* Front of Mini Card: Big, Punchy, Inviting to Click */
+    .mini-face.front {
+      background: linear-gradient(160deg, #FFFFFF 0%, var(--bg-soft) 100%);
+      align-items: center;
+      text-align: center;
+      justify-content: center;
+      gap: 12px;
+    }
+    .mini-num-badge {
+      position: absolute;
+      top: 14px;
+      left: 16px;
+      width: 34px;
+      height: 34px;
       border-radius: 50%;
       background: var(--banner-gradient);
       color: #fff;
       font-weight: 900;
-      font-size: 0.9rem;
-      display: inline-flex;
+      font-size: 1rem;
+      display: flex;
       align-items: center;
       justify-content: center;
-      flex-shrink: 0;
-      margin-top: 2px;
+      box-shadow: 0 4px 10px var(--shadow);
     }
-
-    .front-footer {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-      margin-top: 20px;
-      padding-top: 14px;
-      border-top: 1.5px dashed var(--border);
+    .mini-emoji {
+      font-size: 3.1rem;
+      line-height: 1.1;
     }
-    .flip-hint {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      color: var(--primary);
-      font-weight: 700;
-      font-size: 0.95rem;
-    }
-
-    /* Back Face Content */
-    .back-section {
-      background: #fff;
-      border: 1.5px solid var(--border);
-      border-radius: 20px;
-      padding: 15px 18px;
-      margin-bottom: 14px;
-    }
-    .back-section-title {
-      font-size: 0.98rem;
+    .mini-front-title {
+      font-size: clamp(1.38rem, 2.2vw, 1.7rem);
       font-weight: 900;
-      color: var(--primary);
-      margin: 0 0 10px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .steps-row {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-      gap: 10px;
-    }
-    .step-chip {
-      background: var(--bg-soft);
-      padding: 10px 13px;
-      border-radius: 14px;
-      font-size: 0.93rem;
-      font-weight: 500;
-    }
-    .source-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      align-items: center;
-    }
-    .prompt-item {
-      background: #FFFBF4;
-      border: 1.5px dashed var(--secondary);
-      border-radius: 16px;
-      padding: 12px 14px;
-      margin-bottom: 10px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-    .prompt-item:last-child { margin-bottom: 0; }
-    .prompt-head {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-    .prompt-label {
-      font-size: 0.88rem;
-      font-weight: 900;
-      color: #0F766E;
-      background: var(--accent-soft);
-      padding: 3px 11px;
-      border-radius: 40px;
-    }
-    .prompt-text {
+      color: var(--text);
       margin: 0;
-      font-size: 0.98rem;
+      line-height: 1.35;
+    }
+    .mini-front-sub {
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: var(--primary);
+      background: #fff;
+      padding: 4px 14px;
+      border-radius: 40px;
+      border: 1.5px solid var(--border);
+    }
+    .mini-tap-hint {
+      position: absolute;
+      bottom: 12px;
+      right: 16px;
+      font-size: 0.84rem;
+      font-weight: 700;
+      color: var(--muted);
+    }
+
+    /* Back of Mini Card: Big Clear Explanation */
+    .mini-face.back {
+      transform: rotateY(180deg);
+      background: #FFFFFF;
+      border-color: var(--primary);
+      border-width: 3px;
+      justify-content: flex-start;
+      gap: 10px;
+      overflow-y: auto;
+    }
+    .mini-back-head {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: clamp(1.22rem, 1.8vw, 1.45rem);
+      font-weight: 900;
+      color: var(--primary);
+      padding-bottom: 8px;
+      border-bottom: 2px dashed var(--border);
+    }
+    .mini-back-body {
+      font-size: clamp(1.12rem, 1.6vw, 1.3rem);
       font-weight: 700;
       color: var(--text);
-      white-space: pre-wrap;
       line-height: 1.65;
+      margin: 0;
+    }
+    .mini-back-note {
+      margin-top: auto;
+      background: var(--accent-soft);
+      color: #0F766E;
+      padding: 8px 13px;
+      border-radius: 14px;
+      font-size: 0.96rem;
+      font-weight: 700;
     }
 
-    /* Stage Controls */
-    .stage-controls {
-      width: 100%;
-      max-width: 920px;
+    /* Slide Action Bar */
+    .slide-action-bar {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
       gap: 12px;
+      padding-top: 14px;
+      border-top: 1.5px dashed var(--border);
     }
-    .nav-group {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      flex-wrap: wrap;
+    .action-group { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+
+    /* Lecturer Prompt Drawer (Optional expandable on stage) */
+    .prompt-drawer {
+      background: var(--bg-soft);
+      border: 2px dashed var(--secondary);
+      border-radius: 22px;
+      padding: 18px 20px;
+      margin-top: 4px;
+      display: none;
+    }
+    .prompt-drawer.open { display: block; }
+    .prompt-item {
+      background: #fff;
+      border: 1.5px solid var(--border);
+      border-radius: 16px;
+      padding: 13px 16px;
+      margin-bottom: 10px;
+    }
+    .prompt-item:last-child { margin-bottom: 0; }
+    .prompt-head {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 10px; flex-wrap: wrap; margin-bottom: 6px;
+    }
+    .prompt-label {
+      font-size: 0.9rem; font-weight: 900; color: #0F766E;
+      background: var(--accent-soft); padding: 4px 12px; border-radius: 40px;
+    }
+    .prompt-text {
+      margin: 0; font-size: 1.05rem; font-weight: 700;
+      color: var(--text); white-space: pre-wrap; line-height: 1.65;
     }
 
-    /* Thumbnail Strip */
+    /* Bottom Navigation & Chapter Strip */
+    .stage-nav-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 18px;
+    }
     .thumb-strip {
-      width: 100%;
-      max-width: 920px;
       display: flex;
       gap: 10px;
       overflow-x: auto;
-      padding: 6px 4px 10px;
+      padding: 10px 2px 6px;
+      margin-top: 10px;
       scrollbar-width: thin;
     }
     .thumb-item {
       flex: 0 0 auto;
-      min-width: 138px;
+      min-width: 148px;
       background: #fff;
       border: 2px solid var(--border);
       border-radius: 18px;
-      padding: 10px 12px;
+      padding: 10px 13px;
       cursor: pointer;
-      transition: all 0.2s;
       text-align: left;
+      transition: all 0.2s;
     }
     .thumb-item:hover { transform: translateY(-2px); border-color: var(--secondary); }
     .thumb-item.active {
@@ -518,377 +398,179 @@
     }
     .thumb-num { font-size: 0.78rem; font-weight: 900; color: var(--primary); }
     .thumb-title {
-      font-size: 0.86rem;
-      font-weight: 700;
-      margin-top: 2px;
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
+      font-size: 0.88rem; font-weight: 700; margin-top: 2px;
+      display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
     }
 
-    /* Grid / Mobile Student View */
-    .grid-toolbar {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 18px;
-    }
-    .filter-pills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-    .filter-pill {
-      padding: 8px 16px;
-      border-radius: 40px;
-      border: 1.5px solid var(--border);
+    /* Student Solo-Card Mode (Strict Focus — Only Current Step!) */
+    .solo-card {
+      max-width: 680px;
+      width: 100%;
+      margin: 0 auto;
       background: #fff;
-      font-family: inherit;
-      font-weight: 700;
-      font-size: 0.9rem;
-      color: var(--muted);
-      cursor: pointer;
-    }
-    .filter-pill.active {
-      background: var(--primary);
-      color: #fff;
-      border-color: var(--primary);
-    }
-    .search-input {
-      padding: 9px 16px;
-      border-radius: 40px;
-      border: 1.5px solid var(--border);
-      font-family: inherit;
-      font-size: 0.94rem;
-      min-width: 220px;
-      background: #fff;
-      outline: none;
-    }
-    .search-input:focus { border-color: var(--primary); }
-
-    .cards-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 18px;
-    }
-    .grid-card {
-      background: #fff;
-      border-radius: 24px;
+      border-radius: 28px;
       border: 2px solid var(--border);
-      padding: 20px;
-      box-shadow: 0 10px 26px var(--shadow);
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      scroll-margin-top: 90px;
-      transition: transform 0.2s, border-color 0.2s;
+      padding: 24px 20px;
+      box-shadow: 0 12px 32px var(--shadow);
     }
-    .grid-card.highlighted {
-      border-color: var(--primary);
-      box-shadow: 0 0 0 4px rgba(255, 159, 28, 0.22), 0 12px 30px var(--shadow);
+    .solo-section {
+      background: var(--bg-soft);
+      border: 1.5px solid var(--border);
+      border-radius: 20px;
+      padding: 16px;
+      margin-bottom: 14px;
     }
-    .grid-card h3 {
-      margin: 0;
-      font-size: 1.2rem;
-      font-weight: 900;
-      line-height: 1.35;
+    .solo-section-title {
+      font-size: 1rem; font-weight: 900; color: var(--primary);
+      margin: 0 0 10px; display: flex; align-items: center; gap: 8px;
     }
-    .grid-outline {
-      margin: 0;
-      padding-left: 18px;
-      font-size: 0.94rem;
-      color: var(--muted);
+    .step-chip {
+      background: #fff; padding: 10px 14px; border-radius: 14px;
+      font-size: 0.96rem; font-weight: 700; margin-bottom: 8px;
+      border: 1px solid var(--border);
     }
-    .grid-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: auto;
-      padding-top: 8px;
-      border-top: 1.5px dashed var(--border);
-    }
+    .step-chip:last-child { margin-bottom: 0; }
 
     /* Modals (QR & Lightbox) */
     .modal-backdrop {
-      position: fixed;
-      inset: 0;
-      background: rgba(34, 28, 26, 0.72);
-      backdrop-filter: blur(6px);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      z-index: 200;
-      padding: 18px;
+      position: fixed; inset: 0; background: rgba(34, 28, 26, 0.76);
+      backdrop-filter: blur(6px); display: none;
+      align-items: center; justify-content: center; z-index: 200; padding: 18px;
     }
     .modal-backdrop.open { display: flex; }
     .modal-box {
-      background: #fff;
-      border-radius: 28px;
-      max-width: 480px;
-      width: 100%;
-      padding: 26px 24px;
-      text-align: center;
-      box-shadow: 0 24px 60px rgba(0,0,0,0.3);
-      position: relative;
-      max-height: 92vh;
-      overflow-y: auto;
+      background: #fff; border-radius: 28px; max-width: 480px; width: 100%;
+      padding: 26px 24px; text-align: center;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.3); position: relative;
+      max-height: 92vh; overflow-y: auto;
     }
-    .modal-box.wide {
-      max-width: 960px;
-      padding: 18px;
-    }
+    .modal-box.wide { max-width: 960px; padding: 18px; }
     .modal-close {
-      position: absolute;
-      top: 14px;
-      right: 14px;
-      width: 38px;
-      height: 38px;
-      border-radius: 50%;
-      border: none;
-      background: var(--bg-soft);
-      color: var(--text);
-      font-size: 1.15rem;
-      cursor: pointer;
+      position: absolute; top: 14px; right: 14px; width: 38px; height: 38px;
+      border-radius: 50%; border: none; background: var(--bg-soft);
+      color: var(--text); font-size: 1.15rem; cursor: pointer;
     }
-    .qr-tabs {
-      display: flex;
-      justify-content: center;
-      gap: 6px;
-      flex-wrap: wrap;
-      margin: 12px 0 16px;
-    }
+    .qr-tabs { display: flex; justify-content: center; gap: 6px; flex-wrap: wrap; margin: 12px 0 16px; }
     .qr-tab {
-      padding: 6px 13px;
-      border-radius: 40px;
-      border: 1.5px solid var(--border);
-      background: #fff;
-      font-family: inherit;
-      font-size: 0.85rem;
-      font-weight: 700;
-      cursor: pointer;
-      color: var(--muted);
+      padding: 6px 14px; border-radius: 40px; border: 1.5px solid var(--border);
+      background: #fff; font-family: inherit; font-size: 0.86rem; font-weight: 700;
+      cursor: pointer; color: var(--muted);
     }
-    .qr-tab.active {
-      background: var(--primary);
-      color: #fff;
-      border-color: var(--primary);
-    }
+    .qr-tab.active { background: var(--primary); color: #fff; border-color: var(--primary); }
     #qrCanvasWrap {
-      display: inline-flex;
-      padding: 18px;
-      background: #fff;
-      border-radius: 22px;
-      border: 3px solid var(--primary);
-      box-shadow: 0 10px 26px var(--shadow);
-      margin-bottom: 12px;
+      display: inline-flex; padding: 18px; background: #fff; border-radius: 22px;
+      border: 3px solid var(--primary); box-shadow: 0 10px 26px var(--shadow); margin-bottom: 12px;
     }
     .qr-url-preview {
-      font-size: 0.82rem;
-      color: var(--muted);
-      word-break: break-all;
-      background: var(--bg-soft);
-      padding: 8px 12px;
-      border-radius: 12px;
-      margin-bottom: 12px;
-    }
-    .local-warn {
-      background: #FFF3CD;
-      color: #856404;
-      border-radius: 14px;
-      padding: 10px 12px;
-      font-size: 0.84rem;
-      text-align: left;
-      margin-top: 10px;
-    }
-    .local-warn input {
-      width: 100%;
-      margin-top: 6px;
-      padding: 7px 10px;
-      border-radius: 10px;
-      border: 1px solid #E2C06B;
-      font-family: inherit;
-      font-size: 0.85rem;
+      font-size: 0.84rem; color: var(--muted); word-break: break-all;
+      background: var(--bg-soft); padding: 8px 12px; border-radius: 12px; margin-bottom: 12px;
     }
 
     /* Toast */
     .toast {
-      position: fixed;
-      bottom: 24px;
-      left: 50%;
+      position: fixed; bottom: 24px; left: 50%;
       transform: translateX(-50%) translateY(90px);
-      background: var(--text);
-      color: #fff;
-      padding: 12px 24px;
-      border-radius: 40px;
-      font-weight: 700;
-      font-size: 0.96rem;
-      box-shadow: 0 10px 28px rgba(0,0,0,0.25);
-      opacity: 0;
-      transition: all 0.25s ease;
-      z-index: 300;
-      max-width: 92vw;
-      text-align: center;
+      background: var(--text); color: #fff; padding: 12px 24px;
+      border-radius: 40px; font-weight: 700; font-size: 0.98rem;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.25); opacity: 0;
+      transition: all 0.25s ease; z-index: 300; max-width: 92vw; text-align: center;
     }
     .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
 
     /* Footer */
     footer {
-      text-align: center;
-      padding: 24px 16px 28px;
-      font-size: 0.92rem;
-      color: #777;
-      background: rgba(255, 255, 255, 0.78);
-      border-top: 1.5px solid var(--border);
-      margin-top: auto;
+      text-align: center; padding: 22px 16px 26px; font-size: 0.92rem; color: #777;
+      background: rgba(255, 255, 255, 0.82); border-top: 1.5px solid var(--border); margin-top: auto;
     }
-    footer a {
-      color: var(--primary);
-      font-weight: 900;
-      text-decoration: none;
-    }
+    footer a { color: var(--primary); font-weight: 900; text-decoration: none; }
     footer a:hover { text-decoration: underline; }
 
     .hidden { display: none !important; }
 
-    /* Mobile tweaks */
-    @media (max-width: 720px) {
-      .navbar { padding: 10px 12px; }
-      .brand-title { font-size: 1rem; }
-      .card-face { padding: 20px 18px; min-height: 500px; }
-      .flip-card-inner { min-height: 500px; }
-      .front-title { font-size: 1.42rem; }
-      .outline-list li { font-size: 0.98rem; padding: 10px 12px; }
-      .cards-grid { grid-template-columns: 1fr; }
+    @media (max-width: 900px) {
+      .mini-cards-grid.cols-3 { grid-template-columns: 1fr; }
+      .mini-cards-grid.cols-2, .mini-cards-grid.cols-4 { grid-template-columns: 1fr; }
+      .mini-card-wrap { min-height: 210px; }
+      .slide-shell { padding: 20px 18px; }
       .theme-dots { display: none; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Top Navigation -->
+  <!-- Navbar -->
   <header class="navbar">
     <div class="navbar-inner">
       <div class="brand">
         <div class="brand-icon"><i class="fa-solid fa-book-sparkles"></i></div>
         <div>
           <h1 class="brand-title">Puti-AI｜Gemini Notebook 減法工作術</h1>
-          <p class="brand-sub">115.11.24 屏東縣社群召集人工作坊・200 人手機免下載實作卡牌</p>
+          <p class="brand-sub">115.11.24 屏東縣社群召集人工作坊・大字互動翻轉簡報</p>
         </div>
       </div>
 
-      <div class="nav-actions">
+      <div class="nav-actions" id="lecturerNav">
         <div class="theme-dots" title="切換日系暖心主題">
           <button class="theme-dot active" style="background:#FF9F1C" onclick="setTheme('warm', this)" aria-label="暖日橘"></button>
           <button class="theme-dot" style="background:#1B4965" onclick="setTheme('professional', this)" aria-label="清新藍"></button>
           <button class="theme-dot" style="background:#FF7597" onclick="setTheme('cute', this)" aria-label="櫻花粉"></button>
           <button class="theme-dot" style="background:#795548" onclick="setTheme('earth', this)" aria-label="大地褐"></button>
         </div>
-
-        <div class="mode-switch">
-          <button class="mode-btn active" id="btnModeStage" onclick="switchMode('stage')">
-            <i class="fa-solid fa-display"></i> 簡報卡牌
-          </button>
-          <button class="mode-btn" id="btnModeGrid" onclick="switchMode('grid')">
-            <i class="fa-solid fa-table-cells-large"></i> 全覽檢索
-          </button>
-        </div>
-
-        <button class="btn btn-primary btn-sm" onclick="openQrModal('card')">
-          <i class="fa-solid fa-qrcode"></i> 顯示 QR Code
+        <button class="btn btn-white btn-sm" id="soundToggle" onclick="toggleSound()">
+          <i class="fa-solid fa-volume-high"></i> 音效開
         </button>
-
+        <button class="btn btn-primary btn-sm" id="navQrBtn" onclick="openQrModal('card')">
+          <i class="fa-solid fa-qrcode"></i> 本關實作 QR（Q）
+        </button>
         <a class="btn btn-accent btn-sm" href="https://notebooklm.google.com/" target="_blank" rel="noopener noreferrer">
-          <i class="fa-solid fa-arrow-up-right-from-square"></i> 開啟 NotebookLM
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> NotebookLM
         </a>
       </div>
     </div>
   </header>
 
   <main>
-    <!-- VIEW A: 3D Presentation Stage -->
-    <section id="stageView" class="stage-wrapper">
-      <div class="stage-topbar">
-        <div class="progress-pill">
-          <span id="progressText">第 1 / 9 張</span>
-          <div class="progress-bar-bg">
-            <div class="progress-bar-fill" id="progressBar" style="width: 11%;"></div>
-          </div>
+    <!-- LECTURER INTERACTIVE SLIDE STAGE -->
+    <section id="stageView">
+      <div class="slide-shell" id="slideShell"></div>
+
+      <div class="stage-nav-row">
+        <div class="action-group">
+          <button class="btn btn-white" id="btnPrev" onclick="prevSlide()">
+            <i class="fa-solid fa-chevron-left"></i> 上一頁
+          </button>
+          <button class="btn btn-soft" onclick="flipAllMiniCards(true)">
+            <i class="fa-solid fa-layer-group"></i> 全部翻開
+          </button>
+          <button class="btn btn-soft" onclick="flipAllMiniCards(false)">
+            <i class="fa-solid fa-rotate-left"></i> 全部蓋上
+          </button>
+          <button class="btn btn-white" id="btnNext" onclick="nextSlide()">
+            下一頁 <i class="fa-solid fa-chevron-right"></i>
+          </button>
         </div>
-        <div class="nav-group">
-          <button class="btn btn-white btn-sm" id="soundToggle" onclick="toggleSound()">
-            <i class="fa-solid fa-volume-high"></i> 音效開
-          </button>
-          <button class="btn btn-soft btn-sm" onclick="flipCard()">
-            <i class="fa-solid fa-repeat"></i> 翻面（空白鍵）
-          </button>
-          <button class="btn btn-dark btn-sm" onclick="openQrModal('card')">
-            <i class="fa-solid fa-qrcode"></i> 本頁 QR（Q）
-          </button>
+        <div class="action-group" style="font-size:0.88rem; color:var(--muted); font-weight:700;">
+          ⌨️ 快捷鍵：數字 1~4 翻小卡｜← → 換頁｜Q 顯示本關 QR
         </div>
       </div>
 
-      <div class="perspective-1500">
-        <div class="flip-card-inner" id="flipCardInner">
-          <!-- FRONT FACE -->
-          <div class="card-face front" id="cardFront" onclick="handleFrontClick(event)"></div>
-          <!-- BACK FACE -->
-          <div class="card-face back" id="cardBack"></div>
-        </div>
-      </div>
-
-      <div class="stage-controls">
-        <div class="nav-group">
-          <button class="btn btn-white" id="btnPrev" onclick="prevCard()">
-            <i class="fa-solid fa-chevron-left"></i> 上一張
-          </button>
-          <button class="btn btn-primary" onclick="flipCard()">
-            <i class="fa-solid fa-rotate"></i> 翻轉看提示詞 / 教材
-          </button>
-          <button class="btn btn-white" id="btnNext" onclick="nextCard()">
-            下一張 <i class="fa-solid fa-chevron-right"></i>
-          </button>
-        </div>
-        <div class="nav-group">
-          <button class="btn btn-accent" onclick="openQrModal('card')">
-            <i class="fa-solid fa-qrcode"></i> 放大 QR Code 給現場掃
-          </button>
-        </div>
-      </div>
-
-      <!-- Bottom Canva-like Thumbnail Strip -->
       <div class="thumb-strip" id="thumbStrip"></div>
     </section>
 
-    <!-- VIEW B: Grid / Lecturer Overview Mode -->
-    <section id="gridView" class="hidden">
-      <div class="grid-toolbar">
-        <div class="filter-pills">
-          <button class="filter-pill active" onclick="setFilter('all', this)">全部 9 張</button>
-          <button class="filter-pill" onclick="setFilter('s1', this)">第一節｜備課九塊肌</button>
-          <button class="filter-pill" onclick="setFilter('s2', this)">第二節｜社群與行政</button>
-        </div>
-        <input type="search" class="search-input" id="searchInput" placeholder="🔍 搜尋關鍵字或提示詞..." oninput="renderGrid()">
-      </div>
-      <div class="cards-grid" id="cardsGrid"></div>
-    </section>
-
-    <!-- VIEW C: Student Solo-Card Mode (Strict Focus — Only Current Card!) -->
-    <section id="soloView" class="hidden" style="max-width:680px; margin:0 auto;"></section>
+    <!-- STUDENT SOLO-CARD VIEW (Strict Focus Mode via ?card=X) -->
+    <section id="soloView" class="hidden"></section>
   </main>
 
-  <!-- QR Code Modal -->
+  <!-- QR Code Modal (Strict Single-Step Only!) -->
   <div class="modal-backdrop" id="qrModal" onclick="closeModalOnBackdrop(event, 'qrModal')">
     <div class="modal-box">
       <button class="modal-close" onclick="closeModal('qrModal')" aria-label="關閉"><i class="fa-solid fa-xmark"></i></button>
-      <h2 style="margin:0 0 4px; font-size:1.35rem;" id="qrModalTitle">📱 現場掃碼・一鍵複製</h2>
-      <p style="margin:0; font-size:0.9rem; color:var(--muted);" id="qrModalDesc">請開啟手機相機掃描，點按鈕直接複製貼到 NotebookLM</p>
+      <h2 style="margin:0 0 4px; font-size:1.35rem;" id="qrModalTitle">📱 本關實作 QR Code</h2>
+      <p style="margin:0; font-size:0.92rem; color:var(--muted);" id="qrModalDesc">掃碼只會看到這一關的複製包，不會跳到後面！</p>
 
       <div class="qr-tabs" id="qrTabs">
-        <button class="qr-tab active" id="qrTabCard" onclick="switchQrTarget('card')">🎯 本張卡片實作包（單卡鎖定）</button>
-        <button class="qr-tab hidden" id="qrTabSource" onclick="switchQrTarget('source')">📄 本卡教材網頁</button>
+        <button class="qr-tab active" id="qrTabCard" onclick="switchQrTarget('card')">🎯 本關實作複製包</button>
+        <button class="qr-tab hidden" id="qrTabSource" onclick="switchQrTarget('source')">📄 本關教材網頁</button>
       </div>
 
       <div id="qrCanvasWrap">
@@ -902,11 +584,6 @@
           <i class="fa-regular fa-copy"></i> 複製這個網址
         </button>
         <button class="btn btn-white btn-sm" onclick="closeModal('qrModal')">關閉</button>
-      </div>
-
-      <div class="local-warn hidden" id="localFileWarn">
-        <strong>💡 本機預覽提醒：</strong>目前是本機檔案開啟，推上 <strong>GitHub Pages</strong> 後 QR Code 會自動抓線上網址。您也可以先貼入預計的 GitHub Pages 網址來預覽 QR Code：
-        <input type="text" id="customBaseUrl" placeholder="例如：https://帳號.github.io/專案名/" oninput="saveCustomBaseUrl(this.value)">
       </div>
     </div>
   </div>
@@ -931,7 +608,7 @@
 
   <script>
     // =========================================================================
-    // Embedded Full Text Sources (100% Zero-Fail Backup for NotebookLM "Copied Text")
+    // Embedded Full Text Sources (100% Zero-Fail Backup for NotebookLM)
     // =========================================================================
     const FULL_TEXT_SOURCES = {
       sunwukong: `【國小四年級下學期國語科備課素材：孫悟空三借芭蕉扇】
@@ -960,59 +637,164 @@
     };
 
     // =========================================================================
-    // 9 Flip Cards Data (Session 1 + Session 2)
+    // 11 Interactive Slides — Each with 2~4 Big Click-to-Flip Mini Cards!
     // =========================================================================
-    const cardData = [
+    const slideData = [
       {
         id: 1,
         code: "01",
         session: "s1",
-        sessionName: "第一節｜減法心法",
-        emoji: "🧠",
-        title: "擺脫 AI 焦慮：實踐 80/20 減法法則",
-        quote: "「花 8 成時間追新工具，不如深耕 1 個能解決 8 成重複工作的核心大腦！」",
-        outline: [
-          "為什麼老師越學 AI 越焦慮？工具爆炸、幻覺難校對、提示詞太難寫",
-          "三大關鍵優勢：零幻覺（只讀你的資料＋標註出處）、零門檻（大白話）、免費且不拿資料去訓練",
-          "筆記本命名心法：善用前綴分類【備課】、【班級】、【社群】、【行政】",
-          "四步驟開張：登入 → 建筆記本 → 餵來源 → 看自動生成的筆記本指南"
-        ],
+        sessionName: "第一節｜破冰觀念",
+        title: "為什麼老師越學 AI 越焦慮？",
+        quote: "「實踐 80/20 減法法則：與其追逐 100 個新工具，不如深耕 1 個能解決 8 成重複工作的核心大腦！」",
         clipping: {
           title: "國語日報第一篇（115.09.16）擺脫使用 AI 焦慮 打造備課大腦",
           img: "AI-數位教學與AI應用報導D1316092.jpg"
         },
-        steps: [
-          "① 手機/平板打開瀏覽器進入 NotebookLM 並登入 Google 帳號",
-          "② 點選「建立新的筆記本」，命名為【實作】1124減法工作坊",
-          "③ 準備進入下一張卡片，免下載檔案直接貼入第一份教材！"
-        ],
-        source: null,
-        prompts: [
+        cards: [
           {
-            label: "筆記本命名範例（直接參考）",
-            text: "【備課】115上四年級國語\n【班級】115四忠班級經營\n【社群】115跨領域共備社群"
+            emoji: "🤯",
+            frontTitle: "工具爆炸追不完",
+            frontSub: "痛點一",
+            backBody: "每天都有新 AI 工具與名師直播，花 80% 時間追流行，最後只解決 20% 瑣碎小問題。",
+            backNote: "💡 解法：做減法！只鎖定最核心的那 20%"
+          },
+          {
+            emoji: "🤥",
+            frontTitle: "AI 常常胡言亂語",
+            frontSub: "痛點二",
+            backBody: "生成式 AI 容易產生「幻覺」，教案或考題常編造課本沒教的內容，老師花加倍時間校對。",
+            backNote: "💡 解法：改用「只讀你給的資料」的資料庫 AI"
+          },
+          {
+            emoji: "😵‍💫",
+            frontTitle: "提示詞太難寫",
+            frontSub: "痛點三",
+            backBody: "老是要背結構化咒語（Prompt），一忙起來根本不知道怎麼問才能得到好教案。",
+            backNote: "💡 解法：內建「一鍵按鈕」＋大白話就能問！"
           }
-        ]
+        ],
+        steps: null,
+        source: null,
+        prompts: null
       },
       {
         id: 2,
         code: "02",
         session: "s1",
-        sessionName: "第一節｜零下載實作",
-        emoji: "⚡",
-        title: "手機免下載！2 招秒速匯入教材來源",
-        quote: "「手機最怕下載又找不到檔案！今天用『貼網址』或『貼文字』，30 秒全員達陣。」",
-        outline: [
-          "招式一（最推薦）：複製下方「教材網址」→ NotebookLM 新增來源 → 網站 → 貼上！",
-          "招式二（0 失敗備案）：複製「教材全文」→ 新增來源 → 複製的文字 → 貼上！",
-          "今天的第一份實作教材：國小四年級國語〈孫悟空三借芭蕉扇〉精簡備課包",
-          "匯入後先看系統自動生成的「摘要」與「建議提問」，感受零幻覺威力"
+        sessionName: "第一節｜核心武器",
+        title: "為什麼選 NotebookLM？三大關鍵優勢",
+        quote: "「Google 免費推出的專屬備課大腦，徹底解決教師不敢用、不會用 AI 的三大門檻！」",
+        clipping: {
+          title: "國語日報第一篇（115.09.16）不用學提示詞且免費使用",
+          img: "AI-數位教學與AI應用報導D1316092.jpg"
+        },
+        cards: [
+          {
+            emoji: "🎯",
+            frontTitle: "零幻覺・資料庫導向",
+            frontSub: "優勢一",
+            backBody: "它「只讀你上傳的教材」，不會自己瞎掰，每句回答旁邊還附帶「數字引用標記」，一點就能核對原文！",
+            backNote: "✨ 教學最需要的就是精準、有根據"
+          },
+          {
+            emoji: "🗣️",
+            frontTitle: "零門檻・直覺大白話",
+            frontSub: "優勢二",
+            backBody: "不用背咒語！資料丟進去後，用平時跟同事聊天的口吻發問，加上右側「九塊肌」一鍵按鈕就能產出。",
+            backNote: "✨ 資訊新手也能 5 分鐘上手"
+          },
+          {
+            emoji: "🛡️",
+            frontTitle: "免費且隱私安全",
+            frontSub: "優勢三",
+            backBody: "Google 帳號免費就能用，而且官方承諾：你上傳的個人教材與學生資料，不會被拿去訓練公開 AI 模型！",
+            backNote: "✨ 教育現場最安心的資安保障"
+          }
         ],
+        steps: null,
+        source: null,
+        prompts: null
+      },
+      {
+        id: 3,
+        code: "03",
+        session: "s1",
+        sessionName: "第一節｜建置起手式",
+        title: "四步驟開張你的專屬備課大腦",
+        quote: "「把每本筆記本想像成一個專屬數位資料夾，分類命名清楚，一整個學期都超好用！」",
         clipping: null,
+        cards: [
+          {
+            emoji: "🔑",
+            frontTitle: "步驟 1：開啟並登入",
+            frontSub: "起手式",
+            backBody: "用手機或電腦瀏覽器打開 NotebookLM，直接登入自己的 Google 帳號。",
+            backNote: "👉 點右上角「NotebookLM」按鈕即可前往"
+          },
+          {
+            emoji: "🗂️",
+            frontTitle: "步驟 2：前綴分類命名",
+            frontSub: "整理心法",
+            backBody: "建立新筆記本時，建議加上括號前綴：【備課】115上四年級國語、【班級】115四忠、【社群】115共備。",
+            backNote: "👉 之後資料一多，一眼就能秒找！"
+          },
+          {
+            emoji: "📥",
+            frontTitle: "步驟 3：餵入知識來源",
+            frontSub: "多元格式",
+            backBody: "支援 PDF、Word、Google 文件、網頁連結、YouTube 影片，甚至直接「複製貼上文字」都行！",
+            backNote: "👉 手機上最穩的就是「貼網址」＆「貼文字」"
+          },
+          {
+            emoji: "✨",
+            frontTitle: "步驟 4：先看筆記本指南",
+            frontSub: "初試身手",
+            backBody: "資料放進去幾秒內，系統自動產出整體摘要與建議提問，不用打字就已經開始幫你備課！",
+            backNote: "👉 接下來我們立刻動手做第一本！"
+          }
+        ],
         steps: [
-          "① 點下方「🔗 複製教材網址」（或點「📋 複製教材全文」更穩！）",
+          "① 點下方按鈕打開 NotebookLM 並登入 Google 帳號",
+          "② 建立一本新筆記本，命名為：【實作】1124減法工作坊",
+          "③ 準備進入下一頁，免下載直接貼入第一份教材！"
+        ],
+        source: null,
+        prompts: [
+          {
+            label: "筆記本分類命名範本（可參考）",
+            text: "【備課】115上四年級國語\n【班級】115四忠班級經營\n【社群】115跨領域共備社群"
+          }
+        ]
+      },
+      {
+        id: 4,
+        code: "04",
+        session: "s1",
+        sessionName: "第一節｜零下載實作",
+        title: "手機免下載！2 招秒速匯入教材",
+        quote: "「200 人用手機最怕下載檔案找不到！今天用『貼網址』＋『貼文字』雙保險，30 秒全員達陣！」",
+        clipping: null,
+        cards: [
+          {
+            emoji: "🔗",
+            frontTitle: "招式一：貼上教材網址",
+            frontSub: "最推薦・10 秒完成",
+            backBody: "掃本關 QR Code → 按「一鍵複製教材網址」→ 切回 NotebookLM → 新增來源 → 網站 → 貼上！",
+            backNote: "✨ 教材 A：〈孫悟空三借芭蕉扇〉專屬靜態頁"
+          },
+          {
+            emoji: "📋",
+            frontTitle: "招式二：貼上純文字",
+            frontSub: "0 失敗終極備案",
+            backBody: "萬一現場網路慢，直接按「複製教材全文」→ 新增來源 → 複製的文字 → 貼上送出，100% 必過！",
+            backNote: "✨ 完全不怕網站擋爬蟲，最穩的一招"
+          }
+        ],
+        steps: [
+          "① 點下方「🔗 一鍵複製教材網址」（或點備案「複製教材全文」）",
           "② 切到 NotebookLM → 點「新增來源」→ 選「網站」或「複製的文字」",
-          "③ 貼上並送出，5 秒內就建好你的第一個數位備課箱！"
+          "③ 貼上並送出，再用下方暖身指令測試零幻覺回答！"
         ],
         source: {
           title: "教材 A：〈孫悟空三借芭蕉扇〉課文與備課重點",
@@ -1027,27 +809,36 @@
         ]
       },
       {
-        id: 3,
-        code: "03",
+        id: 5,
+        code: "05",
         session: "s1",
         sessionName: "第一節｜讀 ╳ 聽",
-        emoji: "🎧",
         title: "工作室「九塊肌」：一鍵搞定讀與聽",
-        quote: "「不用寫複雜指令，平均 5 分鐘產出閱讀理解單＋擬真繁體中文 Podcast！」",
-        outline: [
-          "【讀】工作室 →「報告」→「研讀指南」：秒產文章大綱、核心生詞解釋與思考題",
-          "【聽】工作室 →「語音摘要」：把課文變成兩位主持人一搭一唱的精彩廣播節目",
-          "關鍵小撇步：點「自訂」指定語言為「中文（繁體）」，並貼入下方的教學焦點！",
-          "雙向減壓：老師省去寫導讀單時間，學生邊聽 Podcast 邊抓到寫作靈感"
-        ],
+        quote: "「不用寫程式指令，點兩顆預設按鈕，5 分鐘產出閱讀理解單 ＋ 繁體中文 Podcast！」",
         clipping: {
           title: "國語日報第二篇（115.09.30）數位備課箱 打造五面向智慧教學",
           img: "AI-數位教學與AI應用報導D1330092.jpg"
         },
+        cards: [
+          {
+            emoji: "📖",
+            frontTitle: "【讀】報告 → 研讀指南",
+            frontSub: "一鍵產出導讀單",
+            backBody: "點右側工作室「報告」→ 選「研讀指南」，自動產出文章大綱、核心生詞（火焰山、芭蕉扇）與思考題！",
+            backNote: "✨ 直接就是一份現成的課前預習 / 導讀單"
+          },
+          {
+            emoji: "🎧",
+            frontTitle: "【聽】繁中語音摘要",
+            frontSub: "擬真對話 Podcast",
+            backBody: "點「語音摘要」自訂設定，指定語言為「中文（繁體）」，貼入寫作引導焦點，秒生兩位主持人的生動廣播！",
+            backNote: "✨ 學生聽完就能輕鬆下筆寫閱讀心得"
+          }
+        ],
         steps: [
           "① 在右側「工作室」先點「報告 → 研讀指南」看自動生成的導讀單",
-          "② 再點「語音摘要」旁的自訂（鉛筆圖示），語言選「中文（繁體）」",
-          "③ 貼上下方焦點提示詞，點生成，聽聽看 AI 怎麼引導小四生寫心得！"
+          "② 點「語音摘要」旁的自訂（鉛筆圖示），將語言改為「中文（繁體）」",
+          "③ 複製下方焦點提示詞貼進去，按生成聽聽看！"
         ],
         source: {
           title: "教材 A：〈孫悟空三借芭蕉扇〉（沿用同一筆記本）",
@@ -1062,27 +853,43 @@
         ]
       },
       {
-        id: 4,
-        code: "04",
+        id: 6,
+        code: "06",
         session: "s1",
         sessionName: "第一節｜說 ╳ 寫",
-        emoji: "✍️",
-        title: "說與寫大爆發：角色對話 ╳ 心智圖大綱",
-        quote: "「讓孫悟空直接走進教室跟學生對話，再用一鍵心智圖幫孩子搭起寫作鷹架！」",
-        outline: [
-          "【說】工作室「學習卡」自動產出人物分析卡，搭配對話框角色扮演投影互動",
-          "【寫】工作室「心智圖」自動拆解三借芭蕉扇的起承轉合，點擊節點還能展開文本",
-          "【差異化教學】同一份課文，一鍵改寫成適合學習扶助學生的簡短詞彙版",
-          "【換位思考寫作】請 AI 示範鐵扇公主的第一人稱心情日記，激發創意寫作"
-        ],
+        title: "說與寫大爆發：角色對話 ╳ 心智圖",
+        quote: "「讓孫悟空走進教室跟孩子對話，再用一鍵心智圖與差異化改寫幫每個學生搭鷹架！」",
         clipping: {
           title: "國語日報第二篇（115.09.30）心智學習卡 幫助說寫",
           img: "AI-數位教學與AI應用報導D1330092.jpg"
         },
+        cards: [
+          {
+            emoji: "🐒",
+            frontTitle: "【說】扮演孫悟空對話",
+            frontSub: "活化課堂口語",
+            backBody: "先用工作室「學習卡」做人物分析，再請 AI 扮演孫悟空投影在黑板，讓學生當場提問互動！",
+            backNote: "💬 學生問：「被扇飛時你在想什麼？」"
+          },
+          {
+            emoji: "🗺️",
+            frontTitle: "【寫】一鍵情節心智圖",
+            frontSub: "視覺化寫作大綱",
+            backBody: "點選工作室「心智圖」，自動拆解三借芭蕉扇的波折結構，點任一節點還能直接展開細部文本！",
+            backNote: "✨ 幫孩子快速抓出起承轉合"
+          },
+          {
+            emoji: "🌈",
+            frontTitle: "差異化改寫 ╳ 換位日記",
+            frontSub: "照顧不同程度孩子",
+            backBody: "一句大白話就能把課文改寫成「學習扶助簡短詞彙版」，或請 AI 示範鐵扇公主的第一人稱心情日記！",
+            backNote: "✨ 掃本關 QR 帶走這 3 組超好用指令"
+          }
+        ],
         steps: [
-          "① 點選工作室「心智圖」與「學習卡」體驗一鍵視覺化",
-          "② 在中間「對話框」貼上下方任一組大白話提示詞",
-          "③ 試著用學生的語氣追問一句：「悟空，你被扇飛時心裡在想什麼？」"
+          "① 點選工作室「心智圖」與「學習卡」體驗一鍵生成",
+          "② 複製下方任一組大白話提示詞貼到中間對話框",
+          "③ 試著用學生的語氣追問一句，看孫悟空怎麼回！"
         ],
         source: null,
         prompts: [
@@ -1101,24 +908,40 @@
         ]
       },
       {
-        id: 5,
-        code: "05",
+        id: 7,
+        code: "07",
         session: "s1",
         sessionName: "第一節｜精準評量",
-        emoji: "🎯",
-        title: "評：一鍵隨堂測驗 ╳ PIRLS 三層次提問",
-        quote: "「省去出題與排版的痛苦，每題都附引用出處與參考解答，把深度討論帶回課堂。」",
-        outline: [
-          "快速評量：點選工作室「測驗」或「學習卡」，自動產出符合年級的隨堂練習",
-          "深度閱讀理解：對齊國際閱讀評比（PIRLS）三層次——提取訊息、推論理解、省思評鑑",
-          "零幻覺把關：每道題目旁邊都有數字引用標記，一點就能核對課文原文",
-          "現場投影討論：直接拿這 3 題做小組搶答或學習單，5 分鐘完成精緻備課"
-        ],
+        title: "評：隨堂測驗 ╳ PIRLS 三層次提問",
+        quote: "「省去出題排版的痛苦，每題附引用出處與參考解答，把深度閱讀討論帶回課堂！」",
         clipping: null,
+        cards: [
+          {
+            emoji: "🔎",
+            frontTitle: "層次一：提取訊息",
+            frontSub: "直接找答案",
+            backBody: "檢測學生是否讀懂基本情節，例如：「孫悟空第一次是用什麼方法向鐵扇公主借扇？」",
+            backNote: "✨ 搭配工作室「測驗」可一鍵出隨堂選擇題"
+          },
+          {
+            emoji: "🧩",
+            frontTitle: "層次二：推論理解",
+            frontSub: "統整因果關係",
+            backBody: "引導學生串連前後文推論，例如：「為什麼孫悟空必須借到第三次才成功？」",
+            backNote: "✨ 每題都有數字連結可點回課文原文核對"
+          },
+          {
+            emoji: "💭",
+            frontTitle: "層次三：省思評鑑",
+            frontSub: "發表個人觀點",
+            backBody: "深化高層次思考，例如：「你贊成悟空變身騙人的做法嗎？換成你會怎麼解決？」",
+            backNote: "✨ 掃本關 QR 直接複製三層次出題指令"
+          }
+        ],
         steps: [
-          "① 點選工作室「測驗」看系統自動生成的選擇題",
-          "② 複製下方「三層次閱讀理解提問」貼到中間對話框",
-          "③ 確認 AI 產出的題目是否包含提取、推論、省思三個維度與解答"
+          "① 點右側工作室「測驗」看系統自動生成的隨堂練習",
+          "② 複製下方「PIRLS 三層次閱讀理解提問」貼到中間對話框",
+          "③ 檢查 AI 產出的 3 個維度提問、出處標註與參考解答"
         ],
         source: null,
         prompts: [
@@ -1129,27 +952,43 @@
         ]
       },
       {
-        id: 6,
-        code: "06",
+        id: 8,
+        code: "08",
         session: "s2",
         sessionName: "第二節｜公文轉譯",
-        emoji: "💌",
-        title: "公文一鍵轉譯：溫馨 LINE 通知 ＋ 資訊圖表",
-        quote: "「公文照貼家長看不完、老師轉述寫到累？交給小助理 10 秒變出有溫度的通知！」",
-        outline: [
-          "開一個新筆記本：【行政】115 社群與班級小助理，貼入今天的「教材 B」",
-          "公文變溫馨：把冰冷的校務會議紀錄或研習計畫，秒轉為重點清晰的 LINE 群組通知",
-          "一圖勝千言：點選工作室「資訊圖表」，直接把活動日期、集合點、必帶物品視覺化",
-          "家長回饋分析：班親會問卷文字貼上去，3 分鐘抓出家長最關切的 3 大焦點"
-        ],
+        title: "公文一鍵轉譯：溫馨 LINE 通知 ＋ 圖表",
+        quote: "「公文照貼家長看不完、老師自己重打太耗神？交給小助理 10 秒變出有溫度的通知！」",
         clipping: {
           title: "國語日報第三篇（115.10.14）簡化班級行政庶務 搭建親師溝通橋梁",
           img: "AI-數位教學與AI應用報導D1314102.jpg"
         },
+        cards: [
+          {
+            emoji: "📄",
+            frontTitle: "開新本餵入「教材 B」",
+            frontSub: "實戰準備",
+            backBody: "新建筆記本【行政】115 社群小助理，把今天的《社群召集人計畫》與《游泳課校務會議紀錄》貼進去！",
+            backNote: "✨ 掃本關 QR，一樣免下載秒複製"
+          },
+          {
+            emoji: "💌",
+            frontTitle: "冰冷公文 → LINE 溫馨通知",
+            frontSub: "親師 / 社群秒轉譯",
+            backBody: "一句大白話，10 秒自動抓出日期、集合點、游泳五寶，編成帶 Emoji 條列、可直接貼群組的暖心通知！",
+            backNote: "✨ 家長不再漏看重點，社群宣導也超親切"
+          },
+          {
+            emoji: "🎨",
+            frontTitle: "加碼：一鍵「資訊圖表」",
+            frontSub: "一圖勝千言",
+            backBody: "點選工作室「資訊圖表」，直接把文字宣導視覺化成一目了然的可愛圖卡，傳 LINE 群組家長狂讚！",
+            backNote: "✨ 班親會家長回饋也能用自訂報告抓 3 大焦點"
+          }
+        ],
         steps: [
           "① 在 NotebookLM 新建筆記本，複製下方「教材 B」網址或全文貼入來源",
           "② 複製下方任一組 LINE 轉譯提示詞貼進對話框",
-          "③ 加碼體驗：點右側工作室「資訊圖表」，看看公文怎麼變成可愛海報！"
+          "③ 加碼體驗：點右側工作室「資訊圖表」，看公文秒變視覺圖卡！"
         ],
         source: {
           title: "教材 B：115 社群召集人計畫＋游泳課通知＋共備雜記",
@@ -1168,24 +1007,40 @@
         ]
       },
       {
-        id: 7,
-        code: "07",
+        id: 9,
+        code: "09",
         session: "s2",
         sessionName: "第二節｜會議與研習",
-        emoji: "📝",
-        title: "雜亂筆記秒變：標準會議紀錄 ╳ 待辦清單",
-        quote: "「社群召集人最怕開完會還要整理紀錄、寫成果！雜記丟進去，30 秒產出專業草稿。」",
-        outline: [
-          "研習心得減壓：上傳研習簡報或零散筆記 → 自動彙整「主題、三大亮點、教學應用建議」",
-          "社群共備紀錄：把口語雜亂的會議筆記丟進去 → 自動拆出「會議決議」與「誰何時做什麼」",
-          "對症下藥：針對屏東社群召集人常兼任行政的痛點，省下至少 70% 文書排版時間",
-          "進階技巧：點選工作室「報告 → 自訂報告」，直接產出可匯出使用的結構化文件"
-        ],
+        title: "雜亂筆記秒變：會議紀錄 ╳ 待辦清單",
+        quote: "「社群召集人最怕開完會還要整理紀錄！口語雜記丟進去，30 秒產出標準紀錄與分工表。」",
         clipping: null,
+        cards: [
+          {
+            emoji: "😩",
+            frontTitle: "召集人最大文書痛點",
+            frontSub: "現場共鳴",
+            backBody: "常由行政兼任、課務繁忙，開完社群共備還得花整個晚上把零散筆記整理成會議紀錄與成果報告。",
+            backNote: "✨ 把文書排版交給小助理，省下 70% 時間"
+          },
+          {
+            emoji: "📋",
+            frontTitle: "共備雜記 → 決議＋分工表",
+            frontSub: "會議紀錄精鍊",
+            backBody: "把雜亂筆記丟進去，一鍵拆出「會議基本資訊」、「決議事項」，以及「負責人、任務、期限」表格！",
+            backNote: "✨ 誰什麼時候該交什麼，一清二楚"
+          },
+          {
+            emoji: "🏅",
+            frontTitle: "研習筆記 → 三大亮點報告",
+            frontSub: "研習心得減壓",
+            backBody: "參加完研習，把講義或筆記丟進工作室「報告」，自動產出主題、三大亮點與後續教學應用建議草稿！",
+            backNote: "✨ 掃本關 QR 直接拿兩組行政神指令"
+          }
+        ],
         steps: [
           "① 沿用剛剛匯入「教材 B」的筆記本（內含模擬社群第 2 次共備雜記）",
           "② 複製下方「社群會議紀錄與待辦清單」提示詞，貼到對話框",
-          "③ 檢視 AI 是否精準抓出美玲、志明、淑芬、阿宏、家豪各自的任務與期限！"
+          "③ 看看 AI 是否精準抓出 5 位老師各自的分工與期限！"
         ],
         source: {
           title: "教材 B：含校內社群第 2 次共備雜記（沿用同一筆記本）",
@@ -1204,27 +1059,43 @@
         ]
       },
       {
-        id: 8,
-        code: "08",
+        id: 10,
+        code: "10",
         session: "s2",
         sessionName: "第二節｜簡報減壓",
-        emoji: "📊",
-        title: "簡報生成術：無中生有 ╳ 舊簡報翻新美化",
-        quote: "「不用再熬夜調對齊！記住黃金三步驟：儲存至記事 → 轉換為來源 → 一鍵生成簡報。」",
-        outline: [
-          "情境一（從零生成新簡報）：先用對話整理出乾淨大綱 → 儲存至記事 → 轉換為來源 → 點工作室「簡報」",
-          "情境二（舊簡報翻新）：同時上傳去年舊簡報 PDF 與本學期新計畫，請小助理更新重點並重新排版",
-          "召集人最實用場景：期初社群運作說明、期末社群成果發表、班親會簡報通通一氣呵成",
-          "關鍵心法：AI 先幫你完成 80% 結構與初稿，老師只要微調 20% 溫度與照片！"
-        ],
+        title: "簡報生成術：無中生有 ╳ 舊簡報翻新",
+        quote: "「不用再熬夜調對齊！AI 先完成 80% 結構與版面，老師只要專注微調 20% 溫度與照片！」",
         clipping: {
           title: "國語日報第三篇（115.10.14）生成簡報行政減壓",
           img: "AI-數位教學與AI應用報導D1314102.jpg"
         },
+        cards: [
+          {
+            emoji: "🪄",
+            frontTitle: "黃金三步驟口訣",
+            frontSub: "必學密技",
+            backBody: "① 先用對話框整理出滿意大綱 → ② 點回答下方「儲存至記事」→ ③ 點「轉換為來源」再按工作室「簡報」！",
+            backNote: "✨ 先鎖定大綱再生簡報，精準度飆升 10 倍"
+          },
+          {
+            emoji: "🆕",
+            frontTitle: "情境一：從零生成新簡報",
+            frontSub: "社群成果 / 班親會",
+            backBody: "匯入社群紀錄或網路參考資料，請小助理去蕪存菁，一鍵生成結構清爽、重點分明的全新投影片！",
+            backNote: "✨ 期末社群成果發表不再焦頭爛額"
+          },
+          {
+            emoji: "✨",
+            frontTitle: "情境二：歷年舊簡報翻新",
+            frontSub: "老簡報秒變現代風",
+            backBody: "把去年的舊 PPT 轉 PDF，連同本學期新計畫一起上傳，一句大白話就能更新日期重點並重新美化版面！",
+            backNote: "✨ 掃本關 QR 帶走兩組簡報生成指令"
+          }
+        ],
         steps: [
-          "① 在對話框貼上下方提示詞，請 AI 先整理出 6 頁社群成果簡報大綱",
-          "② 確認大綱滿意後，按回答下方的「儲存至記事」",
-          "③ 在右側記事點「轉換為來源」並只勾選該份大綱 → 點工作室「簡報」！"
+          "① 複製下方「生成社群成果簡報大綱」貼到對話框",
+          "② 滿意後按回答下方的「儲存至記事」",
+          "③ 在記事點「轉換為來源」並只勾選它 → 點工作室「簡報」！"
         ],
         source: null,
         prompts: [
@@ -1239,24 +1110,40 @@
         ]
       },
       {
-        id: 9,
-        code: "09",
+        id: 11,
+        code: "11",
         session: "s2",
         sessionName: "第二節｜帶回學校用",
-        emoji: "🌱",
-        title: "召集人行動錦囊：回校 15 分鐘啟動共備",
-        quote: "「科技工具隨時在變，但老師專注於孩子心靈、陪伴成長的溫度，永遠無法被取代。」",
-        outline: [
-          "不要一次教 10 個工具！下次校內社群聚會，只要帶夥伴玩「1 份電子書＋工作室 2 顆按鈕」",
-          "15 分鐘微共備節奏：5 分鐘建筆記本丟教材 → 5 分鐘產出研讀指南/測驗 → 5 分鐘夥伴互看分享",
-          "帶走整套大補帖：下方附上《國語日報・減法工作術》三篇完整專欄網址，可直接整包餵給 NotebookLM",
-          "把重複庶務交給 AI，把最珍貴的時間留給自己與孩子！"
-        ],
+        title: "召集人行動錦囊：回校 15 分鐘微共備",
+        quote: "「科技工具隨時在變，但老師專注於孩子心靈、陪伴成長的溫度，是 AI 永遠無法取代的核心。」",
         clipping: null,
+        cards: [
+          {
+            emoji: "⏱️",
+            frontTitle: "第 1 個 5 分鐘",
+            frontSub: "建本丟教材",
+            backBody: "不要教 10 個工具！請社群夥伴每人帶 1 課電子書 PDF，一起開一本筆記本把教材丟進去。",
+            backNote: "✨ 低門檻，零壓力，人人做得到"
+          },
+          {
+            emoji: "💪",
+            frontTitle: "第 2 個 5 分鐘",
+            frontSub: "只玩 2 顆按鈕",
+            backBody: "請夥伴從「研讀指南、語音摘要、心智圖、測驗」任選 2 顆按鈕點下去，立刻帶走明天上課可用的教材！",
+            backNote: "✨ 現場馬上產出，最有成就感"
+          },
+          {
+            emoji: "🎁",
+            frontTitle: "第 3 個 5 分鐘",
+            frontSub: "互看分享 ＋ 專欄大補帖",
+            backBody: "夥伴互相展示剛剛產出的作品！現在掃本關 QR Code，把《國語日報・減法工作術》三篇完整專欄打包帶回家！",
+            backNote: "✨ 把庶務交給科技，把時間留給自己與孩子"
+          }
+        ],
         steps: [
           "① 複製下方「教材 C（國語日報三篇專欄完整版）」網址存進書籤或 NotebookLM",
-          "② 複製下方「15 分鐘社群共備啟動腳本」提示詞，回校馬上能開團！",
-          "③ 歡迎點擊頁尾「點此前往」，探索更多免費的 Puti-AI 教學小工具！"
+          "② 複製下方「15 分鐘校內社群共備腳本」提示詞，回校馬上能開團！",
+          "③ 點擊頁尾「點此前往」，探索更多免費的 Puti-AI 教學小工具！"
         ],
         source: {
           title: "教材 C：國語日報《Gemini Notebook 減法工作術》三篇完整版",
@@ -1276,19 +1163,12 @@
     // State & Utilities
     // =========================================================================
     let currentIndex = 0;
-    let isFlipped = false;
-    let currentMode = 'stage';
-    let currentFilter = 'all';
     let soundEnabled = true;
     let qrTarget = 'card';
+    let qrModalSlideId = 1;
     let audioCtx = null;
 
     function getBaseUrl() {
-      const saved = localStorage.getItem('puti_1124_base_url');
-      if (window.location.protocol === 'file:' && saved && saved.trim()) {
-        return saved.trim().replace(/\/?$/, '/');
-      }
-      // Remove hash and index.html
       const href = window.location.href.split('#')[0].split('?')[0];
       return href.substring(0, href.lastIndexOf('/') + 1);
     }
@@ -1297,15 +1177,13 @@
       return getBaseUrl() + relUrl;
     }
 
-    function getCardDeepLink(cardId) {
-      const base = getBaseUrl();
-      if (window.location.protocol === 'file:' && !localStorage.getItem('puti_1124_base_url')) {
-        return window.location.href.split('?')[0].split('#')[0] + '?card=' + cardId;
+    function getSoloLink(slideId) {
+      if (window.location.protocol === 'file:') {
+        return window.location.href.split('?')[0].split('#')[0] + '?card=' + slideId;
       }
-      return base + '?card=' + cardId;
+      return getBaseUrl() + '?card=' + slideId;
     }
 
-    // Web Audio API gentle sound effects
     function playTone(type) {
       if (!soundEnabled) return;
       try {
@@ -1318,35 +1196,31 @@
 
         if (type === 'flip') {
           osc.type = 'sine';
-          osc.frequency.setValueAtTime(340, now);
-          osc.frequency.exponentialRampToValueAtTime(520, now + 0.09);
+          osc.frequency.setValueAtTime(360, now);
+          osc.frequency.exponentialRampToValueAtTime(540, now + 0.08);
           gain.gain.setValueAtTime(0.06, now);
           gain.gain.exponentialRampToValueAtTime(0.001, now + 0.11);
-          osc.start(now);
-          osc.stop(now + 0.12);
+          osc.start(now); osc.stop(now + 0.12);
         } else if (type === 'copy') {
           osc.type = 'triangle';
           osc.frequency.setValueAtTime(587.33, now);
           osc.frequency.setValueAtTime(880, now + 0.07);
           gain.gain.setValueAtTime(0.07, now);
           gain.gain.exponentialRampToValueAtTime(0.001, now + 0.22);
-          osc.start(now);
-          osc.stop(now + 0.23);
+          osc.start(now); osc.stop(now + 0.23);
         } else {
           osc.type = 'sine';
           osc.frequency.setValueAtTime(440, now);
           gain.gain.setValueAtTime(0.04, now);
           gain.gain.exponentialRampToValueAtTime(0.001, now + 0.06);
-          osc.start(now);
-          osc.stop(now + 0.07);
+          osc.start(now); osc.stop(now + 0.07);
         }
       } catch (e) {}
     }
 
     function toggleSound() {
       soundEnabled = !soundEnabled;
-      const btn = document.getElementById('soundToggle');
-      btn.innerHTML = soundEnabled
+      document.getElementById('soundToggle').innerHTML = soundEnabled
         ? '<i class="fa-solid fa-volume-high"></i> 音效開'
         : '<i class="fa-solid fa-volume-xmark"></i> 靜音';
     }
@@ -1373,14 +1247,10 @@
 
     function fallbackCopy(text, cb) {
       const ta = document.createElement('textarea');
-      ta.value = text;
-      ta.style.position = 'fixed';
-      ta.style.opacity = '0';
-      document.body.appendChild(ta);
-      ta.select();
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
       document.execCommand('copy');
-      document.body.removeChild(ta);
-      cb();
+      document.body.removeChild(ta); cb();
     }
 
     function setTheme(theme, el) {
@@ -1390,258 +1260,243 @@
       if (el) el.classList.add('active');
     }
 
-    // =========================================================================
-    // Render Stage Card (3D Flip)
-    // =========================================================================
-    function renderStage() {
-      const card = cardData[currentIndex];
-      const inner = document.getElementById('flipCardInner');
-      inner.classList.toggle('is-flipped', isFlipped);
+    function escapeHtml(str) {
+      return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    }
 
-      // Progress
-      document.getElementById('progressText').textContent = `第 ${currentIndex + 1} / ${cardData.length} 張`;
-      document.getElementById('progressBar').style.width = `${((currentIndex + 1) / cardData.length) * 100}%`;
+    // =========================================================================
+    // Render Lecturer Interactive Slide (Header + Clickable Mini Flip Cards)
+    // =========================================================================
+    function renderSlide() {
+      const slide = slideData[currentIndex];
+      const hasPractice = !!(slide.source || (slide.prompts && slide.prompts.length));
+      const colsClass = 'cols-' + slide.cards.length;
+
       document.getElementById('btnPrev').disabled = currentIndex === 0;
-      document.getElementById('btnNext').disabled = currentIndex === cardData.length - 1;
+      document.getElementById('btnNext').disabled = currentIndex === slideData.length - 1;
+      document.getElementById('navQrBtn').classList.toggle('hidden', !hasPractice);
 
-      // Update hash quietly
       if (history.replaceState) {
-        history.replaceState(null, '', '#card-' + card.id);
+        history.replaceState(null, '', '#slide-' + slide.id);
       }
 
-      // FRONT
-      const sessionClass = card.session === 's2' ? 'session2' : '';
-      const outlineHtml = card.outline.map((item, idx) => `
-        <li>
-          <span class="outline-num">${idx + 1}</span>
-          <span>${item}</span>
-        </li>
+      const miniCardsHtml = slide.cards.map((c, idx) => `
+        <div class="mini-card-wrap" id="mini-card-${idx}" onclick="toggleMiniCard(${idx})">
+          <div class="mini-card-inner">
+            <div class="mini-face front">
+              <span class="mini-num-badge">${idx + 1}</span>
+              <div class="mini-emoji">${c.emoji}</div>
+              <h3 class="mini-front-title">${c.frontTitle}</h3>
+              <span class="mini-front-sub">${c.frontSub}</span>
+              <span class="mini-tap-hint"><i class="fa-solid fa-hand-pointer"></i> 點擊翻開（按 ${idx + 1}）</span>
+            </div>
+            <div class="mini-face back">
+              <div class="mini-back-head">
+                <span>${c.emoji}</span>
+                <span>${c.frontTitle}</span>
+              </div>
+              <p class="mini-back-body">${c.backBody}</p>
+              ${c.backNote ? `<div class="mini-back-note">${c.backNote}</div>` : ''}
+            </div>
+          </div>
+        </div>
       `).join('');
 
-      const clipBtn = card.clipping
-        ? `<button class="btn btn-soft btn-sm" onclick="event.stopPropagation(); openImgModal('${card.clipping.img}', '${card.clipping.title}')">
-             <i class="fa-regular fa-newspaper"></i> 檢視國語日報原版剪報
+      const clipBtn = slide.clipping
+        ? `<button class="btn btn-soft btn-sm" onclick="openImgModal('${slide.clipping.img}', '${slide.clipping.title}')">
+             <i class="fa-regular fa-newspaper"></i> 國語日報原版剪報
            </button>`
-        : `<span style="font-size:0.86rem; color:var(--muted);"><i class="fa-regular fa-lightbulb"></i> 講師簡報正面・點卡片翻面拿素材</span>`;
+        : '';
 
-      document.getElementById('cardFront').innerHTML = `
-        <div>
-          <div class="card-header-row">
-            <span class="tag-pill ${sessionClass}">${card.emoji} ${card.sessionName}</span>
-            <span class="card-code">CARD ${card.code}</span>
+      const practiceBtns = hasPractice
+        ? `<button class="btn btn-white btn-sm" onclick="togglePromptDrawer()">
+             <i class="fa-regular fa-eye"></i> 講師預覽本關提示詞
+           </button>
+           <button class="btn btn-primary" onclick="openQrModal('card')">
+             <i class="fa-solid fa-qrcode"></i> 顯示本關 QR Code 給現場掃
+           </button>`
+        : `<span style="font-size:0.95rem; font-weight:700; color:var(--muted);">👆 依序點擊上方小卡翻面講解</span>`;
+
+      let drawerHtml = '';
+      if (hasPractice) {
+        const srcPart = slide.source ? `
+          <div style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom:12px;">
+            <button class="btn btn-accent btn-sm" onclick="copySourceUrl('${slide.source.relUrl}')">
+              <i class="fa-solid fa-link"></i> 複製教材網址
+            </button>
+            <button class="btn btn-white btn-sm" onclick="copyFullText('${slide.source.fullTextKey}')">
+              <i class="fa-regular fa-paste"></i> 複製教材全文
+            </button>
+            <a class="btn btn-soft btn-sm" href="${slide.source.relUrl}" target="_blank" rel="noopener noreferrer">
+              <i class="fa-regular fa-file-lines"></i> 檢視教材頁
+            </a>
           </div>
-          <h2 class="front-title">${card.title}</h2>
-          <div class="front-quote">${card.quote}</div>
-          <ul class="outline-list">${outlineHtml}</ul>
-        </div>
-        <div class="front-footer">
-          ${clipBtn}
-          <span class="flip-hint">點擊翻面看提示詞與教材 <i class="fa-solid fa-circle-arrow-right"></i></span>
-        </div>
-      `;
+        ` : '';
 
-      // BACK
-      const stepsHtml = card.steps.map(s => `<div class="step-chip">${s}</div>`).join('');
-
-      let sourceHtml = '';
-      if (card.source) {
-        sourceHtml = `
-          <div class="back-section">
-            <div class="back-section-title"><i class="fa-solid fa-folder-open"></i> 零下載教材來源：${card.source.title}</div>
-            <div class="source-actions">
-              <button class="btn btn-accent btn-sm" onclick="copySourceUrl('${card.source.relUrl}')">
-                <i class="fa-solid fa-link"></i> 複製教材網址（貼 NotebookLM 網站）
+        const prmPart = (slide.prompts || []).map((p, pIdx) => `
+          <div class="prompt-item">
+            <div class="prompt-head">
+              <span class="prompt-label">${p.label}</span>
+              <button class="btn btn-primary btn-sm" onclick="copySlidePrompt(${slide.id}, ${pIdx})">
+                <i class="fa-regular fa-copy"></i> 一鍵複製
               </button>
-              <button class="btn btn-primary btn-sm" onclick="copyFullText('${card.source.fullTextKey}')">
-                <i class="fa-regular fa-paste"></i> 複製教材全文（貼文字 0 失敗）
-              </button>
-              <a class="btn btn-white btn-sm" href="${card.source.relUrl}" target="_blank" rel="noopener noreferrer">
-                <i class="fa-regular fa-eye"></i> 預覽教材
-              </a>
             </div>
+            <p class="prompt-text">${escapeHtml(p.text)}</p>
           </div>
-        `;
+        `).join('');
+
+        drawerHtml = `<div class="prompt-drawer" id="promptDrawer">${srcPart}${prmPart}</div>`;
       }
 
-      const promptsHtml = card.prompts.map((p, pIdx) => `
-        <div class="prompt-item">
-          <div class="prompt-head">
-            <span class="prompt-label">${p.label}</span>
-            <button class="btn btn-primary btn-sm" onclick="copyCardPrompt(${card.id}, ${pIdx})">
-              <i class="fa-regular fa-copy"></i> 一鍵複製提示詞
-            </button>
-          </div>
-          <p class="prompt-text">${escapeHtml(p.text)}</p>
+      document.getElementById('slideShell').innerHTML = `
+        <div class="slide-meta-row">
+          <span class="tag-pill ${slide.session}">${slide.sessionName}</span>
+          <span class="slide-progress">第 ${currentIndex + 1} / ${slideData.length} 頁</span>
         </div>
-      `).join('');
+        <h2 class="slide-title">${slide.title}</h2>
+        <p class="slide-quote">${slide.quote}</p>
 
-      document.getElementById('cardBack').innerHTML = `
-        <div>
-          <div class="card-header-row">
-            <span class="tag-pill ${sessionClass}"><i class="fa-solid fa-wand-magic-sparkles"></i> 背面實作包｜CARD ${card.code}</span>
-            <div style="display:flex; gap:8px; flex-wrap:wrap;">
-              <button class="btn btn-dark btn-sm" onclick="openQrModal('card')"><i class="fa-solid fa-qrcode"></i> 本卡 QR</button>
-              <button class="btn btn-soft btn-sm" onclick="flipCard()"><i class="fa-solid fa-rotate-left"></i> 翻回正面</button>
-            </div>
-          </div>
-
-          <div class="back-section">
-            <div class="back-section-title"><i class="fa-solid fa-list-check"></i> 現場實作三步驟</div>
-            <div class="steps-row">${stepsHtml}</div>
-          </div>
-
-          ${sourceHtml}
-
-          <div class="back-section" style="margin-bottom:0;">
-            <div class="back-section-title"><i class="fa-solid fa-comment-dots"></i> 大白話實戰提示詞（點一下就複製）</div>
-            ${promptsHtml}
-          </div>
+        <div class="mini-cards-grid ${colsClass}">
+          ${miniCardsHtml}
         </div>
+
+        <div class="slide-action-bar">
+          <div class="action-group">${clipBtn}</div>
+          <div class="action-group">${practiceBtns}</div>
+        </div>
+        ${drawerHtml}
       `;
 
       renderThumbs();
     }
 
+    function toggleMiniCard(idx) {
+      const el = document.getElementById('mini-card-' + idx);
+      if (!el) return;
+      el.classList.toggle('flipped');
+      playTone('flip');
+    }
+
+    function flipAllMiniCards(open) {
+      document.querySelectorAll('.mini-card-wrap').forEach(el => {
+        el.classList.toggle('flipped', open);
+      });
+      playTone('flip');
+    }
+
+    function togglePromptDrawer() {
+      const d = document.getElementById('promptDrawer');
+      if (d) d.classList.toggle('open');
+    }
+
     function renderThumbs() {
       const strip = document.getElementById('thumbStrip');
-      strip.innerHTML = cardData.map((c, idx) => `
-        <button class="thumb-item ${idx === currentIndex ? 'active' : ''}" onclick="goToCard(${idx})">
-          <div class="thumb-num">${c.emoji} CARD ${c.code}</div>
-          <div class="thumb-title">${c.title}</div>
-        </button>
-      `).join('');
+      strip.innerHTML = slideData.map((s, idx) => {
+        const hasPractice = !!(s.source || (s.prompts && s.prompts.length));
+        return `
+          <button class="thumb-item ${idx === currentIndex ? 'active' : ''}" onclick="goToSlide(${idx})">
+            <div class="thumb-num">${s.code} ${hasPractice ? '📱實作' : '💡觀念'}</div>
+            <div class="thumb-title">${s.title}</div>
+          </button>
+        `;
+      }).join('');
       const activeEl = strip.querySelector('.thumb-item.active');
       if (activeEl) activeEl.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
     }
 
-    function handleFrontClick(e) {
-      if (e.target.closest('button') || e.target.closest('a')) return;
-      flipCard();
-    }
-
-    function flipCard() {
-      isFlipped = !isFlipped;
-      document.getElementById('flipCardInner').classList.toggle('is-flipped', isFlipped);
-      playTone('flip');
-    }
-
-    function goToCard(idx) {
-      currentIndex = Math.max(0, Math.min(cardData.length - 1, idx));
-      isFlipped = false;
+    function goToSlide(idx) {
+      currentIndex = Math.max(0, Math.min(slideData.length - 1, idx));
       playTone('tick');
-      renderStage();
+      renderSlide();
     }
-
-    function prevCard() { if (currentIndex > 0) goToCard(currentIndex - 1); }
-    function nextCard() { if (currentIndex < cardData.length - 1) goToCard(currentIndex + 1); }
+    function prevSlide() { if (currentIndex > 0) goToSlide(currentIndex - 1); }
+    function nextSlide() { if (currentIndex < slideData.length - 1) goToSlide(currentIndex + 1); }
 
     // =========================================================================
-    // Render Grid / Mobile Student Quick-Copy Mode
+    // Student Solo-Card Renderer (Strict Focus — Only Current Step!)
     // =========================================================================
-    function setFilter(f, btn) {
-      currentFilter = f;
-      document.querySelectorAll('.filter-pill').forEach(b => b.classList.remove('active'));
-      if (btn) btn.classList.add('active');
-      renderGrid();
-    }
+    function renderSoloCard(slideId) {
+      const slide = slideData.find(s => s.id === slideId) || slideData[3];
+      document.getElementById('lecturerNav').innerHTML = `
+        <a class="btn btn-accent btn-sm" href="https://notebooklm.google.com/" target="_blank" rel="noopener noreferrer">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> 開啟 NotebookLM
+        </a>
+      `;
+      document.getElementById('stageView').classList.add('hidden');
+      const solo = document.getElementById('soloView');
+      solo.classList.remove('hidden');
 
-    function renderGrid(highlightId = null) {
-      const q = (document.getElementById('searchInput')?.value || '').trim().toLowerCase();
-      const filtered = cardData.filter(c => {
-        if (currentFilter !== 'all' && c.session !== currentFilter) return false;
-        if (!q) return true;
-        const blob = [c.title, c.quote, ...c.outline, ...c.prompts.map(p => p.text)].join(' ').toLowerCase();
-        return blob.includes(q);
-      });
+      const stepsHtml = (slide.steps || []).map(st => `<div class="step-chip">${st}</div>`).join('');
 
-      const grid = document.getElementById('cardsGrid');
-      if (!filtered.length) {
-        grid.innerHTML = `<p style="grid-column:1/-1; text-align:center; color:var(--muted); padding:32px;">找不到符合「${escapeHtml(q)}」的卡片</p>`;
-        return;
-      }
-
-      grid.innerHTML = filtered.map(c => {
-        const sessionClass = c.session === 's2' ? 'session2' : '';
-        const sourceBtns = c.source ? `
-          <div style="display:flex; flex-wrap:wrap; gap:8px;">
-            <button class="btn btn-accent btn-sm" style="flex:1;" onclick="copySourceUrl('${c.source.relUrl}')">
-              <i class="fa-solid fa-link"></i> 複製教材網址
+      const sourceHtml = slide.source ? `
+        <div class="solo-section">
+          <div class="solo-section-title"><i class="fa-solid fa-folder-open"></i> 步驟一：取得本關教材（免下載）</div>
+          <p style="margin:0 0 10px; font-size:0.94rem; color:var(--muted); font-weight:700;">${slide.source.title}</p>
+          <div style="display:grid; gap:10px;">
+            <button class="btn btn-accent" style="width:100%; padding:14px 18px; font-size:1.02rem;" onclick="copySourceUrl('${slide.source.relUrl}')">
+              <i class="fa-solid fa-link"></i> 一鍵複製「教材網址」（貼 NotebookLM 網站）
             </button>
-            <button class="btn btn-soft btn-sm" style="flex:1;" onclick="copyFullText('${c.source.fullTextKey}')">
-              <i class="fa-regular fa-paste"></i> 複製教材全文
+            <button class="btn btn-white" style="width:100%; padding:12px 18px; font-size:0.96rem;" onclick="copyFullText('${slide.source.fullTextKey}')">
+              <i class="fa-regular fa-paste"></i> 備案：一鍵複製「教材全文」（貼文字 0 失敗）
             </button>
           </div>
-        ` : '';
+        </div>
+      ` : '';
 
-        const promptBlocks = c.prompts.map((p, idx) => `
-          <div class="prompt-item" style="margin-bottom:6px;">
-            <div class="prompt-head">
-              <span class="prompt-label">${p.label}</span>
-              <button class="btn btn-primary btn-sm" onclick="copyCardPrompt(${c.id}, ${idx})">
-                <i class="fa-regular fa-copy"></i> 一鍵複製
-              </button>
-            </div>
-            <p class="prompt-text" style="font-size:0.9rem;">${escapeHtml(p.text)}</p>
+      const promptsHtml = (slide.prompts || []).map((p, idx) => `
+        <div class="prompt-item">
+          <div class="prompt-head">
+            <span class="prompt-label">${p.label}</span>
           </div>
-        `).join('');
+          <p class="prompt-text">${escapeHtml(p.text)}</p>
+          <button class="btn btn-primary" style="width:100%; padding:13px 18px; font-size:1.02rem; margin-top:8px;" onclick="copySlidePrompt(${slide.id}, ${idx})">
+            <i class="fa-regular fa-copy"></i> 一鍵複製這段提示詞
+          </button>
+        </div>
+      `).join('');
 
-        return `
-          <div class="grid-card ${highlightId === c.id ? 'highlighted' : ''}" id="grid-card-${c.id}">
-            <div class="card-header-row" style="margin-bottom:0;">
-              <span class="tag-pill ${sessionClass}">${c.emoji} ${c.sessionName}</span>
-              <span class="card-code">CARD ${c.code}</span>
-            </div>
-            <h3>${c.title}</h3>
-            <ul class="grid-outline">
-              ${c.outline.slice(0, 2).map(o => `<li>${o}</li>`).join('')}
-            </ul>
-            ${sourceBtns}
-            <div>${promptBlocks}</div>
-            <div class="grid-actions">
-              <button class="btn btn-white btn-sm" onclick="jumpToStage(${c.id})">
-                <i class="fa-solid fa-display"></i> 大螢幕簡報
-              </button>
-              <button class="btn btn-dark btn-sm" onclick="openQrModalForId(${c.id})">
-                <i class="fa-solid fa-qrcode"></i> 本卡 QR
-              </button>
-              ${c.clipping ? `<button class="btn btn-soft btn-sm" onclick="openImgModal('${c.clipping.img}', '${c.clipping.title}')"><i class="fa-regular fa-newspaper"></i> 剪報</button>` : ''}
-            </div>
+      solo.innerHTML = `
+        <div class="solo-card">
+          <div class="slide-meta-row" style="margin-bottom:10px;">
+            <span class="tag-pill ${slide.session}">${slide.sessionName}</span>
+            <span class="slide-progress">第 ${slide.code} 關實作包</span>
           </div>
-        `;
-      }).join('');
-    }
+          <h2 style="font-size:1.48rem; font-weight:900; margin:6px 0 14px; line-height:1.35;">${slide.title}</h2>
 
-    function jumpToStage(cardId) {
-      const idx = cardData.findIndex(c => c.id === cardId);
-      if (idx >= 0) {
-        currentIndex = idx;
-        isFlipped = false;
-        switchMode('stage');
-        renderStage();
-      }
-    }
+          ${stepsHtml ? `
+            <div class="solo-section">
+              <div class="solo-section-title"><i class="fa-solid fa-list-check"></i> 跟著老師做三步驟</div>
+              ${stepsHtml}
+            </div>
+          ` : ''}
 
-    function switchMode(mode) {
-      currentMode = mode;
-      document.getElementById('stageView').classList.toggle('hidden', mode !== 'stage');
-      document.getElementById('gridView').classList.toggle('hidden', mode !== 'grid');
-      document.getElementById('btnModeStage').classList.toggle('active', mode === 'stage');
-      document.getElementById('btnModeGrid').classList.toggle('active', mode === 'grid');
-      if (mode === 'grid') renderGrid();
+          ${sourceHtml}
+
+          ${promptsHtml ? `
+            <div class="solo-section">
+              <div class="solo-section-title"><i class="fa-solid fa-comment-dots"></i> 點一下複製 → 切回 NotebookLM 貼上</div>
+              ${promptsHtml}
+            </div>
+          ` : ''}
+
+          <a class="btn btn-dark" style="width:100%; padding:14px 18px; font-size:1.04rem;" href="https://notebooklm.google.com/" target="_blank" rel="noopener noreferrer">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i> 前往 NotebookLM 貼上使用
+          </a>
+        </div>
+      `;
     }
 
     // =========================================================================
-    // Copy Helpers
+    // Copy & QR Helpers
     // =========================================================================
-    function copyCardPrompt(cardId, pIdx) {
-      const card = cardData.find(c => c.id === cardId);
-      if (!card || !card.prompts[pIdx]) return;
-      copyText(card.prompts[pIdx].text, '✅ 提示詞已複製！請切回 NotebookLM 貼上');
+    function copySlidePrompt(slideId, pIdx) {
+      const s = slideData.find(x => x.id === slideId);
+      if (!s || !s.prompts || !s.prompts[pIdx]) return;
+      copyText(s.prompts[pIdx].text, '✅ 提示詞已複製！請切回 NotebookLM 貼上');
     }
 
     function copySourceUrl(relUrl) {
-      const fullUrl = getSourceFullUrl(relUrl);
-      copyText(fullUrl, '✅ 教材網址已複製！到 NotebookLM「新增來源 → 網站」貼上');
+      copyText(getSourceFullUrl(relUrl), '✅ 教材網址已複製！到 NotebookLM「新增來源 → 網站」貼上');
     }
 
     function copyFullText(key) {
@@ -1649,30 +1504,11 @@
       copyText(FULL_TEXT_SOURCES[key], '✅ 教材全文已複製！到 NotebookLM「新增來源 → 複製的文字」貼上');
     }
 
-    // =========================================================================
-    // QR Code Modal
-    // =========================================================================
-    let qrModalCardId = 1;
-
     function openQrModal(target = 'card') {
-      qrModalCardId = cardData[currentIndex].id;
-      openQrModalForId(qrModalCardId, target);
-    }
-
-    function openQrModalForId(cardId, target = 'card') {
-      qrModalCardId = cardId;
+      const slide = slideData[currentIndex];
+      qrModalSlideId = slide.id;
       qrTarget = target;
-      const card = cardData.find(c => c.id === cardId) || cardData[0];
-
-      const sourceTab = document.getElementById('qrTabSource');
-      sourceTab.classList.toggle('hidden', !card.source);
-
-      const isLocal = window.location.protocol === 'file:';
-      document.getElementById('localFileWarn').classList.toggle('hidden', !isLocal);
-      if (isLocal) {
-        document.getElementById('customBaseUrl').value = localStorage.getItem('puti_1124_base_url') || '';
-      }
-
+      document.getElementById('qrTabSource').classList.toggle('hidden', !slide.source);
       document.getElementById('qrModal').classList.add('open');
       renderQrCode();
     }
@@ -1682,30 +1518,25 @@
       renderQrCode();
     }
 
-    function saveCustomBaseUrl(val) {
-      localStorage.setItem('puti_1124_base_url', val.trim());
-      renderQrCode();
-    }
-
     function getActiveQrUrl() {
-      const card = cardData.find(c => c.id === qrModalCardId) || cardData[0];
-      if (qrTarget === 'source' && card.source) return getSourceFullUrl(card.source.relUrl);
-      return getCardDeepLink(card.id);
+      const slide = slideData.find(s => s.id === qrModalSlideId) || slideData[0];
+      if (qrTarget === 'source' && slide.source) return getSourceFullUrl(slide.source.relUrl);
+      return getSoloLink(slide.id);
     }
 
     function renderQrCode() {
-      const card = cardData.find(c => c.id === qrModalCardId) || cardData[0];
+      const slide = slideData.find(s => s.id === qrModalSlideId) || slideData[0];
       const url = getActiveQrUrl();
 
       document.getElementById('qrTabCard').classList.toggle('active', qrTarget === 'card');
       document.getElementById('qrTabSource').classList.toggle('active', qrTarget === 'source');
 
-      if (qrTarget === 'source' && card.source) {
-        document.getElementById('qrModalTitle').textContent = `📄 ${card.source.title}`;
+      if (qrTarget === 'source' && slide.source) {
+        document.getElementById('qrModalTitle').textContent = `📄 ${slide.source.title}`;
         document.getElementById('qrModalDesc').textContent = '掃碼直接開啟教材頁，或複製網址貼進 NotebookLM';
       } else {
-        document.getElementById('qrModalTitle').textContent = `🎯 CARD ${card.code}｜${card.title}`;
-        document.getElementById('qrModalDesc').textContent = '手機掃碼只會看到本張實作包，點一下就複製！';
+        document.getElementById('qrModalTitle').textContent = `🎯 第 ${slide.code} 關｜${slide.title}`;
+        document.getElementById('qrModalDesc').textContent = '手機掃碼只會看到這一關的複製包，專心跟課不破梗！';
       }
 
       document.getElementById('qrUrlText').textContent = url;
@@ -1713,8 +1544,8 @@
       box.innerHTML = '';
       new QRCode(box, {
         text: url,
-        width: 260,
-        height: 260,
+        width: 268,
+        height: 268,
         colorDark: '#221C1A',
         colorLight: '#FFFFFF',
         correctLevel: QRCode.CorrectLevel.M
@@ -1725,126 +1556,41 @@
       copyText(getActiveQrUrl(), '✅ 已複製 QR Code 對應網址！');
     }
 
-    // Lightbox
     function openImgModal(imgSrc, title) {
       document.getElementById('imgModalSrc').src = imgSrc;
       document.getElementById('imgModalTitle').textContent = title;
       document.getElementById('imgModal').classList.add('open');
     }
 
-    function closeModal(id) {
-      document.getElementById(id).classList.remove('open');
-    }
-
-    function closeModalOnBackdrop(e, id) {
-      if (e.target.id === id) closeModal(id);
-    }
-
-    function escapeHtml(str) {
-      return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-    }
+    function closeModal(id) { document.getElementById(id).classList.remove('open'); }
+    function closeModalOnBackdrop(e, id) { if (e.target.id === id) closeModal(id); }
 
     // =========================================================================
-    // Keyboard Shortcuts (For Lecturer Stage Mode)
+    // Keyboard Shortcuts
     // =========================================================================
     document.addEventListener('keydown', (e) => {
       if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
-      const qrOpen = document.getElementById('qrModal').classList.contains('open');
-      const imgOpen = document.getElementById('imgModal').classList.contains('open');
+      if (e.key === 'Escape') { closeModal('qrModal'); closeModal('imgModal'); return; }
+      if (document.getElementById('qrModal').classList.contains('open') ||
+          document.getElementById('imgModal').classList.contains('open')) return;
+      if (!document.getElementById('soloView').classList.contains('hidden')) return;
 
-      if (e.key === 'Escape') {
-        closeModal('qrModal');
-        closeModal('imgModal');
-        return;
+      if (e.key === 'ArrowRight') { e.preventDefault(); nextSlide(); }
+      else if (e.key === 'ArrowLeft') { e.preventDefault(); prevSlide(); }
+      else if (e.key === 'q' || e.key === 'Q') {
+        const s = slideData[currentIndex];
+        if (s.source || (s.prompts && s.prompts.length)) {
+          e.preventDefault();
+          openQrModal('card');
+        }
+      } else if (['1', '2', '3', '4'].includes(e.key)) {
+        const idx = parseInt(e.key, 10) - 1;
+        toggleMiniCard(idx);
       }
-      if (qrOpen || imgOpen) return;
-
-      if (e.key === 'q' || e.key === 'Q') {
-        e.preventDefault();
-        openQrModal('card');
-        return;
-      }
-      if (currentMode !== 'stage') return;
-
-      if (e.key === 'ArrowRight') { e.preventDefault(); nextCard(); }
-      else if (e.key === 'ArrowLeft') { e.preventDefault(); prevCard(); }
-      else if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); flipCard(); }
     });
 
     // =========================================================================
-    // Student Solo-Card Renderer (Strict Focus Mode — No Peeking Ahead!)
-    // =========================================================================
-    function renderSoloCard(cardId) {
-      const card = cardData.find(c => c.id === cardId) || cardData[0];
-      const sessionClass = card.session === 's2' ? 'session2' : '';
-
-      // Hide lecturer controls in navbar & stage/grid views
-      document.querySelector('.mode-switch')?.classList.add('hidden');
-      document.querySelector('.theme-dots')?.classList.add('hidden');
-      document.querySelectorAll('.nav-actions .btn-primary').forEach(b => b.classList.add('hidden'));
-      document.getElementById('stageView').classList.add('hidden');
-      document.getElementById('gridView').classList.add('hidden');
-      const solo = document.getElementById('soloView');
-      solo.classList.remove('hidden');
-
-      const stepsHtml = card.steps.map(s => `<div class="step-chip">${s}</div>`).join('');
-
-      const sourceHtml = card.source ? `
-        <div class="back-section">
-          <div class="back-section-title"><i class="fa-solid fa-folder-open"></i> 步驟一：取得本關教材（免下載檔案）</div>
-          <p style="margin:0 0 10px; font-size:0.92rem; color:var(--muted);">${card.source.title}</p>
-          <div style="display:grid; gap:10px;">
-            <button class="btn btn-accent" style="width:100%; padding:13px 18px; font-size:1rem;" onclick="copySourceUrl('${card.source.relUrl}')">
-              <i class="fa-solid fa-link"></i> 一鍵複製「教材網址」（貼到 NotebookLM 網站）
-            </button>
-            <button class="btn btn-soft" style="width:100%; padding:12px 18px; font-size:0.96rem;" onclick="copyFullText('${card.source.fullTextKey}')">
-              <i class="fa-regular fa-paste"></i> 備案：一鍵複製「教材全文」（貼到複製的文字）
-            </button>
-          </div>
-        </div>
-      ` : '';
-
-      const promptsHtml = card.prompts.map((p, idx) => `
-        <div class="prompt-item">
-          <div class="prompt-head">
-            <span class="prompt-label">${p.label}</span>
-          </div>
-          <p class="prompt-text">${escapeHtml(p.text)}</p>
-          <button class="btn btn-primary" style="width:100%; padding:13px 18px; font-size:1rem; margin-top:4px;" onclick="copyCardPrompt(${card.id}, ${idx})">
-            <i class="fa-regular fa-copy"></i> 一鍵複製這段提示詞
-          </button>
-        </div>
-      `).join('');
-
-      solo.innerHTML = `
-        <div style="background:#fff; border-radius:28px; border:2px solid var(--border); padding:22px 20px; box-shadow:0 12px 32px var(--shadow);">
-          <div class="card-header-row">
-            <span class="tag-pill ${sessionClass}">${card.emoji} ${card.sessionName}</span>
-            <span class="card-code">CARD ${card.code} 實作包</span>
-          </div>
-          <h2 style="font-size:1.45rem; font-weight:900; margin:6px 0 12px; line-height:1.35;">${card.title}</h2>
-
-          <div class="back-section">
-            <div class="back-section-title"><i class="fa-solid fa-list-check"></i> 跟著老師做三步驟</div>
-            <div class="steps-row">${stepsHtml}</div>
-          </div>
-
-          ${sourceHtml}
-
-          <div class="back-section">
-            <div class="back-section-title"><i class="fa-solid fa-comment-dots"></i> 點一下複製 → 切回 NotebookLM 貼上</div>
-            ${promptsHtml}
-          </div>
-
-          <a class="btn btn-dark" style="width:100%; padding:13px 18px; font-size:1rem;" href="https://notebooklm.google.com/" target="_blank" rel="noopener noreferrer">
-            <i class="fa-solid fa-arrow-up-right-from-square"></i> 前往 NotebookLM 貼上使用
-          </a>
-        </div>
-      `;
-    }
-
-    // =========================================================================
-    // Init: Restore Theme & Solo-Card Lock Mode (?card=X)
+    // Init
     // =========================================================================
     (function init() {
       const savedTheme = localStorage.getItem('puti_1124_theme');
@@ -1856,25 +1602,24 @@
         if (dots[map[savedTheme]]) dots[map[savedTheme]].classList.add('active');
       }
 
-      // Check ?card=X (Student QR Code scan -> Strict Solo-Card Mode, no peeking!)
+      // Strict Solo-Card Mode for Students scanning QR Code (?card=X)
       const params = new URLSearchParams(window.location.search);
-      const soloCardParam = params.get('card');
-      if (soloCardParam) {
-        const soloId = parseInt(soloCardParam, 10);
+      const soloParam = params.get('card');
+      if (soloParam) {
+        const soloId = parseInt(soloParam, 10);
         if (!isNaN(soloId)) {
           renderSoloCard(soloId);
           return;
         }
       }
 
-      // Lecturer full deck mode
-      const hashMatch = window.location.hash.match(/card-(\d+)/);
+      const hashMatch = window.location.hash.match(/slide-(\d+)/);
       if (hashMatch) {
-        const idx = cardData.findIndex(c => c.id === parseInt(hashMatch[1], 10));
+        const idx = slideData.findIndex(s => s.id === parseInt(hashMatch[1], 10));
         if (idx >= 0) currentIndex = idx;
       }
 
-      renderStage();
+      renderSlide();
     })();
   </script>
 </body>
