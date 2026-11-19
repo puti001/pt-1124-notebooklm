@@ -539,6 +539,9 @@
         <a class="btn btn-soft btn-sm" href="icebreaker.html">
           <i class="fa-solid fa-fire"></i> 課前破冰
         </a>
+        <a class="btn btn-soft btn-sm" href="live.html">
+          <i class="fa-solid fa-bolt"></i> 即時黑板
+        </a>
         <button class="btn btn-primary btn-sm" id="navQrBtn" onclick="openQrModal('card')">
           <i class="fa-solid fa-qrcode"></i> 本關 QR Code
         </button>
@@ -1437,6 +1440,12 @@
           <div class="thumb-title">課前破冰</div>
         </a>
       `;
+      const liveBtn = `
+        <a class="thumb-item" href="live.html" style="text-decoration:none; color:inherit; border-color:var(--accent); background:var(--accent-soft);" title="現場即時提示詞黑板">
+          <div class="thumb-num" style="color:#0F766E;">⚡ 即時</div>
+          <div class="thumb-title">即時黑板</div>
+        </a>
+      `;
       strip.innerHTML = iceBtn + slideData.map((s, idx) => {
         const hasPractice = !!(s.source || (s.prompts && s.prompts.length));
         return `
@@ -1445,7 +1454,7 @@
             <div class="thumb-title">${s.shortTitle}</div>
           </button>
         `;
-      }).join('');
+      }).join('') + liveBtn;
       const activeEl = strip.querySelector('.thumb-item.active');
       if (activeEl) activeEl.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
     }
