@@ -505,7 +505,7 @@
         <div class="brand-icon"><i class="fa-solid fa-book-sparkles"></i></div>
         <div>
           <h1 class="brand-title">Puti-AI｜Gemini Notebook 減法工作術</h1>
-          <p class="brand-sub">115.11.24 屏東縣社群召集人工作坊・大字互動翻轉簡報</p>
+          <p class="brand-sub">115.11.24 屏東縣社群召集人研習工作坊</p>
         </div>
       </div>
 
@@ -520,10 +520,10 @@
           <i class="fa-solid fa-volume-high"></i> 音效開
         </button>
         <button class="btn btn-primary btn-sm" id="navQrBtn" onclick="openQrModal('card')">
-          <i class="fa-solid fa-qrcode"></i> 本關實作 QR（Q）
+          <i class="fa-solid fa-qrcode"></i> 本關 QR Code
         </button>
         <a class="btn btn-accent btn-sm" href="https://notebooklm.google.com/" target="_blank" rel="noopener noreferrer">
-          <i class="fa-solid fa-arrow-up-right-from-square"></i> NotebookLM
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> Gemini Notebook
         </a>
       </div>
     </div>
@@ -549,8 +549,8 @@
             下一頁 <i class="fa-solid fa-chevron-right"></i>
           </button>
         </div>
-        <div class="action-group" style="font-size:0.88rem; color:var(--muted); font-weight:700;">
-          ⌨️ 快捷鍵：數字 1~4 翻小卡｜← → 換頁｜Q 顯示本關 QR
+        <div class="action-group" style="font-size:0.86rem; color:var(--muted); font-weight:700;">
+          1~4 翻卡｜← → 換頁｜Q 顯示 QR
         </div>
       </div>
 
@@ -566,11 +566,11 @@
     <div class="modal-box">
       <button class="modal-close" onclick="closeModal('qrModal')" aria-label="關閉"><i class="fa-solid fa-xmark"></i></button>
       <h2 style="margin:0 0 4px; font-size:1.35rem;" id="qrModalTitle">📱 本關實作 QR Code</h2>
-      <p style="margin:0; font-size:0.92rem; color:var(--muted);" id="qrModalDesc">掃碼只會看到這一關的複製包，不會跳到後面！</p>
+      <p style="margin:0; font-size:0.92rem; color:var(--muted);" id="qrModalDesc">請開啟手機相機掃描，即可一鍵複製本關教材與提示詞</p>
 
       <div class="qr-tabs" id="qrTabs">
-        <button class="qr-tab active" id="qrTabCard" onclick="switchQrTarget('card')">🎯 本關實作複製包</button>
-        <button class="qr-tab hidden" id="qrTabSource" onclick="switchQrTarget('source')">📄 本關教材網頁</button>
+        <button class="qr-tab active" id="qrTabCard" onclick="switchQrTarget('card')">🎯 本關實作包</button>
+        <button class="qr-tab hidden" id="qrTabSource" onclick="switchQrTarget('source')">📄 教材來源頁</button>
       </div>
 
       <div id="qrCanvasWrap">
@@ -683,7 +683,7 @@
         code: "02",
         session: "s1",
         sessionName: "第一節｜核心武器",
-        title: "為什麼選 NotebookLM？三大關鍵優勢",
+        title: "為什麼選 Gemini Notebook？三大關鍵優勢",
         quote: "「Google 免費推出的專屬備課大腦，徹底解決教師不敢用、不會用 AI 的三大門檻！」",
         clipping: {
           title: "國語日報第一篇（115.09.16）不用學提示詞且免費使用",
@@ -773,28 +773,28 @@
         session: "s1",
         sessionName: "第一節｜零下載實作",
         title: "手機免下載！2 招秒速匯入教材",
-        quote: "「200 人用手機最怕下載檔案找不到！今天用『貼網址』＋『貼文字』雙保險，30 秒全員達陣！」",
+        quote: "「手機不用下載檔案！善用『貼網址』或『貼文字』，30 秒快速建立筆記本！」",
         clipping: null,
         cards: [
           {
             emoji: "🔗",
             frontTitle: "招式一：貼上教材網址",
-            frontSub: "最推薦・10 秒完成",
-            backBody: "掃本關 QR Code → 按「一鍵複製教材網址」→ 切回 NotebookLM → 新增來源 → 網站 → 貼上！",
-            backNote: "✨ 教材 A：〈孫悟空三借芭蕉扇〉專屬靜態頁"
+            frontSub: "10 秒完成",
+            backBody: "複製教材網址 → 進入 Gemini Notebook → 新增來源 → 網站 → 貼上！",
+            backNote: "✨ 教材 A：〈孫悟空三借芭蕉扇〉課文與重點"
           },
           {
             emoji: "📋",
             frontTitle: "招式二：貼上純文字",
-            frontSub: "0 失敗終極備案",
-            backBody: "萬一現場網路慢，直接按「複製教材全文」→ 新增來源 → 複製的文字 → 貼上送出，100% 必過！",
-            backNote: "✨ 完全不怕網站擋爬蟲，最穩的一招"
+            frontSub: "最穩定方式",
+            backBody: "直接複製教材全文 → 新增來源 → 複製的文字 → 貼上送出，快速又穩定！",
+            backNote: "✨ 任何講義或文字筆記都能直接貼"
           }
         ],
         steps: [
-          "① 點下方「🔗 一鍵複製教材網址」（或點備案「複製教材全文」）",
-          "② 切到 NotebookLM → 點「新增來源」→ 選「網站」或「複製的文字」",
-          "③ 貼上並送出，再用下方暖身指令測試零幻覺回答！"
+          "① 點下方「🔗 一鍵複製教材網址」或「📋 一鍵複製教材全文」",
+          "② 進入 Gemini Notebook → 新增來源 → 網站（或複製的文字）",
+          "③ 貼上並送出，再用下方指令測試回答效果！"
         ],
         source: {
           title: "教材 A：〈孫悟空三借芭蕉扇〉課文與備課重點",
@@ -1288,7 +1288,7 @@
               <div class="mini-emoji">${c.emoji}</div>
               <h3 class="mini-front-title">${c.frontTitle}</h3>
               <span class="mini-front-sub">${c.frontSub}</span>
-              <span class="mini-tap-hint"><i class="fa-solid fa-hand-pointer"></i> 點擊翻開（按 ${idx + 1}）</span>
+              <span class="mini-tap-hint"><i class="fa-solid fa-hand-pointer"></i> 點擊翻面</span>
             </div>
             <div class="mini-face back">
               <div class="mini-back-head">
@@ -1310,12 +1310,12 @@
 
       const practiceBtns = hasPractice
         ? `<button class="btn btn-white btn-sm" onclick="togglePromptDrawer()">
-             <i class="fa-regular fa-eye"></i> 講師預覽本關提示詞
+             <i class="fa-regular fa-eye"></i> 檢視本關提示詞
            </button>
            <button class="btn btn-primary" onclick="openQrModal('card')">
-             <i class="fa-solid fa-qrcode"></i> 顯示本關 QR Code 給現場掃
+             <i class="fa-solid fa-qrcode"></i> 顯示本關 QR Code
            </button>`
-        : `<span style="font-size:0.95rem; font-weight:700; color:var(--muted);">👆 依序點擊上方小卡翻面講解</span>`;
+        : `<span style="font-size:0.92rem; font-weight:700; color:var(--muted);">點擊上方卡片展開說明</span>`;
 
       let drawerHtml = '';
       if (hasPractice) {
@@ -1419,7 +1419,7 @@
       const slide = slideData.find(s => s.id === slideId) || slideData[3];
       document.getElementById('lecturerNav').innerHTML = `
         <a class="btn btn-accent btn-sm" href="https://notebooklm.google.com/" target="_blank" rel="noopener noreferrer">
-          <i class="fa-solid fa-arrow-up-right-from-square"></i> 開啟 NotebookLM
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> 開啟 Gemini Notebook
         </a>
       `;
       document.getElementById('stageView').classList.add('hidden');
@@ -1430,14 +1430,14 @@
 
       const sourceHtml = slide.source ? `
         <div class="solo-section">
-          <div class="solo-section-title"><i class="fa-solid fa-folder-open"></i> 步驟一：取得本關教材（免下載）</div>
+          <div class="solo-section-title"><i class="fa-solid fa-folder-open"></i> 步驟一：複製本關教材</div>
           <p style="margin:0 0 10px; font-size:0.94rem; color:var(--muted); font-weight:700;">${slide.source.title}</p>
           <div style="display:grid; gap:10px;">
             <button class="btn btn-accent" style="width:100%; padding:14px 18px; font-size:1.02rem;" onclick="copySourceUrl('${slide.source.relUrl}')">
-              <i class="fa-solid fa-link"></i> 一鍵複製「教材網址」（貼 NotebookLM 網站）
+              <i class="fa-solid fa-link"></i> 一鍵複製「教材網址」（貼到網站來源）
             </button>
             <button class="btn btn-white" style="width:100%; padding:12px 18px; font-size:0.96rem;" onclick="copyFullText('${slide.source.fullTextKey}')">
-              <i class="fa-regular fa-paste"></i> 備案：一鍵複製「教材全文」（貼文字 0 失敗）
+              <i class="fa-regular fa-paste"></i> 一鍵複製「教材全文」（貼到複製的文字）
             </button>
           </div>
         </div>
@@ -1450,7 +1450,7 @@
           </div>
           <p class="prompt-text">${escapeHtml(p.text)}</p>
           <button class="btn btn-primary" style="width:100%; padding:13px 18px; font-size:1.02rem; margin-top:8px;" onclick="copySlidePrompt(${slide.id}, ${idx})">
-            <i class="fa-regular fa-copy"></i> 一鍵複製這段提示詞
+            <i class="fa-regular fa-copy"></i> 一鍵複製提示詞
           </button>
         </div>
       `).join('');
@@ -1465,7 +1465,7 @@
 
           ${stepsHtml ? `
             <div class="solo-section">
-              <div class="solo-section-title"><i class="fa-solid fa-list-check"></i> 跟著老師做三步驟</div>
+              <div class="solo-section-title"><i class="fa-solid fa-list-check"></i> 實作三步驟</div>
               ${stepsHtml}
             </div>
           ` : ''}
@@ -1474,13 +1474,13 @@
 
           ${promptsHtml ? `
             <div class="solo-section">
-              <div class="solo-section-title"><i class="fa-solid fa-comment-dots"></i> 點一下複製 → 切回 NotebookLM 貼上</div>
+              <div class="solo-section-title"><i class="fa-solid fa-comment-dots"></i> 複製提示詞</div>
               ${promptsHtml}
             </div>
           ` : ''}
 
           <a class="btn btn-dark" style="width:100%; padding:14px 18px; font-size:1.04rem;" href="https://notebooklm.google.com/" target="_blank" rel="noopener noreferrer">
-            <i class="fa-solid fa-arrow-up-right-from-square"></i> 前往 NotebookLM 貼上使用
+            <i class="fa-solid fa-arrow-up-right-from-square"></i> 開啟 Gemini Notebook
           </a>
         </div>
       `;
@@ -1492,16 +1492,16 @@
     function copySlidePrompt(slideId, pIdx) {
       const s = slideData.find(x => x.id === slideId);
       if (!s || !s.prompts || !s.prompts[pIdx]) return;
-      copyText(s.prompts[pIdx].text, '✅ 提示詞已複製！請切回 NotebookLM 貼上');
+      copyText(s.prompts[pIdx].text, '✅ 提示詞已複製！請貼入 Gemini Notebook');
     }
 
     function copySourceUrl(relUrl) {
-      copyText(getSourceFullUrl(relUrl), '✅ 教材網址已複製！到 NotebookLM「新增來源 → 網站」貼上');
+      copyText(getSourceFullUrl(relUrl), '✅ 教材網址已複製！請貼入「新增來源 → 網站」');
     }
 
     function copyFullText(key) {
       if (!FULL_TEXT_SOURCES[key]) return;
-      copyText(FULL_TEXT_SOURCES[key], '✅ 教材全文已複製！到 NotebookLM「新增來源 → 複製的文字」貼上');
+      copyText(FULL_TEXT_SOURCES[key], '✅ 教材全文已複製！請貼入「新增來源 → 複製的文字」');
     }
 
     function openQrModal(target = 'card') {
@@ -1533,10 +1533,10 @@
 
       if (qrTarget === 'source' && slide.source) {
         document.getElementById('qrModalTitle').textContent = `📄 ${slide.source.title}`;
-        document.getElementById('qrModalDesc').textContent = '掃碼直接開啟教材頁，或複製網址貼進 NotebookLM';
+        document.getElementById('qrModalDesc').textContent = '請掃描開啟教材頁面，或複製網址貼入 Gemini Notebook';
       } else {
         document.getElementById('qrModalTitle').textContent = `🎯 第 ${slide.code} 關｜${slide.title}`;
-        document.getElementById('qrModalDesc').textContent = '手機掃碼只會看到這一關的複製包，專心跟課不破梗！';
+        document.getElementById('qrModalDesc').textContent = '請開啟手機相機掃描，即可一鍵複製本關教材與提示詞';
       }
 
       document.getElementById('qrUrlText').textContent = url;
