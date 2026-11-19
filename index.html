@@ -373,21 +373,21 @@
     }
     .thumb-strip {
       display: flex;
-      gap: 10px;
+      gap: 8px;
       overflow-x: auto;
       padding: 10px 2px 6px;
       margin-top: 10px;
       scrollbar-width: thin;
     }
     .thumb-item {
-      flex: 0 0 auto;
-      min-width: 148px;
+      flex: 0 0 100px;
+      width: 100px;
       background: #fff;
       border: 2px solid var(--border);
-      border-radius: 18px;
-      padding: 10px 13px;
+      border-radius: 16px;
+      padding: 9px 6px;
       cursor: pointer;
-      text-align: left;
+      text-align: center;
       transition: all 0.2s;
     }
     .thumb-item:hover { transform: translateY(-2px); border-color: var(--secondary); }
@@ -396,10 +396,10 @@
       background: var(--bg-soft);
       box-shadow: 0 6px 16px var(--shadow);
     }
-    .thumb-num { font-size: 0.78rem; font-weight: 900; color: var(--primary); }
+    .thumb-num { font-size: 0.76rem; font-weight: 900; color: var(--primary); }
     .thumb-title {
-      font-size: 0.88rem; font-weight: 700; margin-top: 2px;
-      display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+      font-size: 0.84rem; font-weight: 700; margin-top: 3px;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
     }
 
     /* Student Solo-Card Mode (Strict Focus — Only Current Step!) */
@@ -643,6 +643,7 @@
       {
         id: 1,
         code: "01",
+        shortTitle: "AI 焦慮來源",
         session: "s1",
         sessionName: "第一節｜破冰觀念",
         title: "為什麼老師越學 AI 越焦慮？",
@@ -681,9 +682,10 @@
       {
         id: 2,
         code: "02",
+        shortTitle: "三大優勢",
         session: "s1",
         sessionName: "第一節｜核心武器",
-        title: "為什麼選 Gemini Notebook？三大關鍵優勢",
+        title: "為什麼選 Gemini Notebook？",
         quote: "「Google 免費推出的專屬備課大腦，徹底解決教師不敢用、不會用 AI 的三大門檻！」",
         clipping: {
           title: "國語日報第一篇（115.09.16）不用學提示詞且免費使用",
@@ -719,9 +721,10 @@
       {
         id: 3,
         code: "03",
+        shortTitle: "四步驟開張",
         session: "s1",
         sessionName: "第一節｜建置起手式",
-        title: "四步驟開張你的專屬備課大腦",
+        title: "四步驟建立備課大腦",
         quote: "「把每本筆記本想像成一個專屬數位資料夾，分類命名清楚，一整個學期都超好用！」",
         clipping: null,
         cards: [
@@ -770,9 +773,10 @@
       {
         id: 4,
         code: "04",
+        shortTitle: "免下載匯入",
         session: "s1",
         sessionName: "第一節｜零下載實作",
-        title: "手機免下載！2 招秒速匯入教材",
+        title: "手機免下載：2 招匯入教材",
         quote: "「手機不用下載檔案！善用『貼網址』或『貼文字』，30 秒快速建立筆記本！」",
         clipping: null,
         cards: [
@@ -811,9 +815,10 @@
       {
         id: 5,
         code: "05",
+        shortTitle: "讀與聽",
         session: "s1",
         sessionName: "第一節｜讀 ╳ 聽",
-        title: "工作室「九塊肌」：一鍵搞定讀與聽",
+        title: "九塊肌：一鍵搞定讀與聽",
         quote: "「不用寫程式指令，點兩顆預設按鈕，5 分鐘產出閱讀理解單 ＋ 繁體中文 Podcast！」",
         clipping: {
           title: "國語日報第二篇（115.09.30）數位備課箱 打造五面向智慧教學",
@@ -855,9 +860,10 @@
       {
         id: 6,
         code: "06",
+        shortTitle: "說與寫",
         session: "s1",
         sessionName: "第一節｜說 ╳ 寫",
-        title: "說與寫大爆發：角色對話 ╳ 心智圖",
+        title: "說與寫：角色對話 ╳ 心智圖",
         quote: "「讓孫悟空走進教室跟孩子對話，再用一鍵心智圖與差異化改寫幫每個學生搭鷹架！」",
         clipping: {
           title: "國語日報第二篇（115.09.30）心智學習卡 幫助說寫",
@@ -910,9 +916,10 @@
       {
         id: 7,
         code: "07",
+        shortTitle: "三層次評量",
         session: "s1",
         sessionName: "第一節｜精準評量",
-        title: "評：隨堂測驗 ╳ PIRLS 三層次提問",
+        title: "評：測驗 ╳ 三層次提問",
         quote: "「省去出題排版的痛苦，每題附引用出處與參考解答，把深度閱讀討論帶回課堂！」",
         clipping: null,
         cards: [
@@ -954,9 +961,10 @@
       {
         id: 8,
         code: "08",
+        shortTitle: "公文轉通知",
         session: "s2",
         sessionName: "第二節｜公文轉譯",
-        title: "公文一鍵轉譯：溫馨 LINE 通知 ＋ 圖表",
+        title: "公文轉譯：LINE 通知 ＋ 圖表",
         quote: "「公文照貼家長看不完、老師自己重打太耗神？交給小助理 10 秒變出有溫度的通知！」",
         clipping: {
           title: "國語日報第三篇（115.10.14）簡化班級行政庶務 搭建親師溝通橋梁",
@@ -1009,9 +1017,10 @@
       {
         id: 9,
         code: "09",
+        shortTitle: "會議待辦表",
         session: "s2",
         sessionName: "第二節｜會議與研習",
-        title: "雜亂筆記秒變：會議紀錄 ╳ 待辦清單",
+        title: "筆記秒變：會議紀錄 ╳ 待辦",
         quote: "「社群召集人最怕開完會還要整理紀錄！口語雜記丟進去，30 秒產出標準紀錄與分工表。」",
         clipping: null,
         cards: [
@@ -1061,9 +1070,10 @@
       {
         id: 10,
         code: "10",
+        shortTitle: "簡報生成術",
         session: "s2",
         sessionName: "第二節｜簡報減壓",
-        title: "簡報生成術：無中生有 ╳ 舊簡報翻新",
+        title: "簡報術：生成 ╳ 舊檔翻新",
         quote: "「不用再熬夜調對齊！AI 先完成 80% 結構與版面，老師只要專注微調 20% 溫度與照片！」",
         clipping: {
           title: "國語日報第三篇（115.10.14）生成簡報行政減壓",
@@ -1112,9 +1122,10 @@
       {
         id: 11,
         code: "11",
+        shortTitle: "15分微共備",
         session: "s2",
         sessionName: "第二節｜帶回學校用",
-        title: "召集人行動錦囊：回校 15 分鐘微共備",
+        title: "帶回學校：15 分鐘微共備",
         quote: "「科技工具隨時在變，但老師專注於孩子心靈、陪伴成長的溫度，是 AI 永遠無法取代的核心。」",
         clipping: null,
         cards: [
@@ -1394,9 +1405,9 @@
       strip.innerHTML = slideData.map((s, idx) => {
         const hasPractice = !!(s.source || (s.prompts && s.prompts.length));
         return `
-          <button class="thumb-item ${idx === currentIndex ? 'active' : ''}" onclick="goToSlide(${idx})">
-            <div class="thumb-num">${s.code} ${hasPractice ? '📱實作' : '💡觀念'}</div>
-            <div class="thumb-title">${s.title}</div>
+          <button class="thumb-item ${idx === currentIndex ? 'active' : ''}" onclick="goToSlide(${idx})" title="${s.title}">
+            <div class="thumb-num">${s.code} ${hasPractice ? '📱' : '💡'}</div>
+            <div class="thumb-title">${s.shortTitle}</div>
           </button>
         `;
       }).join('');
