@@ -1409,7 +1409,13 @@
 
     function renderThumbs() {
       const strip = document.getElementById('thumbStrip');
-      strip.innerHTML = slideData.map((s, idx) => {
+      const iceBtn = `
+        <a class="thumb-item" href="icebreaker.html" style="text-decoration:none; color:inherit; border-color:var(--primary); background:var(--bg-soft);" title="課前破冰即時心聲牆">
+          <div class="thumb-num">00 🔥</div>
+          <div class="thumb-title">課前破冰</div>
+        </a>
+      `;
+      strip.innerHTML = iceBtn + slideData.map((s, idx) => {
         const hasPractice = !!(s.source || (s.prompts && s.prompts.length));
         return `
           <button class="thumb-item ${idx === currentIndex ? 'active' : ''}" onclick="goToSlide(${idx})" title="${s.title}">
