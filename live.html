@@ -260,7 +260,7 @@
       <div class="nav-actions" id="navActions">
         <a class="btn btn-white btn-icon" href="index.html" title="課程簡報" aria-label="課程簡報"><i class="fa-solid fa-display"></i></a>
         <a class="btn btn-soft btn-icon" href="icebreaker.html" title="課前破冰即時牆" aria-label="課前破冰即時牆"><i class="fa-solid fa-fire"></i></a>
-        <a class="btn btn-padlet btn-icon" href="https://padlet.com/clongwh/1124" target="_blank" rel="noopener noreferrer" title="Padlet 成果驗收牆" aria-label="Padlet 成果驗收牆"><i class="fa-solid fa-thumbtack"></i></a>
+        <button class="btn btn-padlet btn-icon" onclick="openPadletQr()" title="顯示 Padlet 驗收 QR Code" aria-label="顯示 Padlet 驗收 QR Code"><i class="fa-solid fa-thumbtack"></i></button>
         <a class="btn btn-accent btn-icon" href="https://notebooklm.google.com/" target="_blank" rel="noopener noreferrer" title="開啟 Gemini Notebook" aria-label="開啟 Gemini Notebook"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
       </div>
     </div>
@@ -354,10 +354,13 @@
 
   <!-- Fullscreen QR Zoom Modal -->
   <div class="qr-zoom-backdrop" id="qrZoomModal" onclick="closeQrZoom()">
-    <div class="qr-zoom-card" onclick="closeQrZoom()">
+    <div class="qr-zoom-card" onclick="event.stopPropagation(); closeQrZoom()">
       <div id="qrZoomBox"></div>
     </div>
-    <div style="color:#fff; font-size:1.2rem; font-weight:900; text-align:center;">📱 掃碼接收老師即時提示詞（點擊任意處縮小）</div>
+    <div id="qrZoomCaption" style="color:#fff; font-size:1.2rem; font-weight:900; text-align:center;">📱 掃碼接收老師即時提示詞（點擊任意處縮小）</div>
+    <a class="btn btn-accent hidden" id="qrZoomOpenBtn" href="https://padlet.com/clongwh/1124" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">
+      <i class="fa-solid fa-arrow-up-right-from-square"></i> 電腦開啟 Padlet 牆
+    </a>
   </div>
 
   <div class="toast" id="toast">已複製！</div>
@@ -518,19 +521,25 @@
       copyText(studentUrlGlobal, '✅ 已複製學員接收網址！');
     }
 
-    function openQrZoom() {
+    function openQrZoom(customUrl, captionText, showPadletOpen) {
       const box = document.getElementById('qrZoomBox');
       box.innerHTML = '';
-      const size = Math.min(Math.floor(window.innerWidth * 0.72), Math.floor(window.innerHeight * 0.68), 520);
+      const size = Math.min(Math.floor(window.innerWidth * 0.72), Math.floor(window.innerHeight * 0.64), 520);
       new QRCode(box, {
-        text: studentUrlGlobal,
+        text: customUrl || studentUrlGlobal,
         width: size,
         height: size,
         colorDark: '#221C1A',
         colorLight: '#FFFFFF',
         correctLevel: QRCode.CorrectLevel.M
       });
+      document.getElementById('qrZoomCaption').textContent = captionText || '📱 掃碼接收老師即時提示詞（點擊任意處縮小）';
+      document.getElementById('qrZoomOpenBtn').classList.toggle('hidden', !showPadletOpen);
       document.getElementById('qrZoomModal').classList.add('open');
+    }
+
+    function openPadletQr() {
+      openQrZoom('https://padlet.com/clongwh/1124', '📌 掃碼進入 Padlet 貼上實作成果（點擊任意處縮小）', true);
     }
 
     function closeQrZoom() {

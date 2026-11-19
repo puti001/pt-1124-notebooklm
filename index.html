@@ -547,9 +547,9 @@
         <a class="btn btn-soft btn-icon" href="live.html" title="現場即時提示詞黑板" aria-label="現場即時提示詞黑板">
           <i class="fa-solid fa-bolt"></i>
         </a>
-        <a class="btn btn-padlet btn-icon" href="https://padlet.com/clongwh/1124" target="_blank" rel="noopener noreferrer" title="Padlet 成果驗收牆" aria-label="Padlet 成果驗收牆">
+        <button class="btn btn-padlet btn-icon" onclick="openQrModal('padlet')" title="Padlet 成果驗收 QR Code（P）" aria-label="Padlet 成果驗收 QR Code">
           <i class="fa-solid fa-thumbtack"></i>
-        </a>
+        </button>
         <button class="btn btn-primary btn-icon" id="navQrBtn" onclick="openQrModal('card')" title="顯示本關 QR Code（Q）" aria-label="顯示本關 QR Code">
           <i class="fa-solid fa-qrcode"></i>
         </button>
@@ -602,6 +602,7 @@
       <div class="qr-tabs" id="qrTabs">
         <button class="qr-tab active" id="qrTabCard" onclick="switchQrTarget('card')">🎯 本關實作包</button>
         <button class="qr-tab hidden" id="qrTabSource" onclick="switchQrTarget('source')">📄 教材來源頁</button>
+        <button class="qr-tab" id="qrTabPadlet" onclick="switchQrTarget('padlet')">📌 Padlet 驗收牆</button>
       </div>
 
       <div id="qrCanvasWrap" onclick="openQrZoom()" title="點擊全螢幕放大 QR Code">
@@ -613,8 +614,11 @@
 
       <div style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap;">
         <button class="btn btn-primary btn-sm" onclick="copyCurrentQrUrl()">
-          <i class="fa-regular fa-copy"></i> 複製這個網址
+          <i class="fa-regular fa-copy"></i> 複製網址
         </button>
+        <a class="btn btn-accent btn-sm" id="qrOpenLinkBtn" href="#" target="_blank" rel="noopener noreferrer">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> 開啟網址
+        </a>
         <button class="btn btn-white btn-sm" onclick="closeModal('qrModal')">關閉</button>
       </div>
     </div>
@@ -1594,9 +1598,9 @@
         ? `<button class="btn btn-white btn-sm" onclick="togglePromptDrawer()">
              <i class="fa-regular fa-eye"></i> 檢視本關提示詞
            </button>
-           <a class="btn btn-padlet btn-sm" href="https://padlet.com/clongwh/1124" target="_blank" rel="noopener noreferrer">
-             <i class="fa-solid fa-thumbtack"></i> Padlet 驗收（${slide.code} ${slide.shortTitle}）
-           </a>
+           <button class="btn btn-padlet btn-sm" onclick="openQrModal('padlet')">
+             <i class="fa-solid fa-thumbtack"></i> Padlet QR（${slide.code} ${slide.shortTitle}）
+           </button>
            <button class="btn btn-primary" onclick="openQrModal('card')">
              <i class="fa-solid fa-qrcode"></i> 顯示本關 QR Code
            </button>`
@@ -1806,10 +1810,14 @@
       copyText(FULL_TEXT_SOURCES[key], '✅ 教材全文已複製！請貼入「新增來源 → 複製的文字」');
     }
 
+    const PADLET_URL = 'https://padlet.com/clongwh/1124';
+
     function openQrModal(target = 'card') {
       const slide = slideData[currentIndex];
+      const hasPractice = !!(slide.source || (slide.prompts && slide.prompts.length));
       qrModalSlideId = slide.id;
       qrTarget = target;
+      document.getElementById('qrTabCard').classList.toggle('hidden', !hasPractice);
       document.getElementById('qrTabSource').classList.toggle('hidden', !slide.source);
       document.getElementById('qrModal').classList.add('open');
       renderQrCode();
@@ -1822,6 +1830,7 @@
 
     function getActiveQrUrl() {
       const slide = slideData.find(s => s.id === qrModalSlideId) || slideData[0];
+      if (qrTarget === 'padlet') return PADLET_URL;
       if (qrTarget === 'source' && slide.source) return getSourceFullUrl(slide.source.relUrl);
       return getSoloLink(slide.id);
     }
@@ -1832,8 +1841,15 @@
 
       document.getElementById('qrTabCard').classList.toggle('active', qrTarget === 'card');
       document.getElementById('qrTabSource').classList.toggle('active', qrTarget === 'source');
+      document.getElementById('qrTabPadlet').classList.toggle('active', qrTarget === 'padlet');
 
-      if (qrTarget === 'source' && slide.source) {
+      if (qrTarget === 'padlet') {
+        const hasPractice = !!(slide.source || (slide.prompts && slide.prompts.length));
+        document.getElementById('qrModalTitle').textContent = hasPractice
+          ? `📌 Padlet 驗收｜請貼至「${slide.code} ${slide.shortTitle}」欄`
+          : '📌 Padlet 成果驗收牆';
+        document.getElementById('qrModalDesc').textContent = '請掃描 QR Code 進入 Padlet 貼上你的實作成果';
+      } else if (qrTarget === 'source' && slide.source) {
         document.getElementById('qrModalTitle').textContent = `📄 ${slide.source.title}`;
         document.getElementById('qrModalDesc').textContent = '請掃描開啟教材頁面，或複製網址貼入 Gemini Notebook';
       } else {
@@ -1842,6 +1858,7 @@
       }
 
       document.getElementById('qrUrlText').textContent = url;
+      document.getElementById('qrOpenLinkBtn').href = url;
       const box = document.getElementById('qrCodeBox');
       box.innerHTML = '';
       new QRCode(box, {
@@ -1900,7 +1917,10 @@
 
       if (e.key === 'ArrowRight') { e.preventDefault(); nextSlide(); }
       else if (e.key === 'ArrowLeft') { e.preventDefault(); prevSlide(); }
-      else if (e.key === 'q' || e.key === 'Q') {
+      else if (e.key === 'p' || e.key === 'P') {
+        e.preventDefault();
+        openQrModal('padlet');
+      } else if (e.key === 'q' || e.key === 'Q') {
         const s = slideData[currentIndex];
         if (s.source || (s.prompts && s.prompts.length)) {
           e.preventDefault();
