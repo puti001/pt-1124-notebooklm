@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Puti-AI | 課前破冰即時牆 — 屏東社群召集人工作坊</title>
+  <title>Puti-AI | 課前破冰即時牆</title>
   <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
@@ -277,7 +277,6 @@
         <div class="brand-icon"><i class="fa-solid fa-fire"></i></div>
         <div>
           <h1 class="brand-title">Puti-AI｜課前破冰心聲調查</h1>
-          <p class="brand-sub">115.11.24 屏東縣社群召集人研習工作坊</p>
         </div>
       </div>
       <div class="nav-actions" id="navActions">
@@ -293,7 +292,7 @@
     <!-- VIEW 1: LECTURER LIVE DASHBOARD -->
     <section id="dashView" class="dash-grid hidden">
       <div class="panel qr-panel">
-        <h2 style="margin:0 0 4px; font-size:1.3rem; font-weight:900;">📱 1 分鐘屏東教師 AI 心聲</h2>
+        <h2 style="margin:0 0 4px; font-size:1.3rem; font-weight:900;">📱 1 分鐘教師 AI 心聲</h2>
         <p style="margin:0 0 8px; font-size:0.88rem; color:var(--muted);">匿名填寫，馬上交給 Gemini Notebook 現場分析</p>
 
         <div id="dashQrWrap" onclick="openQrZoom()" title="點擊全螢幕放大 QR Code">
@@ -381,7 +380,7 @@
     <!-- VIEW 2: STUDENT MOBILE FORM (?fill=1) -->
     <section id="formView" class="form-wrap hidden">
       <div class="form-hero">
-        <h2>🔥 屏東教師 AI 現況與心聲快選</h2>
+        <h2>🔥 教師 AI 現況與心聲快選</h2>
         <p>匿名點選約 1 分鐘！你的真實心聲等一下將由 Gemini Notebook 現場分析解題。</p>
       </div>
 
@@ -398,12 +397,14 @@
         <div class="q-card">
           <div class="q-title">2. 任教年級／身份 <span class="q-badge">可複選</span></div>
           <div class="chip-group" id="qGrades"></div>
+          <input type="text" class="text-input" id="gradeOther" maxlength="60" placeholder="✏️ 其他年級／身份（選填）">
         </div>
 
         <!-- Q3 -->
         <div class="q-card">
           <div class="q-title">3. 主要任教科目 <span class="q-badge">可複選</span></div>
           <div class="chip-group" id="qSubjects"></div>
+          <input type="text" class="text-input" id="subjectOther" maxlength="60" placeholder="✏️ 其他科目（選填）">
         </div>
 
         <div class="part-divider">Part 2｜AI 使用現況</div>
@@ -472,7 +473,7 @@
       <div id="doneBox" class="done-card hidden">
         <div style="font-size:3.5rem; margin-bottom:8px;">🎉</div>
         <h2 style="margin:0 0 8px; font-size:1.5rem; font-weight:900;">心聲已送達！</h2>
-        <p style="margin:0; color:var(--muted); font-size:1rem;">請抬頭看大螢幕，一起見證 Gemini Notebook 如何即時分析全場屏東老師的現況與痛點！</p>
+        <p style="margin:0; color:var(--muted); font-size:1rem;">請抬頭看大螢幕，一起見證 Gemini Notebook 如何即時分析全場老師的現況與痛點！</p>
       </div>
     </section>
   </main>
@@ -482,7 +483,7 @@
     <div class="qr-zoom-card" onclick="closeQrZoom()">
       <div id="qrZoomBox"></div>
     </div>
-    <div class="qr-zoom-caption">📱 掃碼填寫 1 分鐘屏東教師 AI 心聲（點擊畫面任意處縮小）</div>
+    <div class="qr-zoom-caption">📱 掃碼填寫 1 分鐘教師 AI 心聲（點擊畫面任意處縮小）</div>
   </div>
 
   <div class="toast" id="toast">已複製！</div>
@@ -502,7 +503,7 @@
         "🧘 16–25 年（已修練出佛系抗壓）",
         "👑 26 年以上（看破紅塵的傳說級導師）"
       ],
-      grades: ["低年級", "中年級", "高年級", "國中", "科任教師", "行政兼任", "社群召集人"],
+      grades: ["低年級", "中年級", "高年級", "國中", "高中", "科任教師", "行政兼任", "社群召集人"],
       subjects: ["國語", "數學", "自然", "社會", "英語", "藝能／綜合", "本土／彈性", "導師全包"],
       aiFreq: [
         "🔥 重度成癮：一天用好幾次，沒 AI 不會上班",
@@ -683,10 +684,17 @@
       btn.disabled = true;
       btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> 傳送心聲中...';
 
+      const gradeOther = document.getElementById('gradeOther').value.trim();
+      const subjectOther = document.getElementById('subjectOther').value.trim();
+      const gradesArr = Array.from(formState.grades);
+      if (gradeOther) gradesArr.push('其他：' + gradeOther);
+      const subjectsArr = Array.from(formState.subjects);
+      if (subjectOther) subjectsArr.push('其他：' + subjectOther);
+
       const payload = {
         seniority: formState.seniority,
-        grades: Array.from(formState.grades),
-        subjects: Array.from(formState.subjects),
+        grades: gradesArr,
+        subjects: subjectsArr,
         aiFreq: formState.aiFreq,
         aiPaid: formState.aiPaid,
         aiSubs: Array.from(formState.aiSubs),
@@ -864,7 +872,7 @@
       const optList = (title, arr) => arr.length ? `\n### ${title}\n` + arr.map(x => `- ${x}`).join('\n') : '';
 
       const report = [
-        `# 115.11.24 屏東縣教師社群召集人 AI 工作坊｜現場 ${total} 位教師 AI 現況與痛點調查`,
+        `# 教師 AI 工作坊｜現場 ${total} 位教師 AI 現況與痛點調查`,
         ``,
         `## 一、教學年資分布`, fmtStats(countField(latestRows, 'seniority', false)),
         ``,
@@ -899,8 +907,8 @@
     }
 
     function copyDemoPrompt() {
-      const prompt = `請根據現場這份屏東縣教師社群召集人的 AI 使用現況與痛點調查，幫我做四件事：
-1. 先用簡短有力的開場，勾勒今天現場屏東老師的「AI 使用畫像」（每天用的比例、付費比例、最常訂閱哪套）。
+      const prompt = `請根據現場這份教師 AI 使用現況與痛點調查，幫我做四件事：
+1. 先用簡短有力的開場，勾勒今天現場老師的「AI 使用畫像」（每天用的比例、付費比例、最常訂閱哪套）。
 2. 點出大家對 AI 最認同的前 2 項正面評價，以及最擔心的前 2 項負面擔憂（並預告今天教的 Gemini Notebook 如何直接化解這些擔憂）。
 3. 列出前 3 名教學痛點與前 3 名行政／社群痛點。
 4. 從「最想消滅的事」裡面，挑出 3 則最讓人會心一笑、最有血淚感的心聲跟大家分享！`;
