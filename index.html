@@ -58,6 +58,7 @@
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+      overflow-x: hidden;
       transition: background-color 0.3s ease;
     }
 
@@ -110,7 +111,10 @@
       cursor: pointer; text-decoration: none;
       box-shadow: 0 6px 14px var(--shadow);
       transition: transform 0.18s ease, box-shadow 0.18s ease;
-      white-space: nowrap;
+      max-width: 100%;
+      white-space: normal;
+      text-align: center;
+      line-height: 1.35;
     }
     .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 18px var(--shadow); }
     .btn:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
@@ -1444,11 +1448,11 @@
           <div class="solo-section-title"><i class="fa-solid fa-folder-open"></i> 步驟一：複製本關教材</div>
           <p style="margin:0 0 10px; font-size:0.94rem; color:var(--muted); font-weight:700;">${slide.source.title}</p>
           <div style="display:grid; gap:10px;">
-            <button class="btn btn-accent" style="width:100%; padding:14px 18px; font-size:1.02rem;" onclick="copySourceUrl('${slide.source.relUrl}')">
-              <i class="fa-solid fa-link"></i> 一鍵複製「教材網址」（貼到網站來源）
+            <button class="btn btn-accent" style="width:100%; padding:13px 16px; font-size:1rem;" onclick="copySourceUrl('${slide.source.relUrl}')">
+              <i class="fa-solid fa-link"></i> 複製教材網址（貼網站來源）
             </button>
-            <button class="btn btn-white" style="width:100%; padding:12px 18px; font-size:0.96rem;" onclick="copyFullText('${slide.source.fullTextKey}')">
-              <i class="fa-regular fa-paste"></i> 一鍵複製「教材全文」（貼到複製的文字）
+            <button class="btn btn-white" style="width:100%; padding:12px 16px; font-size:0.96rem;" onclick="copyFullText('${slide.source.fullTextKey}')">
+              <i class="fa-regular fa-paste"></i> 複製教材全文（貼文字來源）
             </button>
           </div>
         </div>
