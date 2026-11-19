@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Puti-AI | 教材來源 A：孫悟空三借芭蕉扇（國小四年級國語備課素材）</title>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-body: #FFFDF9;
+      --bg-card: #FFFFFF;
+      --primary: #FF9F1C;
+      --secondary: #FFBF69;
+      --accent: #2EC4B6;
+      --text: #332C2B;
+      --muted: #6E625F;
+      --shadow: rgba(0, 0, 0, 0.08);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Zen Maru Gothic', 'Noto Sans TC', sans-serif;
+      background: var(--bg-body);
+      color: var(--text);
+      letter-spacing: 0.04em;
+      line-height: 1.85;
+      padding: 24px 16px 48px;
+    }
+    .container {
+      max-width: 820px;
+      margin: 0 auto;
+    }
+    .top-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border-radius: 40px;
+      border: none;
+      font-family: inherit;
+      font-size: 0.98rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 0 6px 16px var(--shadow);
+      transition: transform 0.2s ease;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { background: linear-gradient(135deg, #FF9F1C, #FFBF69); color: #fff; }
+    .btn-accent { background: var(--accent); color: #fff; }
+    .btn-light { background: #fff; color: var(--text); border: 2px solid #F3E5D0; }
+    article {
+      background: var(--bg-card);
+      border-radius: 28px;
+      padding: 32px 28px;
+      box-shadow: 0 12px 35px var(--shadow);
+      border: 1px solid #F6E9D7;
+    }
+    .badge {
+      display: inline-block;
+      background: #FFF3E0;
+      color: #D97706;
+      padding: 4px 14px;
+      border-radius: 40px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    h1 { font-size: 1.85rem; margin: 6px 0 14px; color: var(--text); }
+    h2 {
+      font-size: 1.3rem;
+      color: #D97706;
+      margin-top: 28px;
+      padding-left: 12px;
+      border-left: 5px solid var(--primary);
+    }
+    p, li { font-size: 1.08rem; }
+    .box {
+      background: #FFF9F0;
+      border-radius: 18px;
+      padding: 16px 20px;
+      margin: 16px 0;
+      border: 1px dashed var(--secondary);
+    }
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(80px);
+      background: #332C2B;
+      color: #fff;
+      padding: 12px 24px;
+      border-radius: 40px;
+      font-weight: 700;
+      opacity: 0;
+      transition: all 0.25s ease;
+      z-index: 999;
+    }
+    .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+    footer {
+      text-align: center;
+      padding: 28px 15px 10px;
+      font-size: 0.92rem;
+      color: #777;
+      margin-top: 24px;
+    }
+    footer a { color: var(--primary); font-weight: 700; text-decoration: none; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="top-bar">
+      <span style="font-weight:700; color:#D97706;">📖 Puti-AI｜NotebookLM 實作教材 A</span>
+      <div style="display:flex; gap:10px; flex-wrap:wrap;">
+        <button class="btn btn-accent" onclick="copyUrl()">🔗 複製本頁網址（貼到 NotebookLM）</button>
+        <button class="btn btn-primary" onclick="copyArticle()">📋 複製全文文字</button>
+      </div>
+    </div>
+
+    <article id="sourceContent">
+      <span class="badge">NotebookLM 實作教材 A｜國小四年級國語</span>
+      <h1>孫悟空三借芭蕉扇（教學備課精簡素材）</h1>
+      <p><strong>適用年級：</strong>國小四年級下學期國語科｜<strong>改寫自：</strong>吳承恩《西遊記》第五十九至六十一回｜<strong>教學核心：</strong>故事結構分析、人物性格推論、面對挫折的解決策略。</p>
+
+      <h2>一、故事背景：八百里火焰山</h2>
+      <p>唐三藏師徒四人往西天取經，一路走到一處酷熱難耐的地方，原來前方橫亙著一座綿延八百里的「火焰山」。這座山終年烈火熊熊，寸草不生，連銅頭鐵腦的人走過去都會化成汁水。當地老人告訴孫悟空，想要撲滅山火，只有向翠雲山芭蕉洞的「鐵扇公主」借來寶貝「芭蕉扇」，一扇息火，二扇生風，三扇下雨，師徒才能平安過山。</p>
+
+      <h2>二、一借芭蕉扇：以禮相求，反被扇飛</h2>
+      <p>孫悟空駕著觔斗雲來到芭蕉洞，原本想客客氣氣向嫂嫂借扇。不料鐵扇公主一見到孫悟空便怒火中燒——原來她的兒子紅孩兒先前曾被孫悟空請來觀音菩薩收服，母子因此分離。鐵扇公主二話不說，拔出雙劍與悟空大戰，打不過便拿出芭蕉扇用力一扇，把孫悟空扇得像斷線風箏般飛出五萬四千里，一路落到小須彌山。</p>
+      <p>幸好靈吉菩薩贈予孫悟空一顆「定風丹」，縫在衣領裡，從此再也不怕狂風吹襲。</p>
+
+      <h2>三、二借芭蕉扇：智取真扇，卻換來假扇</h2>
+      <p>孫悟空有了定風丹後重返芭蕉洞。鐵扇公主見扇不走悟空，連忙躲進洞裡緊閉石門。悟空靈機一動，搖身一變成為一隻小飛蟲，趁著侍女端茶時飛進茶杯裡，被鐵扇公主一口喝進肚子中。悟空在她腹中拳打腳踢、翻跟斗，疼得鐵扇公主滿地打滾，只好答應借扇。</p>
+      <p>然而鐵扇公主心有不甘，暗中給了悟空一把「假芭蕉扇」。悟空拿著假扇回到火焰山用力一扇，火勢非但沒有熄滅，反而越燒越旺，把悟空的屁股毛都燒焦了！</p>
+
+      <h2>四、三借芭蕉扇：變身牛魔王，智勇雙全借真扇</h2>
+      <p>悟空這才明白中了計，於是轉往積雷山找到鐵扇公主的丈夫「牛魔王」。悟空先與牛魔王周旋，趁隙偷走牛魔王的坐騎避水金睛獸，並搖身一變成為牛魔王的模樣回到芭蕉洞，成功騙得鐵扇公主取出真正的芭蕉扇，還套出了「把小扇變大」的口訣。</p>
+      <p>牛魔王發現受騙後火冒三丈，反過來變成豬八戒的模樣，從悟空手中把真扇又騙了回去！雙方展開驚天動地的大戰，最後在托塔天王、哪吒與天兵天將的協助下，終於收服牛魔王。鐵扇公主見大勢已去，只好獻出真芭蕉扇。孫悟空對著火焰山連扇七七四十九扇，終於大雨傾盆、烈火全滅，護送唐僧師徒順利繼續西行取經。</p>
+
+      <h2>五、核心生詞與教學重點</h2>
+      <div class="box">
+        <ul>
+          <li><strong>火焰山：</strong>綿延八百里、終年烈火熊熊的山脈，象徵取經路上難以跨越的重大困境。</li>
+          <li><strong>芭蕉扇：</strong>鐵扇公主的法寶，能一扇息火、二扇生風、三扇下雨。</li>
+          <li><strong>定風丹：</strong>靈吉菩薩贈予孫悟空的寶物，讓悟空能抵擋芭蕉扇的強風。</li>
+          <li><strong>人物特質：</strong>孫悟空（機智靈活、永不放棄、善於尋求外援）、鐵扇公主（護子心切、愛恨分明、足智多謀）、牛魔王（武藝高強、聰明反擊）。</li>
+        </ul>
+      </div>
+
+      <h2>六、課堂延伸思考方向</h2>
+      <ol>
+        <li><strong>提取訊息：</strong>孫悟空第一次、第二次、第三次分別用什麼方法借芭蕉扇？</li>
+        <li><strong>推論理解：</strong>為什麼鐵扇公主一開始堅決不肯借扇？孫悟空拿到假扇後為什麼沒有直接放棄？</li>
+        <li><strong>省思評鑑：</strong>如果孫悟空用「鑽進肚子」或「變身騙人」的方式解決問題，你贊成嗎？換成你是孫悟空，有沒有其他跟鐵扇公主溝通的方法？</li>
+      </ol>
+    </article>
+
+    <footer>
+      屏東縣後庄國小黃朝榮老師作品，免費分享，歡迎擴散推廣，嚴禁商用與任何侵權、不尊重著作權的行為，更多 Puti-AI 教學工具
+      <a href="https://padlet.com/clongwh/puti_ai_tools" target="_blank" rel="noopener noreferrer">點此前往</a>
+    </footer>
+  </div>
+
+  <div class="toast" id="toast">已複製！</div>
+  <script>
+    function showToast(msg) {
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.classList.add('show');
+      setTimeout(() => t.classList.remove('show'), 2000);
+    }
+    function copyUrl() {
+      navigator.clipboard.writeText(window.location.href).then(() => showToast('✅ 已複製網址！請切回 NotebookLM 貼上來源'));
+    }
+    function copyArticle() {
+      const text = document.getElementById('sourceContent').innerText;
+      navigator.clipboard.writeText(text).then(() => showToast('✅ 已複製全文！請在 NotebookLM 選「貼上文字」'));
+    }
+  </script>
+</body>
+</html>

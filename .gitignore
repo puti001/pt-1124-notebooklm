@@ -1,0 +1,6 @@
+# 保護公文與原稿，不推上公開網站
+*.PDF
+*.pdf
+*.md
+desktop.ini
+.DS_Store

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Puti-AI | 教材來源 C：國語日報專欄《Gemini Notebook 減法工作術》三篇完整收錄</title>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-body: #FFFDF9;
+      --bg-card: #FFFFFF;
+      --primary: #FF9F1C;
+      --secondary: #FFBF69;
+      --accent: #2EC4B6;
+      --text: #332C2B;
+      --shadow: rgba(0, 0, 0, 0.08);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Zen Maru Gothic', 'Noto Sans TC', sans-serif;
+      background: var(--bg-body);
+      color: var(--text);
+      letter-spacing: 0.04em;
+      line-height: 1.85;
+      padding: 24px 16px 48px;
+    }
+    .container { max-width: 860px; margin: 0 auto; }
+    .top-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border-radius: 40px;
+      border: none;
+      font-family: inherit;
+      font-size: 0.98rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 0 6px 16px var(--shadow);
+      transition: transform 0.2s ease;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { background: linear-gradient(135deg, #FF9F1C, #FFBF69); color: #fff; }
+    .btn-accent { background: var(--accent); color: #fff; }
+    .btn-light { background: #fff; color: var(--text); border: 2px solid #F3E5D0; }
+    article {
+      background: var(--bg-card);
+      border-radius: 28px;
+      padding: 32px 28px;
+      box-shadow: 0 12px 35px var(--shadow);
+      border: 1px solid #F6E9D7;
+    }
+    .badge {
+      display: inline-block;
+      background: #FFF3E0;
+      color: #D97706;
+      padding: 4px 14px;
+      border-radius: 40px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    h1 { font-size: 1.85rem; margin: 6px 0 8px; }
+    h2 {
+      font-size: 1.4rem;
+      color: #D97706;
+      margin-top: 34px;
+      padding-bottom: 8px;
+      border-bottom: 3px solid #FFE4B5;
+    }
+    h3 { font-size: 1.15rem; color: #0F766E; margin-top: 20px; }
+    .meta { color: #7A6C66; font-size: 0.95rem; margin-bottom: 14px; }
+    .clip-img {
+      width: 100%;
+      border-radius: 18px;
+      margin: 14px 0 22px;
+      border: 2px solid #F3E5D0;
+      box-shadow: 0 8px 24px var(--shadow);
+    }
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(80px);
+      background: #332C2B;
+      color: #fff;
+      padding: 12px 24px;
+      border-radius: 40px;
+      font-weight: 700;
+      opacity: 0;
+      transition: all 0.25s ease;
+      z-index: 999;
+    }
+    .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+    footer {
+      text-align: center;
+      padding: 28px 15px 10px;
+      font-size: 0.92rem;
+      color: #777;
+      margin-top: 24px;
+    }
+    footer a { color: var(--primary); font-weight: 700; text-decoration: none; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="top-bar">
+      <span style="font-weight:700; color:#D97706;">📖 Puti-AI｜國語日報減法工作術專欄</span>
+      <div style="display:flex; gap:10px; flex-wrap:wrap;">
+        <button class="btn btn-accent" onclick="copyUrl()">🔗 複製本頁網址（貼到 NotebookLM）</button>
+        <button class="btn btn-primary" onclick="copyArticle()">📋 複製三篇全文</button>
+      </div>
+    </div>
+
+    <article id="sourceContent">
+      <span class="badge">國語日報 13 教育版・減法備課術專欄完整版</span>
+      <h1>Gemini Notebook 減法工作術（全三篇）</h1>
+      <p class="meta">文・圖片提供：黃朝榮（屏東縣後庄國小教師）｜刊登日期：115 年 9 月 16 日、9 月 30 日、10 月 14 日</p>
+
+      <h2>第一篇：擺脫使用 AI 焦慮 打造備課大腦（115.09.16）</h2>
+      <p>自從生成式 AI 浪潮席捲教育界以來，無數教師除了上課、批改作業、輔導學生、應付評鑑與行政庶務，下班後還得追逐頻繁更新的 AI 工具與提示詞技巧。「減法工作術」實踐 80／20 法則，用最少的心力深耕單一核心工具——Gemini Notebook（NotebookLM），奪回時間與教學主導權。</p>
+      <h3>實踐八二減法法則與三大優勢</h3>
+      <ul>
+        <li><strong>打造「零幻覺」的資料庫導向：</strong>只讀你給的資料，回答附帶引用段落來源標註。</li>
+        <li><strong>「零門檻」的直覺操作：</strong>把資料丟進去，用平時與同事說話的口吻發問即可。</li>
+        <li><strong>免費且隱私安全：</strong>Google 生態系免費使用，上傳的個人教材與學生資料不會被拿去訓練公開 AI 模型。</li>
+      </ul>
+      <h3>四步驟建置備課資料庫</h3>
+      <ol>
+        <li>進入首頁並登入 Google 帳號。</li>
+        <li>創建主題筆記本，建議加上分類前綴，例如：【備課】115上五年級國語、【班級】115五忠、【行政】115學校會議。</li>
+        <li>上傳知識來源（PDF、Word、Google 文件、網頁連結、複製貼上的文字）。</li>
+        <li>閱讀自動生成的「筆記本指南」（摘要、常見問題與學習捷徑）。</li>
+      </ol>
+      <img class="clip-img" src="../AI-數位教學與AI應用報導D1316092.jpg" alt="國語日報專欄第一篇剪報">
+
+      <h2>第二篇：數位備課箱 打造五面向智慧教學（115.09.30）</h2>
+      <p>以翰林版國小四年級下學期國語科〈孫悟空三借芭蕉扇〉為例，利用工作室面板內含九種一鍵生成小工具（暱稱「九塊肌」），平均五分鐘即可產出「讀、聽、說、寫、評」五面向教學素材。</p>
+      <ul>
+        <li><strong>讀（報告 → 研讀指南）：</strong>自動產出文章大綱、核心生詞解釋（火焰山、芭蕉扇）與思考題，即現成閱讀理解單。</li>
+        <li><strong>聽（語音摘要）：</strong>指定語言為中文（繁體），焦點框輸入「受眾為小四學生，請引導他們寫出本課〈孫悟空三借芭蕉扇〉的心得」，生成擬真對話 Podcast 作為寫作引導。</li>
+        <li><strong>說（學習卡 ＋ 角色扮演）：</strong>產出人物分析卡，或在對話框輸入「請扮演孫悟空，用他的口吻跟四年級學生對話」，投影讓學生現場提問。</li>
+        <li><strong>寫（心智圖 ＋ 差異化改寫）：</strong>一鍵產出情節發展心智圖作為寫作大綱，並可改寫成簡短詞彙版，或請學生以鐵扇公主第一人稱寫心情日記。</li>
+        <li><strong>評（測驗 ＋ 三層次提問）：</strong>一鍵產出隨堂測驗與評量學習卡，或在對話框設計三個層次提問（直接找答案、推論、發表看法），每題皆附出處連結與解答。</li>
+      </ul>
+      <img class="clip-img" src="../AI-數位教學與AI應用報導D1330092.jpg" alt="國語日報專欄第二篇剪報">
+
+      <h2>第三篇：簡化班級行政庶務 搭建親師溝通橋梁（115.10.14）</h2>
+      <p>善用「小助理」簡化班級行政、精煉會議紀錄，並把公文轉譯成富有溫度的親師聯絡小語，把時間留給自己與孩子。</p>
+      <ul>
+        <li><strong>親師聯絡一鍵轉譯：</strong>上傳校務會議紀錄或公文，輸入「請幫我整理游泳課的重點，我要傳到 LINE 的四忠群組給家長看」，並搭配工作室「資訊圖表」視覺化呈現；家長意見回饋表則可用「自訂報告」摘要三大焦點與回覆大綱。</li>
+        <li><strong>研習會議摘要精鍊：</strong>雜亂筆記丟入工作室「報告」，一鍵生成「研習主題、三大亮點與教學應用建議」或「標準會議紀錄、決議與各處室待辦清單」。</li>
+        <li><strong>生成簡報行政減壓：</strong>（1）文字與網路資源生成新簡報：整理大綱 → 儲存至記事 → 轉換為來源 → 點選工作室「簡報」；（2）歷年舊簡報翻新美化：同時上傳舊簡報與本學期計畫，一鍵更新並美化版面。</li>
+      </ul>
+      <p>科技工具隨時在變，但教師專注於學生心靈，陪伴成長的教學溫度，是 AI 無法取代的核心。</p>
+      <img class="clip-img" src="../AI-數位教學與AI應用報導D1314102.jpg" alt="國語日報專欄第三篇剪報">
+    </article>
+
+    <footer>
+      屏東縣後庄國小黃朝榮老師作品，免費分享，歡迎擴散推廣，嚴禁商用與任何侵權、不尊重著作權的行為，更多 Puti-AI 教學工具
+      <a href="https://padlet.com/clongwh/puti_ai_tools" target="_blank" rel="noopener noreferrer">點此前往</a>
+    </footer>
+  </div>
+
+  <div class="toast" id="toast">已複製！</div>
+  <script>
+    function showToast(msg) {
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.classList.add('show');
+      setTimeout(() => t.classList.remove('show'), 2000);
+    }
+    function copyUrl() {
+      navigator.clipboard.writeText(window.location.href).then(() => showToast('✅ 已複製網址！請切回 NotebookLM 貼上來源'));
+    }
+    function copyArticle() {
+      const text = document.getElementById('sourceContent').innerText;
+      navigator.clipboard.writeText(text).then(() => showToast('✅ 已複製三篇全文！請在 NotebookLM 選「貼上文字」'));
+    }
+  </script>
+</body>
+</html>
