@@ -87,7 +87,7 @@
     /* ================= LECTURER DASHBOARD ================= */
     .dash-grid {
       display: grid;
-      grid-template-columns: 360px 1fr;
+      grid-template-columns: 350px 1fr;
       gap: 20px;
       align-items: start;
     }
@@ -95,7 +95,7 @@
       background: #fff;
       border-radius: 28px;
       border: 2px solid var(--border);
-      padding: 22px 22px;
+      padding: 20px 22px;
       box-shadow: 0 12px 32px var(--shadow);
     }
     .qr-panel { text-align: center; position: sticky; top: 76px; }
@@ -103,87 +103,123 @@
       background: var(--bg-soft);
       border: 2px dashed var(--secondary);
       border-radius: 22px;
-      padding: 14px 16px;
-      margin: 14px 0;
+      padding: 12px 16px;
+      margin: 12px 0;
     }
-    .count-num {
-      font-size: 3.1rem; font-weight: 900; color: var(--primary);
-      line-height: 1.1; margin: 0;
-    }
-    .count-label { font-size: 0.95rem; font-weight: 700; color: var(--muted); }
+    .count-num { font-size: 3rem; font-weight: 900; color: var(--primary); line-height: 1.1; margin: 0; }
+    .count-label { font-size: 0.92rem; font-weight: 700; color: var(--muted); }
     #dashQrWrap {
-      display: inline-flex; padding: 14px; background: #fff;
+      display: inline-flex; flex-direction: column; align-items: center; gap: 6px;
+      padding: 14px; background: #fff;
       border-radius: 20px; border: 3px solid var(--primary);
-      box-shadow: 0 8px 20px var(--shadow); margin: 8px 0;
+      box-shadow: 0 8px 20px var(--shadow); margin: 6px 0;
+      cursor: zoom-in; transition: transform 0.18s ease;
     }
+    #dashQrWrap:hover { transform: scale(1.03); }
+    .qr-zoom-tip { font-size: 0.8rem; font-weight: 700; color: var(--primary); }
 
-    .right-col { display: grid; gap: 18px; }
-    .stats-two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .right-col { display: grid; gap: 16px; }
+    .kpi-strip {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;
+    }
+    .kpi-card {
+      background: #fff; border: 2px solid var(--border); border-radius: 22px;
+      padding: 14px 16px; box-shadow: 0 8px 20px var(--shadow);
+    }
+    .kpi-label { font-size: 0.84rem; font-weight: 700; color: var(--muted); }
+    .kpi-val { font-size: 1.35rem; font-weight: 900; color: var(--text); margin-top: 2px; }
+
+    .dash-tabs { display: flex; gap: 8px; flex-wrap: wrap; }
+    .dash-tab {
+      padding: 8px 18px; border-radius: 40px; border: 2px solid var(--border);
+      background: #fff; font-family: inherit; font-size: 0.94rem; font-weight: 900;
+      color: var(--muted); cursor: pointer;
+    }
+    .dash-tab.active { background: var(--primary); color: #fff; border-color: var(--primary); }
+
+    .stats-two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
     .panel-title {
-      font-size: 1.15rem; font-weight: 900; margin: 0 0 14px;
+      font-size: 1.1rem; font-weight: 900; margin: 0 0 12px;
       display: flex; align-items: center; gap: 8px; color: var(--text);
     }
-    .bar-row { margin-bottom: 11px; }
+    .bar-row { margin-bottom: 10px; }
     .bar-row:last-child { margin-bottom: 0; }
     .bar-head {
       display: flex; justify-content: space-between; gap: 8px;
-      font-size: 0.92rem; font-weight: 700; margin-bottom: 4px;
+      font-size: 0.9rem; font-weight: 700; margin-bottom: 4px;
     }
-    .bar-track {
-      height: 12px; background: var(--bg-soft); border-radius: 20px; overflow: hidden;
-    }
+    .bar-track { height: 11px; background: var(--bg-soft); border-radius: 20px; overflow: hidden; }
     .bar-fill {
       height: 100%; border-radius: 20px;
-      background: var(--banner-gradient);
-      transition: width 0.45s ease;
+      background: var(--banner-gradient); transition: width 0.45s ease;
     }
     .bar-fill.accent { background: linear-gradient(135deg, #2EC4B6, #5CE1D4); }
 
     .voices-grid {
-      display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px;
-      max-height: 330px; overflow-y: auto; padding-right: 4px;
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 11px;
+      max-height: 290px; overflow-y: auto; padding-right: 4px;
     }
     .voice-card {
       background: var(--bg-soft); border: 1.5px solid var(--border);
-      border-radius: 18px; padding: 12px 14px;
+      border-radius: 18px; padding: 11px 13px;
     }
-    .voice-main { font-size: 1.02rem; font-weight: 900; color: var(--text); margin: 0 0 4px; }
-    .voice-reason { font-size: 0.88rem; color: var(--muted); margin: 0; }
+    .voice-main { font-size: 0.98rem; font-weight: 900; color: var(--text); margin: 0 0 3px; }
+    .voice-reason { font-size: 0.86rem; color: var(--muted); margin: 0; }
+
+    /* Fullscreen QR Zoom Modal */
+    .qr-zoom-backdrop {
+      position: fixed; inset: 0; background: rgba(25, 20, 18, 0.88);
+      backdrop-filter: blur(8px); display: none;
+      align-items: center; justify-content: center; flex-direction: column; gap: 16px;
+      z-index: 500; padding: 20px; cursor: zoom-out;
+    }
+    .qr-zoom-backdrop.open { display: flex; }
+    .qr-zoom-card {
+      background: #fff; padding: 24px; border-radius: 30px;
+      border: 5px solid var(--primary); box-shadow: 0 24px 64px rgba(0,0,0,0.45);
+      display: flex; flex-direction: column; align-items: center; gap: 12px;
+    }
+    .qr-zoom-caption { color: #fff; font-size: 1.2rem; font-weight: 900; text-align: center; }
 
     /* ================= STUDENT MOBILE FORM ================= */
-    .form-wrap {
-      max-width: 660px; margin: 0 auto;
-    }
+    .form-wrap { max-width: 660px; margin: 0 auto; }
     .form-hero {
       background: var(--banner-gradient); color: #fff;
-      border-radius: 28px; padding: 24px 22px; margin-bottom: 18px;
+      border-radius: 28px; padding: 22px 20px; margin-bottom: 18px;
       box-shadow: 0 12px 28px var(--shadow);
     }
-    .form-hero h2 { margin: 0 0 6px; font-size: 1.55rem; font-weight: 900; }
-    .form-hero p { margin: 0; font-size: 0.98rem; opacity: 0.95; font-weight: 500; }
+    .form-hero h2 { margin: 0 0 6px; font-size: 1.5rem; font-weight: 900; }
+    .form-hero p { margin: 0; font-size: 0.96rem; opacity: 0.95; font-weight: 500; }
+
+    .part-divider {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--text); color: #fff;
+      padding: 6px 16px; border-radius: 40px;
+      font-size: 0.9rem; font-weight: 900; margin: 14px 0 10px;
+    }
 
     .q-card {
       background: #fff; border-radius: 24px; border: 2px solid var(--border);
-      padding: 20px 18px; margin-bottom: 16px;
+      padding: 18px 17px; margin-bottom: 14px;
       box-shadow: 0 8px 22px var(--shadow);
     }
     .q-title {
-      font-size: 1.12rem; font-weight: 900; margin: 0 0 12px;
+      font-size: 1.08rem; font-weight: 900; margin: 0 0 12px;
       display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
     }
     .q-badge {
-      font-size: 0.78rem; padding: 3px 10px; border-radius: 40px;
+      font-size: 0.76rem; padding: 3px 10px; border-radius: 40px;
       background: var(--bg-soft); color: var(--primary); font-weight: 900;
     }
     .q-badge.req { background: #FFE8E8; color: #D63031; }
 
-    .chip-group { display: flex; flex-wrap: wrap; gap: 9px; }
+    .chip-group { display: flex; flex-wrap: wrap; gap: 8px; }
     .chip-group.vertical { flex-direction: column; }
     .chip {
       display: inline-flex; align-items: center; gap: 8px;
-      padding: 10px 15px; border-radius: 20px;
+      padding: 10px 14px; border-radius: 18px;
       border: 2px solid var(--border); background: #fff;
-      font-family: inherit; font-size: 0.96rem; font-weight: 700;
+      font-family: inherit; font-size: 0.95rem; font-weight: 700;
       color: var(--text); cursor: pointer; text-align: left;
       transition: all 0.16s ease;
     }
@@ -196,9 +232,9 @@
     }
 
     .text-input {
-      width: 100%; padding: 12px 15px; border-radius: 16px;
+      width: 100%; padding: 12px 14px; border-radius: 16px;
       border: 2px solid var(--border); font-family: inherit;
-      font-size: 1rem; color: var(--text); background: #FFFDFB;
+      font-size: 0.98rem; color: var(--text); background: #FFFDFB;
       outline: none; margin-top: 10px;
     }
     .text-input:focus { border-color: var(--primary); background: #fff; }
@@ -215,7 +251,7 @@
       background: var(--text); color: #fff; padding: 12px 24px;
       border-radius: 40px; font-weight: 700; font-size: 0.96rem;
       box-shadow: 0 10px 28px rgba(0,0,0,0.25); opacity: 0;
-      transition: all 0.25s ease; z-index: 300; max-width: 92vw; text-align: center;
+      transition: all 0.25s ease; z-index: 600; max-width: 92vw; text-align: center;
     }
     .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
 
@@ -229,7 +265,7 @@
     @media (max-width: 920px) {
       .dash-grid { grid-template-columns: 1fr; }
       .qr-panel { position: static; }
-      .stats-two-col { grid-template-columns: 1fr; }
+      .stats-two-col, .kpi-strip { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -257,17 +293,20 @@
     <!-- VIEW 1: LECTURER LIVE DASHBOARD -->
     <section id="dashView" class="dash-grid hidden">
       <div class="panel qr-panel">
-        <h2 style="margin:0 0 4px; font-size:1.35rem; font-weight:900;">📱 30 秒告訴 AI 你的心酸</h2>
-        <p style="margin:0 0 10px; font-size:0.9rem; color:var(--muted);">匿名填寫，馬上交給 Gemini Notebook 現場分析！</p>
+        <h2 style="margin:0 0 4px; font-size:1.3rem; font-weight:900;">📱 1 分鐘屏東教師 AI 心聲</h2>
+        <p style="margin:0 0 8px; font-size:0.88rem; color:var(--muted);">匿名填寫，馬上交給 Gemini Notebook 現場分析</p>
 
-        <div id="dashQrWrap"><div id="dashQrBox"></div></div>
+        <div id="dashQrWrap" onclick="openQrZoom()" title="點擊全螢幕放大 QR Code">
+          <div id="dashQrBox"></div>
+          <span class="qr-zoom-tip"><i class="fa-solid fa-magnifying-glass-plus"></i> 點擊 QR Code 放大</span>
+        </div>
 
         <div class="count-box">
           <p class="count-num" id="totalCount">0</p>
           <div class="count-label">位老師已完成回報</div>
         </div>
 
-        <div style="display:grid; gap:10px;">
+        <div style="display:grid; gap:9px;">
           <button class="btn btn-primary" style="width:100%; padding:13px;" onclick="copyForNotebookLM()">
             <i class="fa-regular fa-copy"></i> 一鍵複製全場資料給 AI
           </button>
@@ -286,7 +325,29 @@
       </div>
 
       <div class="right-col">
-        <div class="stats-two-col">
+        <!-- Quick KPI Summary -->
+        <div class="kpi-strip">
+          <div class="kpi-card">
+            <div class="kpi-label">🔥 每天使用 AI 比例</div>
+            <div class="kpi-val" id="kpiDaily">--%</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">💳 付費訂閱 AI 比例</div>
+            <div class="kpi-val" id="kpiPaid">--%</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">🏆 最多人訂閱的 AI</div>
+            <div class="kpi-val" id="kpiTopSub">--</div>
+          </div>
+        </div>
+
+        <!-- Tabs: Pain Points vs AI Attitude -->
+        <div class="dash-tabs">
+          <button class="dash-tab active" id="tabPains" onclick="switchDashTab('pains')">🔥 教學 ╳ 行政痛點</button>
+          <button class="dash-tab" id="tabAi" onclick="switchDashTab('ai')">🤖 AI 正面評價 ╳ 負面擔憂</button>
+        </div>
+
+        <div id="panePains" class="stats-two-col">
           <div class="panel">
             <h3 class="panel-title">🔥 教學現場最大痛點</h3>
             <div id="teachBars"><p style="color:var(--muted);">等待老師掃碼回報中...</p></div>
@@ -294,6 +355,17 @@
           <div class="panel">
             <h3 class="panel-title">💼 行政與社群最大痛點</h3>
             <div id="adminBars"><p style="color:var(--muted);">等待老師掃碼回報中...</p></div>
+          </div>
+        </div>
+
+        <div id="paneAi" class="stats-two-col hidden">
+          <div class="panel">
+            <h3 class="panel-title">👍 對 AI 的正面評價</h3>
+            <div id="proBars"><p style="color:var(--muted);">等待老師掃碼回報中...</p></div>
+          </div>
+          <div class="panel">
+            <h3 class="panel-title">⚠️ 對 AI 的負面擔憂</h3>
+            <div id="conBars"><p style="color:var(--muted);">等待老師掃碼回報中...</p></div>
           </div>
         </div>
 
@@ -309,13 +381,15 @@
     <!-- VIEW 2: STUDENT MOBILE FORM (?fill=1) -->
     <section id="formView" class="form-wrap hidden">
       <div class="form-hero">
-        <h2>🔥 30 秒匿名心聲快選</h2>
-        <p>點一點就好！你的痛點等一下會直接交給 Gemini Notebook 現場解題。</p>
+        <h2>🔥 屏東教師 AI 現況與心聲快選</h2>
+        <p>匿名點選約 1 分鐘！你的真實心聲等一下將由 Gemini Notebook 現場分析解題。</p>
       </div>
 
       <form id="iceForm" onsubmit="submitForm(event)">
+        <div class="part-divider">Part 1｜基本檔案</div>
+
         <!-- Q1 -->
-        <div class="q-card">
+        <div class="q-card" id="cardQ1">
           <div class="q-title">1. 你的教學年資？ <span class="q-badge req">單選必填</span></div>
           <div class="chip-group vertical" id="qSeniority"></div>
         </div>
@@ -332,23 +406,60 @@
           <div class="chip-group" id="qSubjects"></div>
         </div>
 
+        <div class="part-divider">Part 2｜AI 使用現況</div>
+
         <!-- Q4 -->
+        <div class="q-card" id="cardQ4">
+          <div class="q-title">4. 您使用 AI 的頻率大約是？ <span class="q-badge req">單選必填</span></div>
+          <div class="chip-group vertical" id="qAiFreq"></div>
+        </div>
+
+        <!-- Q5 -->
+        <div class="q-card" id="cardQ5">
+          <div class="q-title">5. 您目前有付費訂閱 AI 工具嗎？ <span class="q-badge req">單選必填</span></div>
+          <div class="chip-group vertical" id="qAiPaid"></div>
+        </div>
+
+        <!-- Q6 (Conditional: shown only if Q5 == Yes) -->
+        <div class="q-card hidden" id="cardQ6">
+          <div class="q-title">6. 您付費訂閱的 AI 是？ <span class="q-badge">可複選</span></div>
+          <div class="chip-group" id="qAiSubs"></div>
+          <input type="text" class="text-input" id="aiSubOther" maxlength="80" placeholder="✏️ 其他訂閱工具（請註明）">
+        </div>
+
+        <!-- Q7 (Required for everyone!) -->
+        <div class="q-card" id="cardQ7">
+          <div class="q-title">7. 您對 AI 的正面評價 <span class="q-badge req">必填・可複選</span></div>
+          <div class="chip-group vertical" id="qAiPros"></div>
+          <input type="text" class="text-input" id="aiProOther" maxlength="100" placeholder="✏️ 其他正面評價（請註明）">
+        </div>
+
+        <!-- Q8 (Required for everyone!) -->
+        <div class="q-card" id="cardQ8">
+          <div class="q-title">8. 您對 AI 的負面擔憂 <span class="q-badge req">必填・可複選</span></div>
+          <div class="chip-group vertical" id="qAiCons"></div>
+          <input type="text" class="text-input" id="aiConOther" maxlength="100" placeholder="✏️ 其他負面擔憂（請註明）">
+        </div>
+
+        <div class="part-divider">Part 3｜現場痛點大吐苦水</div>
+
+        <!-- Q9 -->
         <div class="q-card">
-          <div class="q-title">4. 教學現場最讓你心累的痛點？ <span class="q-badge">可複選</span></div>
+          <div class="q-title">9. 教學現場最讓你心累的痛點？ <span class="q-badge">可複選</span></div>
           <div class="chip-group vertical" id="qTeachPains"></div>
           <input type="text" class="text-input" id="teachOther" maxlength="100" placeholder="✏️ 其他教學心酸（選填）">
         </div>
 
-        <!-- Q5 -->
+        <!-- Q10 -->
         <div class="q-card">
-          <div class="q-title">5. 行政與社群最讓你崩潰的痛點？ <span class="q-badge">可複選</span></div>
+          <div class="q-title">10. 行政與社群最讓你崩潰的痛點？ <span class="q-badge">可複選</span></div>
           <div class="chip-group vertical" id="qAdminPains"></div>
           <input type="text" class="text-input" id="adminOther" maxlength="100" placeholder="✏️ 其他行政／社群心酸（選填）">
         </div>
 
-        <!-- Q6 -->
-        <div class="q-card">
-          <div class="q-title">6. 如果 AI 明天只能幫你消滅一件最煩的事，你想消滅什麼？ <span class="q-badge req">必填</span></div>
+        <!-- Q11 -->
+        <div class="q-card" id="cardQ11">
+          <div class="q-title">11. 如果 AI 明天只能幫你消滅一件最煩的事，你想消滅什麼？ <span class="q-badge req">必填</span></div>
           <input type="text" class="text-input" id="eliminateInput" required maxlength="100" placeholder="例如：寫不完的會議紀錄、改不完的心得、翻譯火星文公文…">
           <input type="text" class="text-input" id="reasonInput" maxlength="160" placeholder="💬 為什麼想消滅它？一句話吐槽（選填）">
         </div>
@@ -361,10 +472,18 @@
       <div id="doneBox" class="done-card hidden">
         <div style="font-size:3.5rem; margin-bottom:8px;">🎉</div>
         <h2 style="margin:0 0 8px; font-size:1.5rem; font-weight:900;">心聲已送達！</h2>
-        <p style="margin:0; color:var(--muted); font-size:1rem;">請抬頭看大螢幕，準備見證 Gemini Notebook 如何現場分析大家的痛點！</p>
+        <p style="margin:0; color:var(--muted); font-size:1rem;">請抬頭看大螢幕，一起見證 Gemini Notebook 如何即時分析全場屏東老師的現況與痛點！</p>
       </div>
     </section>
   </main>
+
+  <!-- Fullscreen QR Zoom Modal -->
+  <div class="qr-zoom-backdrop" id="qrZoomModal" onclick="closeQrZoom()">
+    <div class="qr-zoom-card" onclick="closeQrZoom()">
+      <div id="qrZoomBox"></div>
+    </div>
+    <div class="qr-zoom-caption">📱 掃碼填寫 1 分鐘屏東教師 AI 心聲（點擊畫面任意處縮小）</div>
+  </div>
 
   <div class="toast" id="toast">已複製！</div>
 
@@ -376,9 +495,6 @@
   <script>
     const GAS_API_URL = "https://script.google.com/macros/s/AKfycbxqALluaU7JCR8MgI355ArsCmygvkCgG2pzLaPoIT2vqgHWNGieo5kQXp1Pw7yy6dW0wQ/exec";
 
-    // =========================================================================
-    // Questions (All 14 Pains Directly Mapped to Today's Gemini Notebook Skills!)
-    // =========================================================================
     const OPTIONS = {
       seniority: [
         "🌱 5 年以下（眼睛還有光）",
@@ -386,11 +502,37 @@
         "🧘 16–25 年（已修練出佛系抗壓）",
         "👑 26 年以上（看破紅塵的傳說級導師）"
       ],
-      grades: [
-        "低年級", "中年級", "高年級", "國中", "科任教師", "行政兼任", "社群召集人"
+      grades: ["低年級", "中年級", "高年級", "國中", "科任教師", "行政兼任", "社群召集人"],
+      subjects: ["國語", "數學", "自然", "社會", "英語", "藝能／綜合", "本土／彈性", "導師全包"],
+      aiFreq: [
+        "🔥 重度成癮：一天用好幾次，沒 AI 不會上班",
+        "☕ 日常搭檔：幾乎每天至少用一次",
+        "🛠️ 臨時救火：視需要使用，備課或趕公文才找它",
+        "👀 偶爾路過：很少用，想到才點開",
+        "🌱 幾乎不用：聽過很多次，但還沒真正上手"
       ],
-      subjects: [
-        "國語", "數學", "自然", "社會", "英語", "藝能／綜合", "本土／彈性", "導師全包"
+      aiPaid: [
+        "💸 沒有，目前都用免費版",
+        "💳 有，為了效率甘願掏錢"
+      ],
+      aiSubs: ["ChatGPT", "Gemini", "Claude", "Perplexity", "Canva Pro"],
+      aiPros: [
+        "⚡ 備課出題神速：原本半天的工縮成 5 分鐘",
+        "💡 靈感枯竭救星：想不到點子時永遠有話聊",
+        "🧹 行政文書減壓：公文、會議紀錄、通知單不用從零寫",
+        "🎯 差異化好幫手：同份教材快速改出不同難度版本",
+        "🎨 美工視覺外掛：不會排版也能產出像樣的簡報與圖表",
+        "🌏 跨領域查資料快：整理陌生主題與重點超省時",
+        "🧘 情緒價值滿分：半夜備課問再笨的問題也不會翻白眼"
+      ],
+      aiCons: [
+        "🤥 幻覺愛瞎掰：一本正經胡說八道，查證比自己寫還累",
+        "🧠 學生腦袋生鏽：怕孩子過度依賴代寫，失去思考與讀寫力",
+        "🔒 個資隱私外洩：擔心教材或學生資料上傳後被拿去訓練",
+        "🤯 工具更新太快：還沒學會這套，下週又出新版追不完",
+        "🤖 塑膠味太重：生成內容千篇一律，少了教學現場的溫度",
+        "💰 付費牆壓力：好用功能都要月費，老師荷包吃不消",
+        "⚖️ 著作權與倫理灰區：怕引用素材或生成內容不小心踩雷"
       ],
       teachPains: [
         "📝 出題排版地獄：出考卷與層次提問出到眼睛快脫窗",
@@ -416,18 +558,24 @@
       seniority: "",
       grades: new Set(),
       subjects: new Set(),
+      aiFreq: "",
+      aiPaid: "",
+      aiSubs: new Set(),
+      aiPros: new Set(),
+      aiCons: new Set(),
       teachPains: new Set(),
       adminPains: new Set()
     };
 
     let latestRows = [];
+    let fillUrlGlobal = "";
 
     function showToast(msg) {
       const t = document.getElementById('toast');
       t.textContent = msg;
       t.classList.add('show');
       clearTimeout(window._tt);
-      window._tt = setTimeout(() => t.classList.remove('show'), 2400);
+      window._tt = setTimeout(() => t.classList.remove('show'), 2500);
     }
 
     function copyText(text, msg) {
@@ -453,20 +601,22 @@
       document.getElementById('navActions').innerHTML = '';
       document.getElementById('formView').classList.remove('hidden');
 
-      // Single select: Seniority
-      const senEl = document.getElementById('qSeniority');
-      OPTIONS.seniority.forEach(opt => {
-        const btn = document.createElement('button');
-        btn.type = 'button';
-        btn.className = 'chip';
-        btn.textContent = opt;
-        btn.onclick = () => {
-          formState.seniority = opt;
-          senEl.querySelectorAll('.chip').forEach(c => c.classList.remove('selected'));
-          btn.classList.add('selected');
-        };
-        senEl.appendChild(btn);
-      });
+      const mountSingle = (id, list, field, onPick) => {
+        const wrap = document.getElementById(id);
+        list.forEach(opt => {
+          const btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'chip';
+          btn.textContent = opt;
+          btn.onclick = () => {
+            formState[field] = opt;
+            wrap.querySelectorAll('.chip').forEach(c => c.classList.remove('selected'));
+            btn.classList.add('selected');
+            if (onPick) onPick(opt);
+          };
+          wrap.appendChild(btn);
+        });
+      };
 
       const mountMulti = (id, list, setObj, teal = false) => {
         const wrap = document.getElementById(id);
@@ -483,24 +633,51 @@
         });
       };
 
+      mountSingle('qSeniority', OPTIONS.seniority, 'seniority');
       mountMulti('qGrades', OPTIONS.grades, formState.grades, true);
       mountMulti('qSubjects', OPTIONS.subjects, formState.subjects, true);
+
+      mountSingle('qAiFreq', OPTIONS.aiFreq, 'aiFreq');
+      mountSingle('qAiPaid', OPTIONS.aiPaid, 'aiPaid', (opt) => {
+        const isPaid = opt.includes('有，');
+        document.getElementById('cardQ6').classList.toggle('hidden', !isPaid);
+        if (!isPaid) {
+          formState.aiSubs.clear();
+          document.querySelectorAll('#qAiSubs .chip').forEach(c => c.classList.remove('selected'));
+          document.getElementById('aiSubOther').value = '';
+        }
+      });
+
+      mountMulti('qAiSubs', OPTIONS.aiSubs, formState.aiSubs, true);
+      mountMulti('qAiPros', OPTIONS.aiPros, formState.aiPros, false);
+      mountMulti('qAiCons', OPTIONS.aiCons, formState.aiCons, true);
       mountMulti('qTeachPains', OPTIONS.teachPains, formState.teachPains, false);
       mountMulti('qAdminPains', OPTIONS.adminPains, formState.adminPains, true);
     }
 
+    function scrollWarn(cardId, msg) {
+      showToast(msg);
+      const el = document.getElementById(cardId);
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
     async function submitForm(e) {
       e.preventDefault();
-      if (!formState.seniority) {
-        showToast('⚠️ 請先點選第 1 題「教學年資」喔！');
-        document.getElementById('qSeniority').scrollIntoView({ behavior: 'smooth', block: 'center' });
-        return;
+      if (!formState.seniority) return scrollWarn('cardQ1', '⚠️ 請先填寫第 1 題「教學年資」');
+      if (!formState.aiFreq) return scrollWarn('cardQ4', '⚠️ 請先填寫第 4 題「AI 使用頻率」');
+      if (!formState.aiPaid) return scrollWarn('cardQ5', '⚠️ 請先填寫第 5 題「是否付費訂閱 AI」');
+
+      const aiProOther = document.getElementById('aiProOther').value.trim();
+      if (formState.aiPros.size === 0 && !aiProOther) {
+        return scrollWarn('cardQ7', '⚠️ 第 7 題「對 AI 的正面評價」為必填，請至少勾選 1 項或填寫其他');
       }
+      const aiConOther = document.getElementById('aiConOther').value.trim();
+      if (formState.aiCons.size === 0 && !aiConOther) {
+        return scrollWarn('cardQ8', '⚠️ 第 8 題「對 AI 的負面擔憂」為必填，請至少勾選 1 項或填寫其他');
+      }
+
       const eliminate = document.getElementById('eliminateInput').value.trim();
-      if (!eliminate) {
-        showToast('⚠️ 請填寫第 6 題「最想消滅的事」！');
-        return;
-      }
+      if (!eliminate) return scrollWarn('cardQ11', '⚠️ 請填寫第 11 題「最想消滅的事」');
 
       const btn = document.getElementById('submitBtn');
       btn.disabled = true;
@@ -510,6 +687,14 @@
         seniority: formState.seniority,
         grades: Array.from(formState.grades),
         subjects: Array.from(formState.subjects),
+        aiFreq: formState.aiFreq,
+        aiPaid: formState.aiPaid,
+        aiSubs: Array.from(formState.aiSubs),
+        aiSubOther: document.getElementById('aiSubOther').value.trim(),
+        aiPros: Array.from(formState.aiPros),
+        aiProOther: aiProOther,
+        aiCons: Array.from(formState.aiCons),
+        aiConOther: aiConOther,
         teachPains: Array.from(formState.teachPains),
         teachOther: document.getElementById('teachOther').value.trim(),
         adminPains: Array.from(formState.adminPains),
@@ -518,7 +703,6 @@
         reason: document.getElementById('reasonInput').value.trim()
       };
 
-      // Stagger 0~1000ms to smooth out 200 concurrent submissions on GAS
       await new Promise(r => setTimeout(r, Math.floor(Math.random() * 1000)));
 
       try {
@@ -539,15 +723,15 @@
     }
 
     // =========================================================================
-    // Lecturer Live Dashboard Mode
+    // Lecturer Live Dashboard + Click-to-Zoom QR
     // =========================================================================
     function initDashboard() {
       document.getElementById('dashView').classList.remove('hidden');
-      const fillUrl = window.location.href.split('?')[0].split('#')[0] + '?fill=1';
+      fillUrlGlobal = window.location.href.split('?')[0].split('#')[0] + '?fill=1';
       new QRCode(document.getElementById('dashQrBox'), {
-        text: fillUrl,
-        width: 230,
-        height: 230,
+        text: fillUrlGlobal,
+        width: 220,
+        height: 220,
         colorDark: '#221C1A',
         colorLight: '#FFFFFF',
         correctLevel: QRCode.CorrectLevel.M
@@ -555,6 +739,36 @@
 
       fetchLiveStats(false);
       setInterval(() => fetchLiveStats(false), 5000);
+    }
+
+    function openQrZoom() {
+      const box = document.getElementById('qrZoomBox');
+      box.innerHTML = '';
+      const size = Math.min(Math.floor(window.innerWidth * 0.72), Math.floor(window.innerHeight * 0.68), 520);
+      new QRCode(box, {
+        text: fillUrlGlobal,
+        width: size,
+        height: size,
+        colorDark: '#221C1A',
+        colorLight: '#FFFFFF',
+        correctLevel: QRCode.CorrectLevel.M
+      });
+      document.getElementById('qrZoomModal').classList.add('open');
+    }
+
+    function closeQrZoom() {
+      document.getElementById('qrZoomModal').classList.remove('open');
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeQrZoom();
+    });
+
+    function switchDashTab(tab) {
+      document.getElementById('tabPains').classList.toggle('active', tab === 'pains');
+      document.getElementById('tabAi').classList.toggle('active', tab === 'ai');
+      document.getElementById('panePains').classList.toggle('hidden', tab !== 'pains');
+      document.getElementById('paneAi').classList.toggle('hidden', tab !== 'ai');
     }
 
     async function fetchLiveStats(manual) {
@@ -607,9 +821,27 @@
     }
 
     function renderDashboard(rows) {
-      document.getElementById('totalCount').textContent = rows.length;
-      renderBars('teachBars', countField(rows, 'teachPains', true), rows.length, false);
-      renderBars('adminBars', countField(rows, 'adminPains', true), rows.length, true);
+      const total = rows.length;
+      document.getElementById('totalCount').textContent = total;
+
+      // KPIs
+      if (total > 0) {
+        const dailyCnt = rows.filter(r => (r.aiFreq || '').includes('一天用好幾次') || (r.aiFreq || '').includes('每天')).length;
+        const paidCnt = rows.filter(r => (r.aiPaid || '').includes('有，')).length;
+        const subs = countField(rows, 'aiSubs', true);
+        document.getElementById('kpiDaily').textContent = `${Math.round(dailyCnt / total * 100)}%（${dailyCnt} 人）`;
+        document.getElementById('kpiPaid').textContent = `${Math.round(paidCnt / total * 100)}%（${paidCnt} 人）`;
+        document.getElementById('kpiTopSub').textContent = subs.length ? `${subs[0][0]}（${subs[0][1]}）` : '尚無付費';
+      } else {
+        document.getElementById('kpiDaily').textContent = '--%';
+        document.getElementById('kpiPaid').textContent = '--%';
+        document.getElementById('kpiTopSub').textContent = '--';
+      }
+
+      renderBars('teachBars', countField(rows, 'teachPains', true), total, false);
+      renderBars('adminBars', countField(rows, 'adminPains', true), total, true);
+      renderBars('proBars', countField(rows, 'aiPros', true), total, false);
+      renderBars('conBars', countField(rows, 'aiCons', true), total, true);
 
       const vg = document.getElementById('voicesGrid');
       const voices = rows.filter(r => r.eliminate).slice().reverse();
@@ -626,49 +858,52 @@
     }
 
     function copyForNotebookLM() {
-      if (!latestRows.length) {
-        showToast('⚠️ 目前還沒有收到資料喔！');
-        return;
-      }
+      if (!latestRows.length) return showToast('⚠️ 目前還沒有收到資料喔！');
       const total = latestRows.length;
       const fmtStats = (entries) => entries.map(([k, v]) => `- ${k}：${v} 人（${Math.round(v / total * 100)}%）`).join('\n');
-
-      const teachOthers = latestRows.map(r => r.teachOther).filter(Boolean);
-      const adminOthers = latestRows.map(r => r.adminOther).filter(Boolean);
-      const voices = latestRows.map((r, i) => `${i + 1}. 想消滅：${r.eliminate}${r.reason ? `（原因：${r.reason}）` : ''}`);
+      const optList = (title, arr) => arr.length ? `\n### ${title}\n` + arr.map(x => `- ${x}`).join('\n') : '';
 
       const report = [
-        `# 115.11.24 屏東縣教師社群召集人 AI 工作坊｜現場 ${total} 位教師破冰心聲調查`,
+        `# 115.11.24 屏東縣教師社群召集人 AI 工作坊｜現場 ${total} 位教師 AI 現況與痛點調查`,
         ``,
-        `## 一、教學年資分布`,
-        fmtStats(countField(latestRows, 'seniority', false)),
+        `## 一、教學年資分布`, fmtStats(countField(latestRows, 'seniority', false)),
         ``,
-        `## 二、任教年級與身份分布`,
-        fmtStats(countField(latestRows, 'grades', true)),
+        `## 二、任教年級與身份分布`, fmtStats(countField(latestRows, 'grades', true)),
         ``,
-        `## 三、主要任教科目分布`,
-        fmtStats(countField(latestRows, 'subjects', true)),
+        `## 三、主要任教科目分布`, fmtStats(countField(latestRows, 'subjects', true)),
         ``,
-        `## 四、教學現場痛點統計`,
-        fmtStats(countField(latestRows, 'teachPains', true)),
-        teachOthers.length ? `\n### 教學其他心酸補充\n` + teachOthers.map(x => `- ${x}`).join('\n') : '',
+        `## 四、AI 使用頻率`, fmtStats(countField(latestRows, 'aiFreq', false)),
         ``,
-        `## 五、行政與社群痛點統計`,
-        fmtStats(countField(latestRows, 'adminPains', true)),
-        adminOthers.length ? `\n### 行政／社群其他心酸補充\n` + adminOthers.map(x => `- ${x}`).join('\n') : '',
+        `## 五、是否付費訂閱 AI`, fmtStats(countField(latestRows, 'aiPaid', false)),
         ``,
-        `## 六、如果 AI 明天只能消滅一件最煩的事（全體心聲）`,
-        voices.join('\n')
+        `## 六、付費訂閱的 AI 工具`, fmtStats(countField(latestRows, 'aiSubs', true)),
+        optList('其他訂閱工具', latestRows.map(r => r.aiSubOther).filter(Boolean)),
+        ``,
+        `## 七、對 AI 的正面評價`, fmtStats(countField(latestRows, 'aiPros', true)),
+        optList('其他正面評價', latestRows.map(r => r.aiProOther).filter(Boolean)),
+        ``,
+        `## 八、對 AI 的負面擔憂`, fmtStats(countField(latestRows, 'aiCons', true)),
+        optList('其他負面擔憂', latestRows.map(r => r.aiConOther).filter(Boolean)),
+        ``,
+        `## 九、教學現場痛點統計`, fmtStats(countField(latestRows, 'teachPains', true)),
+        optList('教學其他心酸', latestRows.map(r => r.teachOther).filter(Boolean)),
+        ``,
+        `## 十、行政與社群痛點統計`, fmtStats(countField(latestRows, 'adminPains', true)),
+        optList('行政／社群其他心酸', latestRows.map(r => r.adminOther).filter(Boolean)),
+        ``,
+        `## 十一、如果 AI 明天只能消滅一件最煩的事（全體心聲）`,
+        latestRows.map((r, i) => `${i + 1}. 想消滅：${r.eliminate}${r.reason ? `（原因：${r.reason}）` : ''}`).join('\n')
       ].filter(x => x !== undefined).join('\n');
 
-      copyText(report, `✅ 已複製 ${total} 位老師的完整統計與心聲！請貼入 Gemini Notebook`);
+      copyText(report, `✅ 已複製 ${total} 位老師的完整 AI 現況與心聲！請貼入 Gemini Notebook`);
     }
 
     function copyDemoPrompt() {
-      const prompt = `請根據現場這份屏東縣教師社群召集人的破冰心聲調查，幫我做三件事：
-1. 用幽默、有共鳴又溫暖的口吻向現場老師打招呼，點出今天大家最痛的前 3 名「教學痛點」與前 3 名「行政／社群痛點」。
-2. 從「最想消滅的事」裡面，挑出 3 則最讓人會心一笑、最有血淚感的心聲唸出來跟大家分享。
-3. 針對這些高票痛點，幫大家預告今天《Gemini Notebook 減法工作術》會用哪些功能幫大家一鍵解套！`;
+      const prompt = `請根據現場這份屏東縣教師社群召集人的 AI 使用現況與痛點調查，幫我做四件事：
+1. 先用簡短有力的開場，勾勒今天現場屏東老師的「AI 使用畫像」（每天用的比例、付費比例、最常訂閱哪套）。
+2. 點出大家對 AI 最認同的前 2 項正面評價，以及最擔心的前 2 項負面擔憂（並預告今天教的 Gemini Notebook 如何直接化解這些擔憂）。
+3. 列出前 3 名教學痛點與前 3 名行政／社群痛點。
+4. 從「最想消滅的事」裡面，挑出 3 則最讓人會心一笑、最有血淚感的心聲跟大家分享！`;
       copyText(prompt, '✅ 已複製破冰分析提示詞！請貼到 Gemini Notebook 對話框');
     }
 
@@ -687,7 +922,6 @@
       }
     }
 
-    // Init
     (function () {
       const params = new URLSearchParams(window.location.search);
       if (params.get('fill') === '1') initForm();

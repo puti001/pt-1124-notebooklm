@@ -462,8 +462,22 @@
     }
     .qr-tab.active { background: var(--primary); color: #fff; border-color: var(--primary); }
     #qrCanvasWrap {
-      display: inline-flex; padding: 18px; background: #fff; border-radius: 22px;
+      display: inline-flex; flex-direction: column; align-items: center; gap: 6px;
+      padding: 18px; background: #fff; border-radius: 22px;
       border: 3px solid var(--primary); box-shadow: 0 10px 26px var(--shadow); margin-bottom: 12px;
+      cursor: zoom-in; transition: transform 0.18s ease;
+    }
+    #qrCanvasWrap:hover { transform: scale(1.03); }
+    .qr-zoom-backdrop {
+      position: fixed; inset: 0; background: rgba(25, 20, 18, 0.9);
+      backdrop-filter: blur(8px); display: none;
+      align-items: center; justify-content: center; flex-direction: column; gap: 16px;
+      z-index: 500; padding: 20px; cursor: zoom-out;
+    }
+    .qr-zoom-backdrop.open { display: flex; }
+    .qr-zoom-card {
+      background: #fff; padding: 24px; border-radius: 30px;
+      border: 5px solid var(--primary); box-shadow: 0 24px 64px rgba(0,0,0,0.45);
     }
     .qr-url-preview {
       font-size: 0.84rem; color: var(--muted); word-break: break-all;
@@ -580,8 +594,9 @@
         <button class="qr-tab hidden" id="qrTabSource" onclick="switchQrTarget('source')">📄 教材來源頁</button>
       </div>
 
-      <div id="qrCanvasWrap">
+      <div id="qrCanvasWrap" onclick="openQrZoom()" title="點擊全螢幕放大 QR Code">
         <div id="qrCodeBox"></div>
+        <span style="font-size:0.82rem; font-weight:700; color:var(--primary);"><i class="fa-solid fa-magnifying-glass-plus"></i> 點擊 QR Code 放大</span>
       </div>
 
       <div class="qr-url-preview" id="qrUrlText"></div>
@@ -602,6 +617,14 @@
       <h3 id="imgModalTitle" style="margin:4px 0 12px;">國語日報原版剪報</h3>
       <img id="imgModalSrc" src="" alt="國語日報專欄剪報" style="width:100%; border-radius:16px; border:1px solid var(--border);">
     </div>
+  </div>
+
+  <!-- Fullscreen QR Zoom Modal -->
+  <div class="qr-zoom-backdrop" id="qrZoomModal" onclick="closeQrZoom()">
+    <div class="qr-zoom-card" onclick="closeQrZoom()">
+      <div id="qrZoomBox"></div>
+    </div>
+    <div id="qrZoomCaption" style="color:#fff; font-size:1.18rem; font-weight:900; text-align:center;">點擊任意處縮小</div>
   </div>
 
   <!-- Toast -->
@@ -1580,6 +1603,27 @@
       copyText(getActiveQrUrl(), '✅ 已複製 QR Code 對應網址！');
     }
 
+    function openQrZoom() {
+      const url = getActiveQrUrl();
+      const box = document.getElementById('qrZoomBox');
+      box.innerHTML = '';
+      const size = Math.min(Math.floor(window.innerWidth * 0.72), Math.floor(window.innerHeight * 0.68), 520);
+      new QRCode(box, {
+        text: url,
+        width: size,
+        height: size,
+        colorDark: '#221C1A',
+        colorLight: '#FFFFFF',
+        correctLevel: QRCode.CorrectLevel.M
+      });
+      document.getElementById('qrZoomCaption').textContent = document.getElementById('qrModalTitle').textContent + '（點擊任意處縮小）';
+      document.getElementById('qrZoomModal').classList.add('open');
+    }
+
+    function closeQrZoom() {
+      document.getElementById('qrZoomModal').classList.remove('open');
+    }
+
     function openImgModal(imgSrc, title) {
       document.getElementById('imgModalSrc').src = imgSrc;
       document.getElementById('imgModalTitle').textContent = title;
@@ -1594,7 +1638,7 @@
     // =========================================================================
     document.addEventListener('keydown', (e) => {
       if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
-      if (e.key === 'Escape') { closeModal('qrModal'); closeModal('imgModal'); return; }
+      if (e.key === 'Escape') { closeQrZoom(); closeModal('qrModal'); closeModal('imgModal'); return; }
       if (document.getElementById('qrModal').classList.contains('open') ||
           document.getElementById('imgModal').classList.contains('open')) return;
       if (!document.getElementById('soloView').classList.contains('hidden')) return;
