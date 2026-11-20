@@ -738,10 +738,10 @@
         cards: [
           {
             emoji: "🎯",
-            frontTitle: "零幻覺・資料庫導向",
+            frontTitle: "資料庫導向・降低幻覺",
             frontSub: "優勢一",
-            backBody: "它「只讀你上傳的教材」，不會自己瞎掰，每句回答旁邊還附帶「數字引用標記」，一點就能核對原文！",
-            backNote: "✨ 教學最需要的就是精準、有根據"
+            backBody: "它優先依據你上傳的教材回答，並在每句旁邊附上「數字引用標記」，方便你一鍵核對原文！",
+            backNote: "✨ 教學最需要的就是精準、有出處可查"
           },
           {
             emoji: "🗣️",
@@ -752,10 +752,10 @@
           },
           {
             emoji: "🛡️",
-            frontTitle: "免費且隱私安全",
+            frontTitle: "免費且重視隱私",
             frontSub: "優勢三",
-            backBody: "Google 帳號免費就能用，而且官方承諾：你上傳的個人教材與學生資料，不會被拿去訓練公開 AI 模型！",
-            backNote: "✨ 教育現場最安心的資安保障"
+            backBody: "Google 帳號免費就能用；依 Google 官方隱私條款，筆記本資料預設不用於公開模型訓練（仍建議避開敏感個資）。",
+            backNote: "✨ 教育現場更安心的資安設計"
           }
         ],
         steps: null,
@@ -885,7 +885,7 @@
             frontTitle: "大綱 ＋ 核心生詞",
             frontSub: "自動產出",
             backBody: "系統依據〈孫悟空三借芭蕉扇〉自動整理文章大綱，並挑出「火焰山、芭蕉扇」等核心生詞解釋。",
-            backNote: "✨ 百分百貼合課文內容，不瞎掰"
+            backNote: "✨ 緊扣上傳課文內容，仍可核對原文"
           },
           {
             emoji: "📝",
@@ -1000,9 +1000,9 @@
           }
         ],
         steps: [
-          "① 先點右側工作室「學習卡」看看自動生成的人物卡",
-          "② 複製下方「扮演孫悟空」提示詞貼到中間對話框",
-          "③ 試著用學生的口氣追問一句，看孫悟空怎麼妙回！"
+          "① 學員練習：先點右側工作室「學習卡」看看人物分析卡",
+          "② 學員練習：複製下方「扮演孫悟空」提示詞貼到對話框",
+          "③ 課堂示範：未來上課可投影在黑板，讓學生當場輪流提問！"
         ],
         source: null,
         prompts: [
@@ -1284,8 +1284,8 @@
           {
             emoji: "✅",
             frontTitle: "直接核對不漏人",
-            frontSub: "零幻覺把關",
-            backBody: "精準抓出美玲、志明、淑芬、阿宏、家豪各自的任務與期限，直接貼進成果冊！",
+            frontSub: "附引用出處把關",
+            backBody: "抓出美玲、志明、淑芬、阿宏、家豪各自的任務與期限，點引用標記核對無誤即可貼進成果冊！",
             backNote: "✨ 掃本關 QR 直接複製會議紀錄指令"
           }
         ],
@@ -1733,6 +1733,23 @@
 
       const stepsHtml = (slide.steps || []).map(st => `<div class="step-chip">${st}</div>`).join('');
 
+      let reqSourceLabel = '依畫面步驟操作';
+      let fallbackSource = null;
+      if (slide.source) {
+        reqSourceLabel = slide.source.title;
+      } else if (slide.id === 3) {
+        reqSourceLabel = '無須教材（建立空白實作筆記本）';
+      } else if (slide.id >= 7 && slide.id <= 10) {
+        reqSourceLabel = '沿用「教材 A：〈孫悟空三借芭蕉扇〉」筆記本';
+        fallbackSource = { title: '教材 A：〈孫悟空三借芭蕉扇〉', relUrl: 'sources/sunwukong.html', fullTextKey: 'sunwukong' };
+      } else if (slide.id >= 14 && slide.id <= 15) {
+        reqSourceLabel = '沿用「教材 B：115 計畫＋公文＋雜記」筆記本';
+        fallbackSource = { title: '教材 B：115 計畫＋公文＋雜記', relUrl: 'sources/plan115.html', fullTextKey: 'plan115' };
+      } else if (slide.id === 16) {
+        reqSourceLabel = '自備資料（回校上傳：去年舊簡報 PDF ＋ 本學期計畫）';
+      }
+
+      const activeSource = slide.source || fallbackSource;
       const sourceHtml = slide.source ? `
         <div class="solo-section">
           <div class="solo-section-title"><i class="fa-solid fa-folder-open"></i> 步驟一：複製本關教材</div>
@@ -1746,7 +1763,19 @@
             </button>
           </div>
         </div>
-      ` : '';
+      ` : (activeSource ? `
+        <div class="solo-section">
+          <div class="solo-section-title"><i class="fa-solid fa-folder-open"></i> 還沒匯入教材嗎？點此補複製</div>
+          <div style="display:flex; gap:8px; flex-wrap:wrap;">
+            <button class="btn btn-accent btn-sm" style="flex:1;" onclick="copySourceUrl('${activeSource.relUrl}')">
+              <i class="fa-solid fa-link"></i> 複製教材網址
+            </button>
+            <button class="btn btn-white btn-sm" style="flex:1;" onclick="copyFullText('${activeSource.fullTextKey}')">
+              <i class="fa-regular fa-paste"></i> 複製教材全文
+            </button>
+          </div>
+        </div>
+      ` : '');
 
       const promptsHtml = (slide.prompts || []).map((p, idx) => `
         <div class="prompt-item">
@@ -1766,7 +1795,10 @@
             <span class="tag-pill ${slide.session}">${slide.sessionName}</span>
             <span class="slide-progress">第 ${slide.code} 關實作包</span>
           </div>
-          <h2 style="font-size:1.48rem; font-weight:900; margin:6px 0 14px; line-height:1.35;">${slide.title}</h2>
+          <h2 style="font-size:1.48rem; font-weight:900; margin:6px 0 8px; line-height:1.35;">${slide.title}</h2>
+          <div style="background:var(--accent-soft); color:#0F766E; border:1.5px solid #B2EBF2; border-radius:14px; padding:8px 13px; font-size:0.9rem; font-weight:700; margin-bottom:14px;">
+            📦 所需來源：${reqSourceLabel}
+          </div>
 
           ${stepsHtml ? `
             <div class="solo-section">
@@ -1858,7 +1890,7 @@
         document.getElementById('qrModalDesc').textContent = '請掃描開啟教材頁面，或複製網址貼入 Gemini Notebook';
       } else {
         document.getElementById('qrModalTitle').textContent = `🎯 第 ${slide.code} 關｜${slide.title}`;
-        document.getElementById('qrModalDesc').textContent = '請開啟手機相機掃描，即可一鍵複製本關教材與提示詞';
+        document.getElementById('qrModalDesc').textContent = '掃碼開啟本關實作包，依畫面一鍵複製即可';
       }
 
       document.getElementById('qrUrlText').textContent = url;
@@ -1960,12 +1992,24 @@
         }
       }
 
+      const applyHash = () => {
+        const hashMatch = window.location.hash.match(/slide-(\d+)/);
+        if (hashMatch) {
+          const idx = slideData.findIndex(s => s.id === parseInt(hashMatch[1], 10));
+          if (idx >= 0 && idx !== currentIndex) {
+            currentIndex = idx;
+            renderSlide();
+          }
+        }
+      };
+
       const hashMatch = window.location.hash.match(/slide-(\d+)/);
       if (hashMatch) {
         const idx = slideData.findIndex(s => s.id === parseInt(hashMatch[1], 10));
         if (idx >= 0) currentIndex = idx;
       }
 
+      window.addEventListener('hashchange', applyHash);
       renderSlide();
     })();
   </script>
